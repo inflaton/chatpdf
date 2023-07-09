@@ -5,7 +5,7 @@ tiktoken
 socksio
 tqdm
 colorama
-duckduckgo_search
+accelerate
 Pygments
 llama_index
 langchain
