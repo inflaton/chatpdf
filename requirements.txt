@@ -25,3 +25,16 @@ pyllama
 git+https://github.com/huggingface/peft.git
 git+https://github.com/huggingface/transformers.git
 SentencePiece
+isort
+black
+llama-cpp-python
+pyllamacpp
+pygpt4all
+tiktoken
+safetensors
+xformers
+bitsandbytes
+einops
+pypdf
+gevent
+pydantic >= 1.10.11

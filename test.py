@@ -3,7 +3,6 @@ import sys
 from timeit import default_timer as timer
 from typing import List
 
-from dotenv import load_dotenv
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.chains import ConversationalRetrievalChain
@@ -17,8 +16,7 @@ from app_modules.qa_chain import *
 from app_modules.utils import *
 
 # Constants
-load_dotenv(override=False)
-init_logging()
+init_settings()
 
 # https://github.com/huggingface/transformers/issues/17611
 os.environ["CURL_CA_BUNDLE"] = ""

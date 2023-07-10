@@ -21,6 +21,7 @@ import requests
 import tiktoken
 import torch
 import transformers
+from dotenv import find_dotenv, load_dotenv
 from markdown import markdown
 from peft import PeftModel
 from pygments import highlight
@@ -430,8 +431,14 @@ class Logger(logging.Logger):
         return rv
 
 
-def init_logging():
+def init_settings():
     logging.setLoggerClass(Logger)
+    found_dotenv = find_dotenv(".env")
+    if len(found_dotenv) == 0:
+        found_dotenv = find_dotenv(".env.example")
+    print(f"loading env vars from: {found_dotenv}")
+    load_dotenv(found_dotenv, override=False)
+    # print(f"loaded env vars: {os.environ}")
 
 
 def remove_extra_spaces(text):

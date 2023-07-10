@@ -5,27 +5,15 @@ from timeit import default_timer as timer
 
 import gradio as gr
 from anyio.from_thread import start_blocking_portal
-from dotenv import find_dotenv, load_dotenv
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores.chroma import Chroma
 from langchain.vectorstores.faiss import FAISS
 
 from app_modules.qa_chain import QAChain
-from app_modules.utils import (
-    get_device_types,
-    init_logging,
-    remove_extra_spaces,
-)
+from app_modules.utils import get_device_types, init_settings, remove_extra_spaces
 
 # Constants
-found_dotenv = find_dotenv(".env")
-if len(found_dotenv) == 0:
-    found_dotenv = find_dotenv(".env")
-print(f"loading env vars from: {found_dotenv}")
-load_dotenv(found_dotenv, override=True)
-# print(f"loaded env vars: {os.environ}")
-
-init_logging()
+init_settings()
 
 # https://github.com/huggingface/transformers/issues/17611
 os.environ["CURL_CA_BUNDLE"] = ""

@@ -5,7 +5,6 @@ from threading import Thread
 from typing import Optional
 
 import torch
-from app_modules.instruct_pipeline import InstructionTextGenerationPipeline
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.callbacks.tracers import LangChainTracer
@@ -26,6 +25,8 @@ from transformers import (
     TextStreamer,
     pipeline,
 )
+
+from app_modules.instruct_pipeline import InstructionTextGenerationPipeline
 
 
 class TextIteratorStreamer(TextStreamer):
