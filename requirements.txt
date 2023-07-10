@@ -12,6 +12,16 @@ langchain
 markdown
 markdown2
 torch
+langchain
+protobuf==3.20.*
+faiss-cpu
+chromadb 
+sentence_transformers 
+InstructorEmbedding
+python-dotenv
+openai
+gpt4all
+pyllama 
 git+https://github.com/huggingface/peft.git
 git+https://github.com/huggingface/transformers.git
 SentencePiece

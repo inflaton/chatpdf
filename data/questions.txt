@@ -1,0 +1,4 @@
+What's PCI DSS?
+Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
+tell me more on new requirements for vulnerability assessments and penetration testing
+more on penetration testing
