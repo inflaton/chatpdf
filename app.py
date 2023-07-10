@@ -1,261 +1,128 @@
-# -*- coding:utf-8 -*-
-import gc
-import logging
+"""Main entrypoint for the app."""
 import os
-import sys
+from queue import Queue
+from timeit import default_timer as timer
 
 import gradio as gr
-import torch
+from anyio.from_thread import start_blocking_portal
+from dotenv import find_dotenv, load_dotenv
+from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.vectorstores.chroma import Chroma
+from langchain.vectorstores.faiss import FAISS
 
-from app_modules.overwrites import *
-from app_modules.presets import *
-from app_modules.utils import *
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
+from app_modules.qa_chain import QAChain
+from app_modules.utils import (
+    get_device_types,
+    init_logging,
+    remove_extra_spaces,
 )
 
-base_model = "lmsys/fastchat-t5-3b-v1.0"
-adapter_model = None
-tokenizer, model, device = load_tokenizer_and_model(base_model, adapter_model)
+# Constants
+found_dotenv = find_dotenv(".env")
+if len(found_dotenv) == 0:
+    found_dotenv = find_dotenv(".env")
+print(f"loading env vars from: {found_dotenv}")
+load_dotenv(found_dotenv, override=True)
+# print(f"loaded env vars: {os.environ}")
 
-total_count = 0
+init_logging()
 
+# https://github.com/huggingface/transformers/issues/17611
+os.environ["CURL_CA_BUNDLE"] = ""
 
-def predict(
-    text,
-    chatbot,
-    history,
-    top_p,
-    temperature,
-    max_length_tokens,
-    max_context_length_tokens,
-):
-    if text == "":
-        yield chatbot, history, "Empty context."
-        return
-    try:
-        model
-    except:
-        yield [[text, "No Model Found"]], [], "No Model Found"
-        return
+hf_embeddings_device_type, hf_pipeline_device_type = get_device_types()
+print(f"hf_embeddings_device_type: {hf_embeddings_device_type}")
+print(f"hf_pipeline_device_type: {hf_pipeline_device_type}")
 
-    inputs = generate_prompt_with_history(
-        text, history, tokenizer, max_length=max_context_length_tokens
-    )
-    if inputs is None:
-        yield chatbot, history, "Input too long."
-        return
-    else:
-        prompt, inputs = inputs
-        begin_length = len(prompt)
-    input_ids = inputs["input_ids"][:, -max_context_length_tokens:].to(device)
-    torch.cuda.empty_cache()
-    global total_count
-    total_count += 1
-    print(total_count)
-    if total_count % 50 == 0:
-        os.system("nvidia-smi")
-    with torch.no_grad():
-        for x in greedy_search(
-            input_ids,
-            model,
-            tokenizer,
-            stop_words=["[|Human|]", "[|AI|]"],
-            max_length=max_length_tokens,
-            temperature=temperature,
-            top_p=top_p,
-        ):
-            if is_stop_word_or_prefix(x, ["[|Human|]", "[|AI|]"]) is False:
-                if "[|Human|]" in x:
-                    x = x[: x.index("[|Human|]")].strip()
-                if "[|AI|]" in x:
-                    x = x[: x.index("[|AI|]")].strip()
-                x = x.strip()
-                a, b = [[y[0], convert_to_markdown(y[1])] for y in history] + [
-                    [text, convert_to_markdown(x)]
-                ], history + [[text, x]]
-                yield a, b, "Generating..."
-            if shared_state.interrupted:
-                shared_state.recover()
-                try:
-                    yield a, b, "Stop: Success"
-                    return
-                except:
-                    pass
-    del input_ids
-    gc.collect()
-    torch.cuda.empty_cache()
-    # print(text)
-    # print(x)
-    # print("="*80)
-    try:
-        yield a, b, "Generate: Success"
-    except:
-        pass
+hf_embeddings_model_name = (
+    os.environ.get("HF_EMBEDDINGS_MODEL_NAME") or "hkunlp/instructor-xl"
+)
+n_threds = int(os.environ.get("NUMBER_OF_CPU_CORES") or "4")
+index_path = os.environ.get("FAISS_INDEX_PATH") or os.environ.get("CHROMADB_INDEX_PATH")
+using_faiss = os.environ.get("FAISS_INDEX_PATH") is not None
+llm_model_type = os.environ.get("LLM_MODEL_TYPE")
+chat_history_enabled = os.environ.get("CHAT_HISTORY_ENABLED") or "true"
+
+streaming_enabled = True  # llm_model_type in ["openai", "llamacpp"]
+
+start = timer()
+embeddings = HuggingFaceInstructEmbeddings(
+    model_name=hf_embeddings_model_name,
+    model_kwargs={"device": hf_embeddings_device_type},
+)
+end = timer()
+
+print(f"Completed in {end - start:.3f}s")
+
+start = timer()
+
+print(f"Load index from {index_path} with {'FAISS' if using_faiss else 'Chroma'}")
+
+if not os.path.isdir(index_path):
+    raise ValueError(f"{index_path} does not exist!")
+elif using_faiss:
+    vectorstore = FAISS.load_local(index_path, embeddings)
+else:
+    vectorstore = Chroma(embedding_function=embeddings, persist_directory=index_path)
+
+end = timer()
+
+print(f"Completed in {end - start:.3f}s")
+
+start = timer()
+qa_chain = QAChain(vectorstore, llm_model_type)
+qa_chain.init(n_threds=n_threds, hf_pipeline_device_type=hf_pipeline_device_type)
+end = timer()
+print(f"Completed in {end - start:.3f}s")
 
 
-def retry(
-    text,
-    chatbot,
-    history,
-    top_p,
-    temperature,
-    max_length_tokens,
-    max_context_length_tokens,
-):
-    logging.info("Retry...")
-    if len(history) == 0:
-        yield chatbot, history, f"Empty context"
-        return
-    chatbot.pop()
-    inputs = history.pop()[0]
-    for x in predict(
-        inputs,
-        chatbot,
-        history,
-        top_p,
-        temperature,
-        max_length_tokens,
-        max_context_length_tokens,
-    ):
-        yield x
+def bot(chatbot):
+    user_msg = chatbot[-1][0]
+
+    prompt = user_msg
+    q = Queue()
+    job_done = object()
+
+    def task(question):
+        chat_history = []
+        if chat_history_enabled == "true":
+            for i in range(len(chatbot) - 1):
+                element = chatbot[i]
+                item = (element[0] or "", element[1] or "")
+                chat_history.append(item)
+
+        start = timer()
+        ret = qa_chain.call({"question": question, "chat_history": chat_history}, q)
+        end = timer()
+        print(f"Completed in {end - start:.3f}s")
+        q.put(job_done)
+        print(f"sources:\n{ret['source_documents']}")
+        return ret
+
+    with start_blocking_portal() as portal:
+        portal.start_task_soon(task, prompt)
+
+        content = ""
+        while True:
+            next_token = q.get(True, timeout=10)
+            if next_token is job_done:
+                break
+            content += next_token or ""
+            chatbot[-1][1] = remove_extra_spaces(content)
+
+            yield chatbot
 
 
-gr.Chatbot.postprocess = postprocess
+with gr.Blocks() as demo:
+    chatbot = gr.Chatbot()
+    msg = gr.Textbox(label="Question")
 
-with open("assets/custom.css", "r", encoding="utf-8") as f:
-    customCSS = f.read()
+    def chat(user_message, history):
+        return "", history + [[user_message, None]]
 
-with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
-    history = gr.State([])
-    user_question = gr.State("")
-    with gr.Row():
-        gr.HTML(title)
-        status_display = gr.Markdown("Success", elem_id="status_display")
-    gr.Markdown(description_top)
-    with gr.Row(scale=1).style(equal_height=True):
-        with gr.Column(scale=5):
-            with gr.Row(scale=1):
-                chatbot = gr.Chatbot(elem_id="chuanhu_chatbot").style(height="100%")
-            with gr.Row(scale=1):
-                with gr.Column(scale=12):
-                    user_input = gr.Textbox(
-                        show_label=False, placeholder="Enter text"
-                    ).style(container=False)
-                with gr.Column(min_width=70, scale=1):
-                    submitBtn = gr.Button("Send")
-                with gr.Column(min_width=70, scale=1):
-                    cancelBtn = gr.Button("Stop")
-            with gr.Row(scale=1):
-                emptyBtn = gr.Button(
-                    "🧹 New Conversation",
-                )
-                retryBtn = gr.Button("🔄 Regenerate")
-                delLastBtn = gr.Button("🗑️ Remove Last Turn")
-        with gr.Column():
-            with gr.Column(min_width=50, scale=1):
-                with gr.Tab(label="Parameter Setting"):
-                    gr.Markdown("# Parameters")
-                    top_p = gr.Slider(
-                        minimum=-0,
-                        maximum=1.0,
-                        value=0.95,
-                        step=0.05,
-                        interactive=True,
-                        label="Top-p",
-                    )
-                    temperature = gr.Slider(
-                        minimum=0.1,
-                        maximum=2.0,
-                        value=1,
-                        step=0.1,
-                        interactive=True,
-                        label="Temperature",
-                    )
-                    max_length_tokens = gr.Slider(
-                        minimum=0,
-                        maximum=512,
-                        value=512,
-                        step=8,
-                        interactive=True,
-                        label="Max Generation Tokens",
-                    )
-                    max_context_length_tokens = gr.Slider(
-                        minimum=0,
-                        maximum=4096,
-                        value=2048,
-                        step=128,
-                        interactive=True,
-                        label="Max History Tokens",
-                    )
-    gr.Markdown(description)
-
-    predict_args = dict(
-        fn=predict,
-        inputs=[
-            user_question,
-            chatbot,
-            history,
-            top_p,
-            temperature,
-            max_length_tokens,
-            max_context_length_tokens,
-        ],
-        outputs=[chatbot, history, status_display],
-        show_progress=True,
-    )
-    retry_args = dict(
-        fn=retry,
-        inputs=[
-            user_input,
-            chatbot,
-            history,
-            top_p,
-            temperature,
-            max_length_tokens,
-            max_context_length_tokens,
-        ],
-        outputs=[chatbot, history, status_display],
-        show_progress=True,
+    msg.submit(chat, [msg, chatbot], [msg, chatbot], queue=True).then(
+        bot, chatbot, chatbot
     )
 
-    reset_args = dict(fn=reset_textbox, inputs=[], outputs=[user_input, status_display])
-
-    # Chatbot
-    transfer_input_args = dict(
-        fn=transfer_input,
-        inputs=[user_input],
-        outputs=[user_question, user_input, submitBtn],
-        show_progress=True,
-    )
-
-    predict_event1 = user_input.submit(**transfer_input_args).then(**predict_args)
-
-    predict_event2 = submitBtn.click(**transfer_input_args).then(**predict_args)
-
-    emptyBtn.click(
-        reset_state,
-        outputs=[chatbot, history, status_display],
-        show_progress=True,
-    )
-    emptyBtn.click(**reset_args)
-
-    predict_event3 = retryBtn.click(**retry_args)
-
-    delLastBtn.click(
-        delete_last_conversation,
-        [chatbot, history],
-        [chatbot, history, status_display],
-        show_progress=True,
-    )
-    cancelBtn.click(
-        cancel_outputing,
-        [],
-        [status_display],
-        cancels=[predict_event1, predict_event2, predict_event3],
-    )
-demo.title = "Chat with PCI DSS V4"
-
-demo.queue(concurrency_count=1).launch()
+demo.queue()
+demo.launch(share=True)

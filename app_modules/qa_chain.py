@@ -1,4 +1,3 @@
-"""Create a ChatVectorDBChain for question/answering."""
 import os
 import time
 from queue import Queue
@@ -60,9 +59,9 @@ class TextIteratorStreamer(TextStreamer):
         else:
             return value
 
-    def reset(self):
+    def reset(self, q: Queue = None):
         # print("resetting TextIteratorStreamer")
-        self.text_queue = Queue()
+        self.text_queue = q if q is not None else Queue()
 
 
 class QAChain:
@@ -512,47 +511,13 @@ class QAChain:
 
         return qa
 
-    def call(self, inputs, streaming_handler, tracing: bool = False):
+    def call(self, inputs, q: Queue = None, tracing: bool = False):
         print(inputs)
-
-        qa = self.get_chain(tracing)
-
-        result = (
-            self._run_qa_chain(
-                qa,
-                inputs,
-                streaming_handler,
-            )
-            if streaming_handler is not None
-            else qa(inputs)
-        )
-
-        return result
-
-    def _run_qa_chain(self, qa, inputs, streaming_handler):
-        que = Queue()
-
-        t = Thread(
-            target=lambda qa, inputs, q, sh: q.put(qa(inputs, callbacks=[sh])),
-            args=(qa, inputs, que, streaming_handler),
-        )
-        t.start()
 
         if self.streamer is not None and isinstance(
             self.streamer, TextIteratorStreamer
         ):
-            count = 2 if len(inputs.get("chat_history")) > 0 else 1
+            self.streamer.reset(q)
 
-            while count > 0:
-                try:
-                    for token in self.streamer:
-                        streaming_handler.on_llm_new_token(token)
-
-                    self.streamer.reset()
-                    count -= 1
-                except Exception:
-                    print("nothing generated yet - retry in 0.5s")
-                    time.sleep(0.5)
-
-        t.join()
-        return que.get()
+        qa = self.get_chain(tracing)
+        return qa(inputs)
