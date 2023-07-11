@@ -113,4 +113,4 @@ with gr.Blocks() as demo:
     )
 
 demo.queue()
-demo.launch(share=True)
+demo.launch()
