@@ -45,7 +45,7 @@ class Logger(logging.Logger):
 def init_settings():
     logging.setLoggerClass(Logger)
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.WARNING,
         format="%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
     )
 

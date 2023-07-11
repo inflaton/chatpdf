@@ -66,19 +66,22 @@ end = timer()
 print(f"Completed in {end - start:.3f}s")
 
 
-def predict(chatbot):
+def qa(chatbot):
     user_msg = chatbot[-1][0]
     q = Queue()
+    result = Queue()
     job_done = object()
 
     def task(question, chat_history):
         start = timer()
         ret = qa_chain.call({"question": question, "chat_history": chat_history}, q)
         end = timer()
+
         print(f"Completed in {end - start:.3f}s")
-        q.put(job_done)
         print(f"Sources:\n{ret['source_documents']}")
-        return ret
+
+        q.put(job_done)
+        result.put(ret)
 
     with start_blocking_portal() as portal:
         chat_history = []
@@ -111,34 +114,15 @@ def predict(chatbot):
                 print("nothing generated yet - retry in 1s")
                 time.sleep(1)
 
+        chatbot[-1][1] += "\n\nSources:\n"
+        ret = result.get()
+        for doc in ret["source_documents"]:
+            url = f"{doc.metadata['url']}#page={doc.metadata['page'] + 1}"
+            title = url.split("/")[-1]
+            chatbot[-1][1] += f"1. [{title}]({url})\n"
 
-def retry(
-    text,
-    chatbot,
-    top_p,
-    temperature,
-    max_new_tokens,
-    max_context_length_tokens,
-):
-    logging.info("Retry...")
-    # if len(history) == 0:
-    #     yield chatbot,  f"Empty context"
-    #     return
-    # chatbot.pop()
-    # inputs = history.pop()[0]
-    # for x in predict(
-    #     inputs,
-    #     chatbot,
+        yield chatbot
 
-    #     top_p,
-    #     temperature,
-    #     max_new_tokens,
-    #     max_context_length_tokens,
-    # ):
-    #     yield x
-
-
-# gr.Chatbot.postprocess = postprocess
 
 with open("assets/custom.css", "r", encoding="utf-8") as f:
     customCSS = f.read()
@@ -210,11 +194,11 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
 
     user_input.submit(
         chat, [user_input, chatbot], [user_input, chatbot], queue=True
-    ).then(predict, chatbot, chatbot)
+    ).then(qa, chatbot, chatbot)
 
     submitBtn.click(
         chat, [user_input, chatbot], [user_input, chatbot], queue=True
-    ).then(predict, chatbot, chatbot)
+    ).then(qa, chatbot, chatbot)
 
     def reset():
         return "", []
