@@ -78,7 +78,7 @@ def qa(chatbot):
         end = timer()
 
         print(f"Completed in {end - start:.3f}s")
-        print(f"Sources:\n{ret['source_documents']}")
+        print_llm_response(ret)
 
         q.put(job_done)
         result.put(ret)
@@ -97,22 +97,20 @@ def qa(chatbot):
         count = 2 if len(chat_history) > 0 else 1
 
         while count > 0:
-            try:
-                # next_token = q.get(True, timeout=1)
-                for next_token in qa_chain.streamer:
-                    if next_token is job_done:
-                        break
-                    content += next_token or ""
-                    chatbot[-1][1] = remove_extra_spaces(content)
+            while q.empty():
+                print("nothing generated yet - retry in 0.5s")
+                time.sleep(0.5)
 
-                    if count == 1:
-                        yield chatbot
+            for next_token in qa_chain.streamer:
+                if next_token is job_done:
+                    break
+                content += next_token or ""
+                chatbot[-1][1] = remove_extra_spaces(content)
 
-                count -= 1
-            except Exception as e:
-                # print(e)
-                print("nothing generated yet - retry in 1s")
-                time.sleep(1)
+                if count == 1:
+                    yield chatbot
+
+            count -= 1
 
         chatbot[-1][1] += "\n\nSources:\n"
         ret = result.get()

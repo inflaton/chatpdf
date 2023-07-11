@@ -1,8 +1,7 @@
 import os
-import time
 from queue import Queue
-from threading import Thread
-from typing import Optional
+import sys
+from typing import Any, Optional
 
 import torch
 from langchain.callbacks.base import BaseCallbackHandler
@@ -11,6 +10,7 @@ from langchain.callbacks.tracers import LangChainTracer
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import GPT4All, HuggingFacePipeline, LlamaCpp
+from langchain.schema import LLMResult
 from langchain.vectorstores import VectorStore
 from langchain.vectorstores.base import VectorStore
 from transformers import (
@@ -29,7 +29,7 @@ from transformers import (
 from app_modules.instruct_pipeline import InstructionTextGenerationPipeline
 
 
-class TextIteratorStreamer(TextStreamer):
+class TextIteratorStreamer(TextStreamer, StreamingStdOutCallbackHandler):
     def __init__(
         self,
         tokenizer: "AutoTokenizer",
@@ -49,6 +49,16 @@ class TextIteratorStreamer(TextStreamer):
         self.text_queue.put(text, timeout=self.timeout)
         if stream_end:
             self.text_queue.put(self.stop_signal, timeout=self.timeout)
+
+    def on_llm_new_token(self, token: str, **kwargs: Any) -> None:
+        sys.stdout.write(token)
+        sys.stdout.flush()
+        self.text_queue.put(token, timeout=self.timeout)
+
+    def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
+        print("\n")
+        self.text_queue.put("\n", timeout=self.timeout)
+        self.text_queue.put(self.stop_signal, timeout=self.timeout)
 
     def __iter__(self):
         return self
@@ -75,7 +85,7 @@ class QAChain:
         self.vectorstore = vectorstore
         self.llm_model_type = llm_model_type
         self.llm = None
-        self.streamer = None
+        self.streamer = TextIteratorStreamer("")
         self.max_tokens_limit = 2048
         self.search_kwargs = {"k": 4}
 
@@ -120,7 +130,7 @@ class QAChain:
             bnb_8bit_use_double_quant=load_quantized_model == "8bit",
         )
 
-        callbacks = [StreamingStdOutCallbackHandler()]
+        callbacks = [self.streamer]
         if custom_handler is not None:
             callbacks.append(custom_handler)
 
@@ -141,7 +151,7 @@ class QAChain:
                 )
                 self.llm = GPT4All(
                     model=MODEL_PATH,
-                    n_ctx=2048,
+                    max_tokens=2048,
                     n_threads=n_threds,
                     backend="gptj" if self.llm_model_type == "gpt4all-j" else "llama",
                     callbacks=callbacks,
