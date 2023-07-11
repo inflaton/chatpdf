@@ -1,0 +1,138 @@
+A new version of the following files was downloaded from https://huggingface.co/nomic-ai/gpt4all-falcon:
+- configuration_RW.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/nomic-ai/gpt4all-falcon:
+- modelling_RW.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA GeForce RTX 4090
+CUDA version: 11.7
+hf_embeddings_device_type: cuda:0
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 1.792s
+Load index from ./data/chromadb_1024_512/ with Chroma
+Completed in 0.303s
+initializing LLM: huggingface
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: None
+              torch_dtype: torch.float16
+                 n_threds: 4
+            loading model: nomic-ai/gpt4all-falcon
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [00:00<00:00,  3.64it/s]Downloading shards: 100%|██████████| 2/2 [00:00<00:00,  3.65it/s]Downloading shards: 100%|██████████| 2/2 [00:00<00:00,  3.64it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.58s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:14<00:00,  7.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:14<00:00,  7.32s/it]
+/home/inflaton/miniconda3/lib/python3.10/site-packages/transformers/generation/utils.py:1270: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:11 for open-end generation.
+initialization complete
+Completed in 80.290s
+Welcome to the ChatPDF! Type 'exit' to stop.
+
+Question: What's PCI DSS?
+ PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data. It is developed with industry collaboration and aims to address sophisticated cyber attacks.
+Setting `pad_token_id` to `eos_token_id`:11 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data. It is developed with industry collaboration and aims to address sophisticated cyber attacks.', generation_info=None)]] llm_output=None run=None
+Completed in 8.340s
+
+
+***Answer:
+PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data. It is developed with industry collaboration and aims to address sophisticated cyber attacks.
+
+Sources:
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS_Glossary_v3-2.pdf
+Load relevant documents for standalone question: What's PCI DSS?
+[Document(page_content='PCI Data Security Standard\nPCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its \nrequirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.\nGoals PCI DSS Requirements\nBuild and Maintain a Secure Network \nand Systems1. Install and maintain network security controls  \n2. Apply secure configurations to all system components\nProtect Account Data 3. Protect stored account data\n4. Protect cardholder data with strong cryptography during transmission over open, public \nnetworks\nMaintain a Vulnerability Management \nProgram5. Protect all systems and networks from malicious software\n6. Develop and maintain secure systems and software\nImplement Strong Access Control \nMeasures7. Restrict access to system components and cardholder data by business need to know\n8. Identify users and authenticate access to system components\n9. Restrict physical access to cardholder data', metadata={'source': 'data/pdfs/PCI_DSS-QRG-v4_0.pdf', 'page': 37, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf'}), Document(page_content='AT A GLANCE: PCI DSS v4.0\n© 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental \ninformation, which does not replace or supersede PCI SSC Security Standards or their supporting documents.\nDecember 20221\nWhat is the PCI Data Security Standard?\nThe PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational \nrequirements designated to protect payment data. PCI DSS v4.0 is the next evolution of the standard.PCI DSS v4.0\nDeveloped with Global Industry Collaboration\nDevelopment of PCI DSS v4.0 was driven by industry feedback. This version furthers the protection of payment data \nwith new controls to address sophisticated cyber attacks.\nImplementation Timeline\nPCI DSS v3.2.1 will remain active for two years after v4.0 is published. This provides organizations time to become \nfamiliar with the new version, and plan for and implement the changes needed.Continue to Meet the \nSecurity Needs of the \nPayment Industry', metadata={'source': 'data/pdfs/PCI-DSS-v4-0-At-A-Glance.pdf', 'page': 0, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf'}), Document(page_content='PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard \nversion 4.0.\nCopyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. \nThis Quick Reference Guide to the PCI Data Security Standard (PCI DSS) is provided by the PCI Security \nStandards Council (PCI SSC) to inform and educate merchants and other entities involved in payment \ncard processing. For more information about the PCI SSC and the standards we manage, please visit \nhttps://pcisecuritystandards.org.\nThe intent of this document is to provide supplemental information, which does not replace or supersede \nPCI Standards or their supporting documents.\nAugust 2022', metadata={'source': 'data/pdfs/PCI_DSS-QRG-v4_0.pdf', 'page': 1, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf'}), Document(page_content='PCI DSS and PA -DSS Glossary of Terms, Abbreviations, and Acronyms  v3.2    April 2016  \n© 2006 -2016 PCI Security Standards Council, LLC. All Rights Reserved  Page 15  \nTerm  Definition  \nPayment Application  In the context of PA-DSS, a  software application that stores, processes, or \ntransmits cardholder data as part of authorization or settlement , where the \npayment application is sold, distributed, or licensed to third parties.  Refer to \nPA-DSS Program Guide  for details.  \nPayment Cards  For purposes of PCI DSS, any payment card/device that bears the logo of \nthe founding members of PCI SSC, which are American Express, Discover \nFinancial Services, JCB International, MasterCard Worldwide, or Visa, Inc.  \nPayment Processor  Sometimes  referred to as “payment gateway ” or “payment service provider \n(PSP) ”.  \nEntity  engaged  by a merchant or other entity to handle payment  card \ntransactions on their behalf. While p ayment processor s typically provide', metadata={'source': 'data/pdfs/PCI_DSS_Glossary_v3-2.pdf', 'page': 14, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS_Glossary_v3-2.pdf'})]
+Completed in 0.024s
+
+Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
+ Can you provide a summary of the changes made from PCI DSS version 3.2.1 to version 4.0?
+Setting `pad_token_id` to `eos_token_id`:11 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' Can you provide a summary of the changes made from PCI DSS version 3.2.1 to version 4.0?', generation_info=None)]] llm_output=None run=None
+  Yes, the PCI DSS v3.2.1 to v.4.0 Summary of Changes document provides a high-level summary and description of the changes made from PCI DSS version 3.2.1 to version 4.0. It does not detail all document revisions, but it should be reviewed in its entirety rather than focusing solely on this summary document. The document is organized into two sections: Change Types and Summary of Changes to PCI DSS Introductory Sections. The Change Types section provides an overview of the types of changes made, while the Summary of Changes to PCI DSS Introductory Sections section summarizes changes made to each affected section. The Additional Changes per Requirement section summarizes changes made throughout the requirements, testing procedures, and guidance. The Summary of New Requirements section provides a list of new requirements introduced in version 4.0.
+Setting `pad_token_id` to `eos_token_id`:11 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='  Yes, the PCI DSS v3.2.1 to v.4.0 Summary of Changes document provides a high-level summary and description of the changes made from PCI DSS version 3.2.1 to version 4.0. It does not detail all document revisions, but it should be reviewed in its entirety rather than focusing solely on this summary document. The document is organized into two sections: Change Types and Summary of Changes to PCI DSS Introductory Sections. The Change Types section provides an overview of the types of changes made, while the Summary of Changes to PCI DSS Introductory Sections section summarizes changes made to each affected section. The Additional Changes per Requirement section summarizes changes made throughout the requirements, testing procedures, and guidance. The Summary of New Requirements section provides a list of new requirements introduced in version 4.0.', generation_info=None)]] llm_output=None run=None
+Completed in 24.223s
+
+
+***Answer:
+Yes, the PCI DSS v3.2.1 to v.4.0 Summary of Changes document provides a high-level summary and description of the changes made from PCI DSS version 3.2.1 to version 4.0. It does not detail all document revisions, but it should be reviewed in its entirety rather than focusing solely on this summary document. The document is organized into two sections: Change Types and Summary of Changes to PCI DSS Introductory Sections. The Change Types section provides an overview of the types of changes made, while the Summary of Changes to PCI DSS Introductory Sections section summarizes changes made to each affected section. The Additional Changes per Requirement section summarizes changes made throughout the requirements, testing procedures, and guidance. The Summary of New Requirements section provides a list of new requirements introduced in version 4.0.
+
+Sources:
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 2 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 2 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+Load relevant documents for standalone question: Can you provide a summary of the changes made from PCI DSS version 3.2.1 to version 4.0?
+[Document(page_content='PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  \n© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 \n1 Introduction  \nThis document provides a high- level summary and description of the changes from PCI DSS v3.2.1 to \nPCI DSS v4.0  and does not detail all document revisi ons. Due to the extent of the changes, the \nstandard should be reviewed in its entirety rather than focusing solely on this summary document.  \nThis Summary of Changes is organized as follows:  \n\uf0a7 Change Types  - provides an overview of the types of changes   \n\uf0a7 Summary of Changes to PCI DSS Introductory Sections  - summarizes  changes made for \neach affected section.  \n\uf0a7 Summary of General Changes to PCI DSS Requirements  - summarizes  changes made \nthroughout the requirements, testing procedures, and guidance.  \n\uf0a7 Additional Changes per Requirement  - summarizes  additional changes made in \nrequirements 1- 12 and the appendices.', metadata={'source': 'data/pdfs/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf', 'page': 3, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf'}), Document(page_content='PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  \n© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page i \n \nDocument Changes  \nDate  Revision  Description \nMarch 2022   Initial release of the PCI DSS v3.2.1 to v4.0 Summary of Changes.  \nMay 2022  1 Errata update t o correct  the change description for PCI DSS v4.0 \nRequirement 8.3.9. \nDecember \n2022  2 Errata update to  add a description of the change made to Requirement \n6.3.3 and to correct the entry in the Summary of New Requirements  table \nfor Requirement 3.6.1.1.', metadata={'source': 'data/pdfs/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf', 'page': 1, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf'}), Document(page_content='PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  \n© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page ii \nTable of Contents  \nDocument Changes  ..................................................................................................................................... i \n1 Introduction  ........................................................................................................................................... 1 \n2 Change Types  ....................................................................................................................................... 2 \n3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 \n4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 \n5 Additional Changes per Requirement ................................................................................................ 6', metadata={'source': 'data/pdfs/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf', 'page': 2, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf'}), Document(page_content='3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 \n4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 \n5 Additional Changes per Requirement ................................................................................................ 6 \n6 Summary of New Requirements  ....................................................................................................... 28', metadata={'source': 'data/pdfs/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf', 'page': 2, 'url': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf'})]
+Completed in 0.020s
+
+Question: tell me more on new requirements for vulnerability assessments and penetration testing
+ What are the new requirements for vulnerability assessments and penetration testing in PCI DSS v4.0?
+Setting `pad_token_id` to `eos_token_id`:11 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' What are the new requirements for vulnerability assessments and penetration testing in PCI DSS v4.0?', generation_info=None)]] llm_output=None run=None
+  The new requirements for vulnerability assessments and penetration testing in PCI DSS v4.0 include:
+
+* A1.2.3: The multi-tenant service provider implements processes or mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities.
+* A3.3.1: Failures of automated log review mechanisms, automated code review tools, and other automated systems are detected, alerted, and reported in a timely manner.
+* A3.3.2: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.3: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.4: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.5: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.6: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.7: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.8: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.9: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.10: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.11: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.12: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.13: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.14: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.15: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.16: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.17: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.18: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.19: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.20: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.21: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.22: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.23: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.24: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.25: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.26: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.27: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.28: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.29: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.30: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.31: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.32: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.33: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.34: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.35: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.36: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* A3.3.37: Automated systems for detecting and responding to security incidents and vulnerabilities are tested and validated.
+* 

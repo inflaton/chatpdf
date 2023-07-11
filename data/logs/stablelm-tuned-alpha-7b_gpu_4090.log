@@ -1,0 +1,76 @@
+loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA GeForce RTX 4090
+CUDA version: 11.7
+hf_embeddings_device_type: cuda:0
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 1.858s
+Load index from ./data/chromadb_1024_512/ with Chroma
+Completed in 0.298s
+initializing LLM: stablelm
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: None
+              torch_dtype: torch.float16
+                 n_threds: 4
+            loading model: stabilityai/stablelm-tuned-alpha-7b
+Downloading (…)lve/main/config.json:   0%|          | 0.00/606 [00:00<?, ?B/s]Downloading (…)lve/main/config.json: 100%|██████████| 606/606 [00:00<00:00, 2.41MB/s]
+Downloading (…)model.bin.index.json:   0%|          | 0.00/21.1k [00:00<?, ?B/s]Downloading (…)model.bin.index.json: 100%|██████████| 21.1k/21.1k [00:00<00:00, 1.58MB/s]
+Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Downloading (…)l-00001-of-00004.bin:   0%|          | 0.00/9.78G [00:00<?, ?B/s][A
+Downloading (…)l-00001-of-00004.bin:   0%|          | 10.5M/9.78G [00:02<43:06, 3.78MB/s][A
+Downloading (…)l-00001-of-00004.bin:   0%|          | 21.0M/9.78G [00:03<25:51, 6.29MB/s][A
+Downloading (…)l-00001-of-00004.bin:   0%|          | 31.5M/9.78G [00:04<19:43, 8.24MB/s][A
+Downloading (…)l-00001-of-00004.bin:   0%|          | 41.9M/9.78G [00:05<16:44, 9.69MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 52.4M/9.78G [00:06<17:06, 9.47MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 62.9M/9.78G [00:07<18:03, 8.97MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 73.4M/9.78G [00:08<16:30, 9.80MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 83.9M/9.78G [00:09<16:23, 9.86MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 94.4M/9.78G [00:10<15:55, 10.1MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 105M/9.78G [00:11<17:13, 9.36MB/s] [A
+Downloading (…)l-00001-of-00004.bin:   1%|          | 115M/9.78G [00:13<17:53, 9.00MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|▏         | 126M/9.78G [00:13<16:19, 9.86MB/s][A
+Downloading (…)l-00001-of-00004.bin:   1%|▏         | 136M/9.78G [00:15<16:21, 9.82MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 147M/9.78G [00:15<15:21, 10.4MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 157M/9.78G [00:17<16:03, 9.99MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 168M/9.78G [00:18<16:47, 9.54MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 178M/9.78G [00:19<15:27, 10.4MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 189M/9.78G [00:19<14:27, 11.1MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 199M/9.78G [00:20<13:45, 11.6MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 210M/9.78G [00:21<13:17, 12.0MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 220M/9.78G [00:22<13:28, 11.8MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 231M/9.78G [00:23<13:54, 11.4MB/s][A
+Downloading (…)l-00001-of-00004.bin:   2%|▏         | 241M/9.78G [00:24<14:30, 11.0MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 252M/9.78G [00:25<13:46, 11.5MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 262M/9.78G [00:26<13:13, 12.0MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 273M/9.78G [00:26<12:53, 12.3MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 283M/9.78G [00:27<13:50, 11.4MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 294M/9.78G [00:28<13:50, 11.4MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 304M/9.78G [00:29<13:22, 11.8MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 315M/9.78G [00:31<16:31, 9.54MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 325M/9.78G [00:32<16:23, 9.62MB/s][A
+Downloading (…)l-00001-of-00004.bin:   3%|▎         | 336M/9.78G [00:33<16:33, 9.51MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▎         | 346M/9.78G [00:34<16:00, 9.83MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▎         | 357M/9.78G [00:35<17:24, 9.02MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 367M/9.78G [00:37<17:50, 8.79MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 377M/9.78G [00:38<19:21, 8.10MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 388M/9.78G [00:39<18:34, 8.42MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 398M/9.78G [00:40<18:10, 8.60MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 409M/9.78G [00:42<18:43, 8.34MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 419M/9.78G [00:43<18:34, 8.40MB/s][A
+Downloading (…)l-00001-of-00004.bin:   4%|▍         | 430M/9.78G [00:44<16:38, 9.36MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▍         | 440M/9.78G [00:45<15:07, 10.3MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▍         | 451M/9.78G [00:46<16:08, 9.63MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▍         | 461M/9.78G [00:47<15:59, 9.71MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▍         | 472M/9.78G [00:48<15:20, 10.1MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▍         | 482M/9.78G [00:49<14:14, 10.9MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▌         | 493M/9.78G [00:49<13:32, 11.4MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▌         | 503M/9.78G [00:50<13:57, 11.1MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▌         | 514M/9.78G [00:52<14:35, 10.6MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▌         | 524M/9.78G [00:53<16:41, 9.25MB/s][A
+Downloading (…)l-00001-of-00004.bin:   5%|▌         | 535M/9.78G [00:54<17:36, 8.75MB/s][A
