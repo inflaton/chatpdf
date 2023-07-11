@@ -1,5 +1,6 @@
 """Main entrypoint for the app."""
 import os
+import time
 from queue import Queue
 from timeit import default_timer as timer
 
@@ -92,13 +93,17 @@ def bot(chatbot):
 
         content = ""
         while True:
-            next_token = q.get(True, timeout=10)
-            if next_token is job_done:
-                break
-            content += next_token or ""
-            chatbot[-1][1] = remove_extra_spaces(content)
+            try:
+                next_token = q.get(True, timeout=1)
+                if next_token is job_done:
+                    break
+                content += next_token or ""
+                chatbot[-1][1] = remove_extra_spaces(content)
 
-            yield chatbot
+                yield chatbot
+            except Exception:
+                print("nothing generated yet - retry in 0.5s")
+                time.sleep(0.5)
 
 
 with gr.Blocks() as demo:
