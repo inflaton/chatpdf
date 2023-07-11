@@ -325,7 +325,7 @@ class QAChain:
                 config = AutoConfig.from_pretrained(
                     MODEL_NAME_OR_PATH, trust_remote_code=True
                 )
-                config.attn_config["attn_impl"] = "triton"
+                # config.attn_config["attn_impl"] = "triton"
                 config.max_seq_len = 16384 if "30b" in MODEL_NAME_OR_PATH else 4096
                 config.init_device = hf_pipeline_device_type
 
