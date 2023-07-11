@@ -1,0 +1,13 @@
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/General%20Guidance/PCI-DSS-v4-0-At-A-Glance.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-DESV-AOC-r1.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Frequently%20Asked%20Questions%20(FAQ)/PCI-DSS-v4-0-DESV-FAQs.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-DESV-S-ROC-Template-r1.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-AOC-Merchants-r1.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Frequently%20Asked%20Questions%20(FAQ)/PCI-DSS-v4-0-ROC-Template-FAQs-r1.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4_0-ROC-AOC-Service-Providers-r1.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS_Glossary_v3-2.pdf
+https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
