@@ -10,8 +10,9 @@ from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores.chroma import Chroma
 from langchain.vectorstores.faiss import FAISS
 
+from app_modules.presets import *
 from app_modules.qa_chain import QAChain
-from app_modules.utils import get_device_types, init_settings, remove_extra_spaces
+from app_modules.utils import *
 
 # Constants
 init_settings()
@@ -65,7 +66,7 @@ end = timer()
 print(f"Completed in {end - start:.3f}s")
 
 
-def bot(chatbot):
+def predict(chatbot):
     user_msg = chatbot[-1][0]
     q = Queue()
     job_done = object()
@@ -111,16 +112,118 @@ def bot(chatbot):
                 time.sleep(1)
 
 
-with gr.Blocks() as demo:
-    chatbot = gr.Chatbot()
-    msg = gr.Textbox(label="Question")
+def retry(
+    text,
+    chatbot,
+    top_p,
+    temperature,
+    max_new_tokens,
+    max_context_length_tokens,
+):
+    logging.info("Retry...")
+    # if len(history) == 0:
+    #     yield chatbot,  f"Empty context"
+    #     return
+    # chatbot.pop()
+    # inputs = history.pop()[0]
+    # for x in predict(
+    #     inputs,
+    #     chatbot,
+
+    #     top_p,
+    #     temperature,
+    #     max_new_tokens,
+    #     max_context_length_tokens,
+    # ):
+    #     yield x
+
+
+# gr.Chatbot.postprocess = postprocess
+
+with open("assets/custom.css", "r", encoding="utf-8") as f:
+    customCSS = f.read()
+
+with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
+    user_question = gr.State("")
+    with gr.Row():
+        gr.HTML(title)
+    gr.Markdown(description_top)
+    with gr.Row().style(equal_height=True):
+        with gr.Column(scale=5):
+            with gr.Row():
+                chatbot = gr.Chatbot(elem_id="inflaton_chatbot").style(height="100%")
+            with gr.Row():
+                with gr.Column(scale=2):
+                    user_input = gr.Textbox(
+                        show_label=False, placeholder="Enter your question here"
+                    ).style(container=False)
+                with gr.Column(
+                    min_width=70,
+                ):
+                    submitBtn = gr.Button("Send")
+                with gr.Column(
+                    min_width=70,
+                ):
+                    clearBtn = gr.Button("Clear")
+        with gr.Column():
+            with gr.Column(
+                min_width=50,
+            ):
+                with gr.Tab(label="Parameter Setting"):
+                    gr.Markdown("# Parameters")
+                    top_p = gr.Slider(
+                        minimum=-0,
+                        maximum=1.0,
+                        value=0.95,
+                        step=0.05,
+                        # interactive=True,
+                        label="Top-p",
+                    )
+                    temperature = gr.Slider(
+                        minimum=0.1,
+                        maximum=2.0,
+                        value=0,
+                        step=0.1,
+                        # interactive=True,
+                        label="Temperature",
+                    )
+                    max_new_tokens = gr.Slider(
+                        minimum=0,
+                        maximum=2048,
+                        value=2048,
+                        step=8,
+                        # interactive=True,
+                        label="Max Generation Tokens",
+                    )
+                    max_context_length_tokens = gr.Slider(
+                        minimum=0,
+                        maximum=4096,
+                        value=4096,
+                        step=128,
+                        # interactive=True,
+                        label="Max Context Tokens",
+                    )
+    gr.Markdown(description)
 
     def chat(user_message, history):
         return "", history + [[user_message, None]]
 
-    msg.submit(chat, [msg, chatbot], [msg, chatbot], queue=True).then(
-        bot, chatbot, chatbot
+    user_input.submit(
+        chat, [user_input, chatbot], [user_input, chatbot], queue=True
+    ).then(predict, chatbot, chatbot)
+
+    submitBtn.click(
+        chat, [user_input, chatbot], [user_input, chatbot], queue=True
+    ).then(predict, chatbot, chatbot)
+
+    def reset():
+        return "", []
+
+    clearBtn.click(
+        reset,
+        outputs=[user_input, chatbot],
+        show_progress=True,
     )
 
-demo.queue()
-demo.launch()
+demo.title = "Chat with PCI DSS v4"
+demo.queue(concurrency_count=1).launch()

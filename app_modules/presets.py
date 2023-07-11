@@ -1,18 +1,15 @@
 # -*- coding:utf-8 -*-
 import gradio as gr
 
-title = """<h1 align="left" style="min-width:200px; margin-top:0;"> <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f432.svg" width="32px" style="display: inline"> Chat with Baize </h1>"""
+title = """<h1 align="left" style="min-width:200px; margin-top:0;"> Chat with PCI DSS v4 </h1>"""
 description_top = """\
 <div align="left">
-<p> Currently Running: <a href="https://huggingface.co/project-baize/baize-v2-7b">baize-v2-7b</a></p>
-<p>
-Disclaimer: The LLaMA model is a third-party version available on Hugging Face model hub. This demo should be used for research purposes only. Commercial use is strictly prohibited. The model output is not censored and the authors do not endorse the opinions in the generated content. Use at your own risk.
-</p >
+<p> Currently Running: <a href="https://huggingface.co/lmsys/fastchat-t5-3b-v1.0">lmsys/fastchat-t5-3b-v1.0</a></p>
 </div>
 """
 description = """\
 <div align="center" style="margin:16px 0">
-The demo is built on <a href="https://github.com/GaiZhenbiao/ChuanhuChatGPT">ChuanhuChatGPT</a>.
+The demo is built on <a href="https://github.com/hwchase17/langchain">LangChain</a>.
 </div>
 """
 CONCURRENT_COUNT = 100
