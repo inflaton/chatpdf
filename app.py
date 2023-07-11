@@ -67,12 +67,19 @@ print(f"Completed in {end - start:.3f}s")
 
 def bot(chatbot):
     user_msg = chatbot[-1][0]
-
-    prompt = user_msg
     q = Queue()
     job_done = object()
 
-    def task(question):
+    def task(question, chat_history):
+        start = timer()
+        ret = qa_chain.call({"question": question, "chat_history": chat_history}, q)
+        end = timer()
+        print(f"Completed in {end - start:.3f}s")
+        q.put(job_done)
+        print(f"Sources:\n{ret['source_documents']}")
+        return ret
+
+    with start_blocking_portal() as portal:
         chat_history = []
         if chat_history_enabled == "true":
             for i in range(len(chatbot) - 1):
@@ -80,30 +87,28 @@ def bot(chatbot):
                 item = (element[0] or "", element[1] or "")
                 chat_history.append(item)
 
-        start = timer()
-        ret = qa_chain.call({"question": question, "chat_history": chat_history}, q)
-        end = timer()
-        print(f"Completed in {end - start:.3f}s")
-        q.put(job_done)
-        print(f"sources:\n{ret['source_documents']}")
-        return ret
-
-    with start_blocking_portal() as portal:
-        portal.start_task_soon(task, prompt)
+        portal.start_task_soon(task, user_msg, chat_history)
 
         content = ""
-        while True:
-            try:
-                next_token = q.get(True, timeout=1)
-                if next_token is job_done:
-                    break
-                content += next_token or ""
-                chatbot[-1][1] = remove_extra_spaces(content)
+        count = 2 if len(chat_history) > 0 else 1
 
-                yield chatbot
-            except Exception:
-                print("nothing generated yet - retry in 0.5s")
-                time.sleep(0.5)
+        while count > 0:
+            try:
+                # next_token = q.get(True, timeout=1)
+                for next_token in qa_chain.streamer:
+                    if next_token is job_done:
+                        break
+                    content += next_token or ""
+                    chatbot[-1][1] = remove_extra_spaces(content)
+
+                    if count == 1:
+                        yield chatbot
+
+                count -= 1
+            except Exception as e:
+                # print(e)
+                print("nothing generated yet - retry in 1s")
+                time.sleep(1)
 
 
 with gr.Blocks() as demo:
