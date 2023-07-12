@@ -9,8 +9,6 @@ accelerate
 Pygments
 llama_index
 langchain
-markdown
-markdown2
 torch
 langchain
 protobuf==3.20.*
