@@ -1,12 +1,24 @@
 # -*- coding:utf-8 -*-
+import os
+
 import gradio as gr
 
+using_openai = os.environ.get("LLM_MODEL_TYPE") == "openai"
+href = (
+    "https://openai.com/gpt-4"
+    if using_openai
+    else "https://huggingface.co/lmsys/fastchat-t5-3b-v1.0"
+)
+model = "OpenAI GPT-4" if using_openai else "lmsys/fastchat-t5-3b-v1.0"
+
 title = """<h1 align="left" style="min-width:200px; margin-top:0;"> Chat with PCI DSS v4 </h1>"""
-description_top = """\
+
+description_top = f"""\
 <div align="left">
-<p> Currently Running: <a href="https://huggingface.co/lmsys/fastchat-t5-3b-v1.0">lmsys/fastchat-t5-3b-v1.0</a></p>
+<p> Currently Running: <a href="{href}">{model}</a></p>
 </div>
 """
+
 description = """\
 <div align="center" style="margin:16px 0">
 The demo is built on <a href="https://github.com/hwchase17/langchain">LangChain</a>.
