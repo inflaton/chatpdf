@@ -1,6 +1,6 @@
 import os
-from queue import Queue
 import sys
+from queue import Queue
 from typing import Any, Optional
 
 import torch
@@ -27,6 +27,7 @@ from transformers import (
 )
 
 from app_modules.instruct_pipeline import InstructionTextGenerationPipeline
+from app_modules.utils import ensure_model_is_downloaded
 
 
 class TextIteratorStreamer(TextStreamer, StreamingStdOutCallbackHandler):
@@ -144,11 +145,7 @@ class QAChain:
                     temperature=0,
                 )
             elif self.llm_model_type.startswith("gpt4all"):
-                MODEL_PATH = (
-                    os.environ.get("GPT4ALL_J_MODEL_PATH")
-                    if self.llm_model_type == "gpt4all-j"
-                    else os.environ.get("GPT4ALL_MODEL_PATH")
-                )
+                MODEL_PATH = ensure_model_is_downloaded(self.llm_model_type)
                 self.llm = GPT4All(
                     model=MODEL_PATH,
                     max_tokens=2048,
@@ -159,7 +156,7 @@ class QAChain:
                     use_mlock=True,
                 )
             elif self.llm_model_type == "llamacpp":
-                MODEL_PATH = os.environ.get("LLAMACPP_MODEL_PATH")
+                MODEL_PATH = ensure_model_is_downloaded(self.llm_model_type)
                 self.llm = LlamaCpp(
                     model_path=MODEL_PATH,
                     n_ctx=8192,

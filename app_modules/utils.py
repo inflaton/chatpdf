@@ -5,14 +5,17 @@ import logging
 import os
 import platform
 import re
+from pathlib import Path
 
+import requests
 import torch
 from dotenv import find_dotenv, load_dotenv
+from tqdm import tqdm
 
 
 class LogRecord(logging.LogRecord):
     def getMessage(self):
-        msg = self.msg
+        msg = msg
         if self.args:
             if isinstance(self.args, dict):
                 msg = msg.format(**self.args)
@@ -117,6 +120,45 @@ def get_device_types():
         os.environ.get("HF_EMBEDDINGS_DEVICE_TYPE") or device_type_available,
         os.environ.get("HF_PIPELINE_DEVICE_TYPE") or device_type_available,
     )
+
+
+def ensure_model_is_downloaded(llm_model_type):
+    if llm_model_type.startswith("gpt4all"):
+        local_path = (
+            os.environ.get("GPT4ALL_J_MODEL_PATH")
+            if llm_model_type == "gpt4all-j"
+            else os.environ.get("GPT4ALL_MODEL_PATH")
+        )
+        url = (
+            os.environ.get("GPT4ALL_J_DOWNLOAD_LINK")
+            if llm_model_type == "gpt4all-j"
+            else os.environ.get("GPT4ALL_DOWNLOAD_LINK")
+        )
+    elif llm_model_type == "llamacpp":
+        local_path = os.environ.get("LLAMACPP_MODEL_PATH")
+        url = os.environ.get("LLAMACPP_DOWNLOAD_LINK")
+    else:
+        raise ValueError(f"wrong model typle: {llm_model_type}")
+
+    path = Path(local_path)
+
+    if path.is_file():
+        print(f"model: {local_path} exists")
+    else:
+        print(f"downloading model: {local_path} from {url} ...")
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        # send a GET request to the URL to download the file. Stream since it's large
+        response = requests.get(url, stream=True)
+
+        # open the file in binary mode and write the contents of the response to it in chunks
+        # This is a large file, so be prepared to wait.
+        with open(local_path, "wb") as f:
+            for chunk in tqdm(response.iter_content(chunk_size=8192)):
+                if chunk:
+                    f.write(chunk)
+
+    return local_path
 
 
 if __name__ == "__main__":
