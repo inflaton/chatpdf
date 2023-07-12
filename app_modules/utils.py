@@ -15,7 +15,7 @@ from tqdm import tqdm
 
 class LogRecord(logging.LogRecord):
     def getMessage(self):
-        msg = msg
+        msg = self.msg
         if self.args:
             if isinstance(self.args, dict):
                 msg = msg.format(**self.args)
