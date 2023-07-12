@@ -12,6 +12,13 @@ import torch
 from dotenv import find_dotenv, load_dotenv
 from tqdm import tqdm
 
+found_dotenv = find_dotenv(".env")
+if len(found_dotenv) == 0:
+    found_dotenv = find_dotenv(".env.example")
+print(f"loading env vars from: {found_dotenv}")
+load_dotenv(found_dotenv, override=False)
+# print(f"loaded env vars: {os.environ}")
+
 
 class LogRecord(logging.LogRecord):
     def getMessage(self):
@@ -51,13 +58,6 @@ def init_settings():
         level=logging.WARNING,
         format="%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
     )
-
-    found_dotenv = find_dotenv(".env")
-    if len(found_dotenv) == 0:
-        found_dotenv = find_dotenv(".env.example")
-    print(f"loading env vars from: {found_dotenv}")
-    load_dotenv(found_dotenv, override=False)
-    # print(f"loaded env vars: {os.environ}")
 
 
 def remove_extra_spaces(text):

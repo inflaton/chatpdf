@@ -10,9 +10,9 @@ from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores.chroma import Chroma
 from langchain.vectorstores.faiss import FAISS
 
+from app_modules.utils import *
 from app_modules.presets import *
 from app_modules.qa_chain import QAChain
-from app_modules.utils import *
 
 # Constants
 init_settings()
