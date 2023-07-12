@@ -58,9 +58,9 @@ python test.py 2>&1 | tee ./data/logs/gpt4all-mpt_${EXT}.log
 LLM_MODEL_TYPE=huggingface
 HUGGINGFACE_MODEL_NAME_OR_PATH="HuggingFaceH4/starchat-beta"
 echo Testing $HUGGINGFACE_MODEL_NAME_OR_PATH
-LOAD_QUANTIZED_MODEL=4bit python test.py 2>&1 | tee ./data/logs/starchat-beta_${EXT}.log
+LOAD_QUANTIZED_MODEL=8bit python test.py 2>&1 | tee ./data/logs/starchat-beta_${EXT}.log
 
 
 HUGGINGFACE_MODEL_NAME_OR_PATH="../../models/starcoder"
 echo Testing $HUGGINGFACE_MODEL_NAME_OR_PATH
-LOAD_QUANTIZED_MODEL=4bit python test.py 2>&1 | tee ./data/logs/starcoder_${EXT}.log
+LOAD_QUANTIZED_MODEL=8bit python test.py 2>&1 | tee ./data/logs/starcoder_${EXT}.log

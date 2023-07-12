@@ -1,0 +1,80 @@
+loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA GeForce RTX 4090
+CUDA version: 11.7
+hf_embeddings_device_type: cuda:0
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 2.169s
+Load index from ./data/chromadb_1024_512/ with Chroma
+Completed in 0.329s
+initializing LLM: mosaicml
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: None
+              torch_dtype: torch.float16
+                 n_threds: 4
+            loading model: nomic-ai/gpt4all-mpt
+You are using config.init_device='cuda:0', but you can also use config.init_device="meta" with Composer + FSDP for fast initialization.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:13,  6.73s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:19<00:10, 10.28s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:35<00:00, 13.00s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:35<00:00, 11.91s/it]
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /home/inflaton/code/chat-with-pci-dss-v4/test.py:88 in <module>                                  │
+│                                                                                                  │
+│    85 start = timer()                                                                            │
+│    86 qa_chain = QAChain(vectorstore, llm_model_type)                                            │
+│    87 custom_handler = MyCustomHandler()                                                         │
+│ ❱  88 qa_chain.init(                                                                             │
+│    89 │   custom_handler, n_threds=n_threds, hf_pipeline_device_type=hf_pipeline_device_type     │
+│    90 )                                                                                          │
+│    91 qa = qa_chain.get_chain()                                                                  │
+│                                                                                                  │
+│ /home/inflaton/code/chat-with-pci-dss-v4/app_modules/qa_chain.py:347 in init                     │
+│                                                                                                  │
+│   344 │   │   │   │   │   │   trust_remote_code=True,                                            │
+│   345 │   │   │   │   │   )                                                                      │
+│   346 │   │   │   │   │   if load_quantized_model is not None                                    │
+│ ❱ 347 │   │   │   │   │   else AutoModelForCausalLM.from_pretrained(                             │
+│   348 │   │   │   │   │   │   MODEL_NAME_OR_PATH,                                                │
+│   349 │   │   │   │   │   │   config=config,                                                     │
+│   350 │   │   │   │   │   │   torch_dtype=torch_dtype,                                           │
+│                                                                                                  │
+│ /home/inflaton/miniconda3/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py: │
+│ 481 in from_pretrained                                                                           │
+│                                                                                                  │
+│   478 │   │   │   )                                                                              │
+│   479 │   │   │   _ = hub_kwargs.pop("code_revision", None)                                      │
+│   480 │   │   │   cls._model_mapping.register(config.__class__, model_class)                     │
+│ ❱ 481 │   │   │   return model_class.from_pretrained(                                            │
+│   482 │   │   │   │   pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs,   │
+│   483 │   │   │   )                                                                              │
+│   484 │   │   elif type(config) in cls._model_mapping.keys():                                    │
+│                                                                                                  │
+│ /home/inflaton/miniconda3/lib/python3.10/site-packages/transformers/modeling_utils.py:2904 in    │
+│ from_pretrained                                                                                  │
+│                                                                                                  │
+│   2901 │   │   │   │   mismatched_keys,                                                          │
+│   2902 │   │   │   │   offload_index,                                                            │
+│   2903 │   │   │   │   error_msgs,                                                               │
+│ ❱ 2904 │   │   │   ) = cls._load_pretrained_model(                                               │
+│   2905 │   │   │   │   model,                                                                    │
+│   2906 │   │   │   │   state_dict,                                                               │
+│   2907 │   │   │   │   loaded_state_dict_keys,  # XXX: rename?                                   │
+│                                                                                                  │
+│ /home/inflaton/miniconda3/lib/python3.10/site-packages/transformers/modeling_utils.py:3308 in    │
+│ _load_pretrained_model                                                                           │
+│                                                                                                  │
+│   3305 │   │   │   │   error_msg += (                                                            │
+│   3306 │   │   │   │   │   "\n\tYou may consider adding `ignore_mismatched_sizes=True` in the m  │
+│   3307 │   │   │   │   )                                                                         │
+│ ❱ 3308 │   │   │   raise RuntimeError(f"Error(s) in loading state_dict for {model.__class__.__n  │
+│   3309 │   │                                                                                     │
+│   3310 │   │   if is_quantized:                                                                  │
+│   3311 │   │   │   unexpected_keys = [elem for elem in unexpected_keys if "SCB" not in elem]     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+RuntimeError: Error(s) in loading state_dict for MPTForCausalLM:
+        size mismatch for transformer.wpe.weight: copying a param with shape torch.Size([2048, 4096]) from checkpoint, the shape in current model is torch.Size([4096, 4096]).
+        You may consider adding `ignore_mismatched_sizes=True` in the model `from_pretrained` method.
