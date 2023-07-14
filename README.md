@@ -1,5 +1,5 @@
 ---
-title: Chat With PCI DSS V4
+title: Chat with PCI DSS v4
 emoji: 👀
 colorFrom: indigo
 colorTo: blue
