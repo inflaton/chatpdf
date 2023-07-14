@@ -145,7 +145,7 @@ while True:
         docs = qa.retriever.get_relevant_documents(standalone_question)
         end = timer()
 
-        print(docs)
+        # print(docs)
         print(f"Completed in {end - start:.3f}s")
 
     if chat_history_enabled == "true":

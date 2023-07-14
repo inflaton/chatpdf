@@ -71,7 +71,7 @@ def print_llm_response(llm_response):
 
     if answer is not None:
         print("\n\n***Answer:")
-        print(remove_extra_spaces(answer))
+        print(answer)
 
     source_documents = (
         llm_response["source_documents"] if "source_documents" in llm_response else None
@@ -88,6 +88,7 @@ def print_llm_response(llm_response):
             + " Source: "
             + str(metadata["url"] if "url" in metadata else metadata["source"])
         )
+        print(source.page_content)
 
 
 def get_device_types():

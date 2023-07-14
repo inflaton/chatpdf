@@ -28,7 +28,7 @@ from transformers import (
 )
 
 from app_modules.instruct_pipeline import InstructionTextGenerationPipeline
-from app_modules.utils import ensure_model_is_downloaded
+from app_modules.utils import ensure_model_is_downloaded, remove_extra_spaces
 
 
 class TextIteratorStreamer(TextStreamer, StreamingStdOutCallbackHandler):
@@ -532,6 +532,8 @@ class QAChain:
 
         qa = self.get_chain(tracing)
         result = qa(inputs)
+
+        result["answer"] = remove_extra_spaces(result["answer"])
 
         base_url = os.environ.get("PDF_FILE_BASE_URL")
         if base_url is not None:
