@@ -10,9 +10,9 @@ from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores.chroma import Chroma
 from langchain.vectorstores.faiss import FAISS
 
-from app_modules.utils import *
 from app_modules.presets import *
 from app_modules.qa_chain import QAChain
+from app_modules.utils import *
 
 # Constants
 init_settings()
@@ -31,7 +31,9 @@ n_threds = int(os.environ.get("NUMBER_OF_CPU_CORES") or "4")
 index_path = os.environ.get("FAISS_INDEX_PATH") or os.environ.get("CHROMADB_INDEX_PATH")
 using_faiss = os.environ.get("FAISS_INDEX_PATH") is not None
 llm_model_type = os.environ.get("LLM_MODEL_TYPE")
-chat_history_enabled = os.environ.get("CHAT_HISTORY_ENABLED") or "true"
+chat_history_enabled = os.environ.get("CHAT_HISTORY_ENABLED") == "true"
+show_param_settings = os.environ.get("SHOW_PARAM_SETTINGS") == "true"
+
 
 streaming_enabled = True  # llm_model_type in ["openai", "llamacpp"]
 
@@ -85,7 +87,7 @@ def qa(chatbot):
 
     with start_blocking_portal() as portal:
         chat_history = []
-        if chat_history_enabled == "true":
+        if chat_history_enabled:
             for i in range(len(chatbot) - 1):
                 element = chatbot[i]
                 item = (element[0] or "", element[1] or "")
@@ -117,7 +119,8 @@ def qa(chatbot):
         titles = []
         for doc in ret["source_documents"]:
             url = f"{doc.metadata['url']}#page={doc.metadata['page'] + 1}"
-            title = url.split("/")[-1]
+            file_name = doc.metadata["source"].split("/")[-1]
+            title = f"{file_name} Page: {doc.metadata['page']}"
             if title not in titles:
                 titles.append(title)
                 chatbot[-1][1] += f"1. [{title}]({url})\n"
@@ -150,44 +153,45 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
                     min_width=70,
                 ):
                     clearBtn = gr.Button("Clear")
-        with gr.Column():
-            with gr.Column(
-                min_width=50,
-            ):
-                with gr.Tab(label="Parameter Setting"):
-                    gr.Markdown("# Parameters")
-                    top_p = gr.Slider(
-                        minimum=-0,
-                        maximum=1.0,
-                        value=0.95,
-                        step=0.05,
-                        # interactive=True,
-                        label="Top-p",
-                    )
-                    temperature = gr.Slider(
-                        minimum=0.1,
-                        maximum=2.0,
-                        value=0,
-                        step=0.1,
-                        # interactive=True,
-                        label="Temperature",
-                    )
-                    max_new_tokens = gr.Slider(
-                        minimum=0,
-                        maximum=2048,
-                        value=2048,
-                        step=8,
-                        # interactive=True,
-                        label="Max Generation Tokens",
-                    )
-                    max_context_length_tokens = gr.Slider(
-                        minimum=0,
-                        maximum=4096,
-                        value=4096,
-                        step=128,
-                        # interactive=True,
-                        label="Max Context Tokens",
-                    )
+        if show_param_settings:
+            with gr.Column():
+                with gr.Column(
+                    min_width=50,
+                ):
+                    with gr.Tab(label="Parameter Setting"):
+                        gr.Markdown("# Parameters")
+                        top_p = gr.Slider(
+                            minimum=-0,
+                            maximum=1.0,
+                            value=0.95,
+                            step=0.05,
+                            # interactive=True,
+                            label="Top-p",
+                        )
+                        temperature = gr.Slider(
+                            minimum=0.1,
+                            maximum=2.0,
+                            value=0,
+                            step=0.1,
+                            # interactive=True,
+                            label="Temperature",
+                        )
+                        max_new_tokens = gr.Slider(
+                            minimum=0,
+                            maximum=2048,
+                            value=2048,
+                            step=8,
+                            # interactive=True,
+                            label="Max Generation Tokens",
+                        )
+                        max_context_length_tokens = gr.Slider(
+                            minimum=0,
+                            maximum=4096,
+                            value=4096,
+                            step=128,
+                            # interactive=True,
+                            label="Max Context Tokens",
+                        )
     gr.Markdown(description)
 
     def chat(user_message, history):
@@ -210,5 +214,5 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
         show_progress=True,
     )
 
-demo.title = "Chat with PCI DSS v4"
+demo.title = "Chat with AI Books"
 demo.queue(concurrency_count=1).launch()

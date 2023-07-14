@@ -33,6 +33,5 @@ safetensors
 xformers
 bitsandbytes
 einops
-pypdf
 gevent
 pydantic >= 1.10.11

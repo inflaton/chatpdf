@@ -88,7 +88,6 @@ custom_handler = MyCustomHandler()
 qa_chain.init(
     custom_handler, n_threds=n_threds, hf_pipeline_device_type=hf_pipeline_device_type
 )
-qa = qa_chain.get_chain()
 end = timer()
 print(f"Completed in {end - start:.3f}s")
 
@@ -128,7 +127,7 @@ while True:
     custom_handler.reset()
 
     start = timer()
-    result = qa({"question": query, "chat_history": chat_history})
+    result = qa_chain.call({"question": query, "chat_history": chat_history})
     end = timer()
     print(f"Completed in {end - start:.3f}s")
 
@@ -142,6 +141,7 @@ while True:
     if standalone_question is not None:
         print(f"Load relevant documents for standalone question: {standalone_question}")
         start = timer()
+        qa = qa_chain.get_chain()
         docs = qa.retriever.get_relevant_documents(standalone_question)
         end = timer()
 

@@ -1,5 +1,6 @@
 import os
 import sys
+import urllib
 from queue import Queue
 from typing import Any, Optional
 
@@ -49,6 +50,8 @@ class TextIteratorStreamer(TextStreamer, StreamingStdOutCallbackHandler):
         """Put the new text in the queue. If the stream is ending, also put a stop signal in the queue."""
         self.text_queue.put(text, timeout=self.timeout)
         if stream_end:
+            print("\n")
+            self.text_queue.put("\n", timeout=self.timeout)
             self.text_queue.put(self.stop_signal, timeout=self.timeout)
 
     def on_llm_new_token(self, token: str, **kwargs: Any) -> None:
@@ -528,4 +531,14 @@ class QAChain:
             self.streamer.reset(q)
 
         qa = self.get_chain(tracing)
-        return qa(inputs)
+        result = qa(inputs)
+
+        base_url = os.environ.get("PDF_FILE_BASE_URL")
+        if base_url is not None:
+            documents = result["source_documents"]
+            for doc in documents:
+                source = doc.metadata["source"]
+                title = source.split("/")[-1]
+                doc.metadata["url"] = f"{base_url}{urllib.parse.quote(title)}"
+
+        return result
