@@ -1,0 +1,440 @@
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: Found duplicate ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] files: {PosixPath('/home/inflaton/miniconda3/lib/libcudart.so'), PosixPath('/home/inflaton/miniconda3/lib/libcudart.so.11.0')}.. We'll flip a coin and try one of these, in order to fail forward.
+Either way, this might cause trouble in the future:
+If you get `CUDA error: invalid device function` errors, the above might be the cause and the solution is to make sure only one ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] in the paths that we search based on your env.
+  warn(msg)
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: No GPU detected! Check your CUDA paths. Proceeding to load CPU-only library...
+  warn(msg)
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please run
+
+python -m bitsandbytes
+
+ and submit this information together with your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+bin /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so
+CUDA SETUP: WARNING! libcuda.so not found! Do you have a CUDA driver installed? If you are on a cluster, make sure you are on a CUDA machine!
+CUDA SETUP: CUDA runtime path found: /home/inflaton/miniconda3/lib/libcudart.so
+CUDA SETUP: Loading binary /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA GeForce RTX 4090
+CUDA version: 11.7
+hf_embeddings_device_type: cpu
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 1.449s
+Load index from ./data/faiss_1024_512/ with FAISS
+Completed in 0.096s
+initializing LLM: huggingface
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: 8bit
+              torch_dtype: torch.float16
+                 n_threds: 4
+            loading model: HuggingFaceH4/starchat-beta
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:14,  4.81s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.26s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:13<00:04,  4.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.15s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.66s/it]
+Some weights of GPTBigCodeForCausalLM were not initialized from the model checkpoint at HuggingFaceH4/starchat-beta and are newly initialized: ['lm_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Model memory footprint: 15939661824
+initialization complete
+Completed in 34.325s
+Welcome to the ChatPDF! Type 'exit' to stop.
+
+Question: What's PCI DSS?
+{'question': "What's PCI DSS?", 'chat_history': []}
+ The PCI Data Security Standard (PCI DSS) is a set of security standards created to ensure that 
+all companies that process, store, or transmit credit card information maintain a secure environment. These 
+companies are required to adhere to the PCI DSS standards as part of the Payment Card Industry Data Security 
+Standard (PCI DSS). The goal of the PCI DSS is to reduce the risk of credit card fraud and data breaches through 
+adherence to strict security measures.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' The PCI Data Security Standard (PCI DSS) is a set of security standards created to ensure that \nall companies that process, store, or transmit credit card information maintain a secure environment. These \ncompanies are required to adhere to the PCI DSS standards as part of the Payment Card Industry Data Security \nStandard (PCI DSS). The goal of the PCI DSS is to reduce the risk of credit card fraud and data breaches through \nadherence to strict security measures.', generation_info=None)]] llm_output=None run=None
+Completed in 18.034s
+
+
+***Answer:
+The PCI Data Security Standard (PCI DSS) is a set of security standards created to ensure that 
+all companies that process, store, or transmit credit card information maintain a secure environment. These 
+companies are required to adhere to the PCI DSS standards as part of the Payment Card Industry Data Security 
+Standard (PCI DSS). The goal of the PCI DSS is to reduce the risk of credit card fraud and data breaches through 
+adherence to strict security measures.
+
+Sources:
+  Page: 37 Source: PCI_DSS-QRG-v4_0.pdf
+PCI Data Security Standard
+PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
+requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
+Goals PCI DSS Requirements
+Build and Maintain a Secure Network 
+and Systems1. Install and maintain network security controls  
+2. Apply secure configurations to all system components
+Protect Account Data 3. Protect stored account data
+4. Protect cardholder data with strong cryptography during transmission over open, public 
+networks
+Maintain a Vulnerability Management 
+Program5. Protect all systems and networks from malicious software
+6. Develop and maintain secure systems and software
+Implement Strong Access Control 
+Measures7. Restrict access to system components and cardholder data by business need to know
+8. Identify users and authenticate access to system components
+9. Restrict physical access to cardholder data
+  Page: 0 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+AT A GLANCE: PCI DSS v4.0
+© 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
+information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
+December 20221
+What is the PCI Data Security Standard?
+The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational 
+requirements designated to protect payment data. PCI DSS v4.0 is the next evolution of the standard.PCI DSS v4.0
+Developed with Global Industry Collaboration
+Development of PCI DSS v4.0 was driven by industry feedback. This version furthers the protection of payment data 
+with new controls to address sophisticated cyber attacks.
+Implementation Timeline
+PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This provides organizations time to become 
+familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
+Security Needs of the 
+Payment Industry
+  Page: 1 Source: PCI_DSS-QRG-v4_0.pdf
+PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
+version 4.0.
+Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
+This Quick Reference Guide to the PCI Data Security Standard (PCI DSS) is provided by the PCI Security 
+Standards Council (PCI SSC) to inform and educate merchants and other entities involved in payment 
+card processing. For more information about the PCI SSC and the standards we manage, please visit 
+https://pcisecuritystandards.org.
+The intent of this document is to provide supplemental information, which does not replace or supersede 
+PCI Standards or their supporting documents.
+August 2022
+  Page: 4 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS.  
+Clarified table with commonly used elements of cardholder data and SAD, whether storage is 
+permitted, and whether data must be rendered 
+unreadable.   Clarification or 
+guidance  
+Relationship 
+between PCI DSS and PA -DSS  Relationship 
+between PCI DSS and PCI SSC Software Standards  Refocused section on relationship between PCI DSS 
+and PCI SSC software standards, with mention of PA-DSS (retiring in October 2022).  Evolving 
+requirement  
+Scope of PCI 
+DSS 
+Requirements  Scope of PCI 
+DSS Requirements  Clarified applicability of PCI DSS requirements and 
+the definition of cardholder data environment (CDE).  
+Expanded examples of system components to which 
+PCI DSS applies; added cloud and other system components.  
+Added “Understanding PCI DSS Scoping” diagram.  Clarification or 
+guidance
+Load relevant documents for standalone question: What's PCI DSS?
+Completed in 0.052s
+
+Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
+{'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a set of security standards created to ensure that \nall companies that process, store, or transmit credit card information maintain a secure environment. These \ncompanies are required to adhere to the PCI DSS standards as part of the Payment Card Industry Data Security \nStandard (PCI DSS). The goal of the PCI DSS is to reduce the risk of credit card fraud and data breaches through \nadherence to strict security measures.')]}
+ ¿Puedes resumir los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS?
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' ¿Puedes resumir los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS?', generation_info=None)]] llm_output=None run=None
+
+Claro, aquí hay una breve descripción de los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS:
+
+1. Nuevo requisito: La nueva versión incluye un nuevo requisito que obliga a las empresas a implementar medidas de seguridad adicionales para proteger los datos sensibles almacenados en dispositivos móviles y portátiles.
+
+2. Cambios en algunos requisitos: Hay varios cambios en los requisitos existentes, como la eliminación del requisito que exigía la autenticación de los usuarios con tarjetas inteligentes y el cambio en la forma en que se deben realizar las pruebas de penetración.
+
+3. Mejoras en la seguridad de la información: La nueva versión amplía las medidas de seguridad para proteger la información de los titulares de las tarjetas de crédito, incluyendo la requerimiento de cifrado de datos en reposo y la implementación de medidas de seguridad adicionales para los dispositivos móviles y portátiles.
+
+4. Actualizaciones normativas: La nueva versión se actualiza regularmente para reflejar las últimas tendencias en la seguridad de la información y para adaptarse a las mejoras en los medios de comunicación.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='\nClaro, aquí hay una breve descripción de los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS:\n\n1. Nuevo requisito: La nueva versión incluye un nuevo requisito que obliga a las empresas a implementar medidas de seguridad adicionales para proteger los datos sensibles almacenados en dispositivos móviles y portátiles.\n\n2. Cambios en algunos requisitos: Hay varios cambios en los requisitos existentes, como la eliminación del requisito que exigía la autenticación de los usuarios con tarjetas inteligentes y el cambio en la forma en que se deben realizar las pruebas de penetración.\n\n3. Mejoras en la seguridad de la información: La nueva versión amplía las medidas de seguridad para proteger la información de los titulares de las tarjetas de crédito, incluyendo la requerimiento de cifrado de datos en reposo y la implementación de medidas de seguridad adicionales para los dispositivos móviles y portátiles.\n\n4. Actualizaciones normativas: La nueva versión se actualiza regularmente para reflejar las últimas tendencias en la seguridad de la información y para adaptarse a las mejoras en los medios de comunicación.', generation_info=None)]] llm_output=None run=None
+Completed in 44.462s
+
+
+***Answer:
+Claro, aquí hay una breve descripción de los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS:
+
+1. Nuevo requisito: La nueva versión incluye un nuevo requisito que obliga a las empresas a implementar medidas de seguridad adicionales para proteger los datos sensibles almacenados en dispositivos móviles y portátiles.
+
+2. Cambios en algunos requisitos: Hay varios cambios en los requisitos existentes, como la eliminación del requisito que exigía la autenticación de los usuarios con tarjetas inteligentes y el cambio en la forma en que se deben realizar las pruebas de penetración.
+
+3. Mejoras en la seguridad de la información: La nueva versión amplía las medidas de seguridad para proteger la información de los titulares de las tarjetas de crédito, incluyendo la requerimiento de cifrado de datos en reposo y la implementación de medidas de seguridad adicionales para los dispositivos móviles y portátiles.
+
+4. Actualizaciones normativas: La nueva versión se actualiza regularmente para reflejar las últimas tendencias en la seguridad de la información y para adaptarse a las mejoras en los medios de comunicación.
+
+Sources:
+  Page: 1 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+April 2015  PCI DSS 3.1, 
+Revision  1.0 Revision to align with changes from PCI DSS 3.0 to PCI DSS 3.1 (see PCI DSS – Summary of Changes from PCI DSS 
+Version 3.0 to 3.1 for details of those changes). Also includes minor edits made for clarification and/or format.  
+April 2016  PCI DSS 3.2, 
+Revision 1.0  Revision to align with changes from PCI DSS 3.1 to PCI DSS 3.2 (see PCI DSS – Summary of Changes from PCI DSS 
+Version 3.1 to 3.2 for details of those changes). Also includes minor corrections and edits made for clarification and/or 
+format.  
+June 2018  PCI DSS 3.2.1  
+Revision 1.0  Revision to align with changes from PCI DSS 3.2 to PCI DSS 3.2.1 (see PCI DSS – Summary of Changes from PCI 
+DSS Version 3.2 to 3.2.1 for details of changes). Also includes minor corrections and edits made for clarification and/or 
+format.  
+March 2022  PCI DSS 4.0  Updates to align with the changes from PCI DSS v3.2.1 to PCI DSS v4.0 (see PCI DSS – Summary of Changes from
+  Page: 1 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+format.  
+June 2018  PCI DSS 3.2.1  
+Revision 1.0  Revision to align with changes from PCI DSS 3.2 to PCI DSS 3.2.1 (see PCI DSS – Summary of Changes from PCI 
+DSS Version 3.2 to 3.2.1 for details of changes). Also includes minor corrections and edits made for clarification and/or 
+format.  
+March 2022  PCI DSS 4.0  Updates to align with the changes from PCI DSS v3.2.1 to PCI DSS v4.0 (see PCI DSS – Summary of Changes from 
+PCI DSS Version 3.2.1 to 4.0 for details of changes). Also includes corrections and edits made for clarification and/or 
+format.  
+December  2022  PCI DSS 4.0  
+Revision 1  Updates include minor clarifications, corrections to typographical errors, and removal of In Place with Remediation as a 
+reporting option.
+  Page: 1 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page i 
+ 
+Document Changes  
+Date  Revision  Description 
+March 2022   Initial release of the PCI DSS v3.2.1 to v4.0 Summary of Changes.  
+May 2022  1 Errata update t o correct  the change description for PCI DSS v4.0 
+Requirement 8.3.9. 
+December 
+2022  2 Errata update to  add a description of the change made to Requirement 
+6.3.3 and to correct the entry in the Summary of New Requirements  table 
+for Requirement 3.6.1.1.
+  Page: 2 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page ii 
+Table of Contents  
+Document Changes  ..................................................................................................................................... i 
+1 Introduction  ........................................................................................................................................... 1 
+2 Change Types  ....................................................................................................................................... 2 
+3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 
+4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 
+5 Additional Changes per Requirement ................................................................................................ 6
+Load relevant documents for standalone question: ¿Puedes resumir los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS?
+Completed in 0.070s
+
+Question: tell me more on new requirements for vulnerability assessments and penetration testing
+{'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a set of security standards created to ensure that \nall companies that process, store, or transmit credit card information maintain a secure environment. These \ncompanies are required to adhere to the PCI DSS standards as part of the Payment Card Industry Data Security \nStandard (PCI DSS). The goal of the PCI DSS is to reduce the risk of credit card fraud and data breaches through \nadherence to strict security measures.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'Claro, aquí hay una breve descripción de los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS:\n\n1. Nuevo requisito: La nueva versión incluye un nuevo requisito que obliga a las empresas a implementar medidas de seguridad adicionales para proteger los datos sensibles almacenados en dispositivos móviles y portátiles.\n\n2. Cambios en algunos requisitos: Hay varios cambios en los requisitos existentes, como la eliminación del requisito que exigía la autenticación de los usuarios con tarjetas inteligentes y el cambio en la forma en que se deben realizar las pruebas de penetración.\n\n3. Mejoras en la seguridad de la información: La nueva versión amplía las medidas de seguridad para proteger la información de los titulares de las tarjetas de crédito, incluyendo la requerimiento de cifrado de datos en reposo y la implementación de medidas de seguridad adicionales para los dispositivos móviles y portátiles.\n\n4. Actualizaciones normativas: La nueva versión se actualiza regularmente para reflejar las últimas tendencias en la seguridad de la información y para adaptarse a las mejoras en los medios de comunicación.')]}
+ ¿Cuáles son los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración?
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' ¿Cuáles son los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración?', generation_info=None)]] llm_output=None run=None
+ Los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración en la versión 4 del estándar PCI DSS se encuentran en los siguientes puntos:
+
+11.4 Evaluación de vulnerabilidades y pruebas de penetración
+11.4.1 Se debe tener un proceso de evaluación de vulnerabilidades y pruebas de penetración bien definido y documentado que incluya:
+a) Una metodología de evaluación de vulnerabilidades y pruebas de penetración aceptada en el sector, que incluya pruebas desde dentro y fuera de la red;
+b) Pruebas de evaluación de la segmentación y los controles de reducción de ámbito;
+c) Pruebas de nivel de aplicación para identificar al menos las vulnerabilidades mencionadas en el punto 6.2.4;
+d) Pruebas de nivel de red que cubren todos los componentes que soportan funciones de red y sistemas operativos;
+e) Revisión y consideración de amenazas y vulnerabilidades experimentadas en los últimos 12 meses;
+f) Un enfoque documentado para evaluar y abordar el riesgo causado por las vulnerabilidades expuestas y las debilidades de seguridad encontradas durante las pruebas de penetración;
+g) Retención de resultados de las pruebas de penetración y actividades de remediación durante al menos 12 meses.
+11.4.2 La evaluación de vulnerabilidades y las pruebas de penetración internas se realizan de acuerdo con la metodología definida por la entidad y al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.
+11.4.3 Las evaluaciones de vulnerabilidades externas se realizan de acuerdo con la metodología definida por la entidad, al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.
+11.4.4 Todas las vulnerabilidades y debilidades de seguridad detectadas durante las evaluaciones de vulnerabilidades y pruebas de penetración se corrigen de acuerdo con la evaluación de riesgos de la entidad relacionada con la seguridad de la vulnerabilidad o debilidad detectada, y se repite la evaluación de vulnerabilidades para verificar la corrección.
+11.4.5 Se debe documentar el proceso de evaluación de vulnerabilidades y pruebas de penetración, incluyendo los resultados de las pruebas recientes, y se deben retener durante al menos 12 meses.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' Los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración en la versión 4 del estándar PCI DSS se encuentran en los siguientes puntos:\n\n11.4 Evaluación de vulnerabilidades y pruebas de penetración\n11.4.1 Se debe tener un proceso de evaluación de vulnerabilidades y pruebas de penetración bien definido y documentado que incluya:\na) Una metodología de evaluación de vulnerabilidades y pruebas de penetración aceptada en el sector, que incluya pruebas desde dentro y fuera de la red;\nb) Pruebas de evaluación de la segmentación y los controles de reducción de ámbito;\nc) Pruebas de nivel de aplicación para identificar al menos las vulnerabilidades mencionadas en el punto 6.2.4;\nd) Pruebas de nivel de red que cubren todos los componentes que soportan funciones de red y sistemas operativos;\ne) Revisión y consideración de amenazas y vulnerabilidades experimentadas en los últimos 12 meses;\nf) Un enfoque documentado para evaluar y abordar el riesgo causado por las vulnerabilidades expuestas y las debilidades de seguridad encontradas durante las pruebas de penetración;\ng) Retención de resultados de las pruebas de penetración y actividades de remediación durante al menos 12 meses.\n11.4.2 La evaluación de vulnerabilidades y las pruebas de penetración internas se realizan de acuerdo con la metodología definida por la entidad y al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.\n11.4.3 Las evaluaciones de vulnerabilidades externas se realizan de acuerdo con la metodología definida por la entidad, al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.\n11.4.4 Todas las vulnerabilidades y debilidades de seguridad detectadas durante las evaluaciones de vulnerabilidades y pruebas de penetración se corrigen de acuerdo con la evaluación de riesgos de la entidad relacionada con la seguridad de la vulnerabilidad o debilidad detectada, y se repite la evaluación de vulnerabilidades para verificar la corrección.\n11.4.5 Se debe documentar el proceso de evaluación de vulnerabilidades y pruebas de penetración, incluyendo los resultados de las pruebas recientes, y se deben retener durante al menos 12 meses.', generation_info=None)]] llm_output=None run=None
+Completed in 79.567s
+
+
+***Answer:
+Los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración en la versión 4 del estándar PCI DSS se encuentran en los siguientes puntos:
+
+11.4 Evaluación de vulnerabilidades y pruebas de penetración
+11.4.1 Se debe tener un proceso de evaluación de vulnerabilidades y pruebas de penetración bien definido y documentado que incluya:
+a) Una metodología de evaluación de vulnerabilidades y pruebas de penetración aceptada en el sector, que incluya pruebas desde dentro y fuera de la red;
+b) Pruebas de evaluación de la segmentación y los controles de reducción de ámbito;
+c) Pruebas de nivel de aplicación para identificar al menos las vulnerabilidades mencionadas en el punto 6.2.4;
+d) Pruebas de nivel de red que cubren todos los componentes que soportan funciones de red y sistemas operativos;
+e) Revisión y consideración de amenazas y vulnerabilidades experimentadas en los últimos 12 meses;
+f) Un enfoque documentado para evaluar y abordar el riesgo causado por las vulnerabilidades expuestas y las debilidades de seguridad encontradas durante las pruebas de penetración;
+g) Retención de resultados de las pruebas de penetración y actividades de remediación durante al menos 12 meses.
+11.4.2 La evaluación de vulnerabilidades y las pruebas de penetración internas se realizan de acuerdo con la metodología definida por la entidad y al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.
+11.4.3 Las evaluaciones de vulnerabilidades externas se realizan de acuerdo con la metodología definida por la entidad, al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.
+11.4.4 Todas las vulnerabilidades y debilidades de seguridad detectadas durante las evaluaciones de vulnerabilidades y pruebas de penetración se corrigen de acuerdo con la evaluación de riesgos de la entidad relacionada con la seguridad de la vulnerabilidad o debilidad detectada, y se repite la evaluación de vulnerabilidades para verificar la corrección.
+11.4.5 Se debe documentar el proceso de evaluación de vulnerabilidades y pruebas de penetración, incluyendo los resultados de las pruebas recientes, y se deben retener durante al menos 12 meses.
+
+Sources:
+  Page: 37 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+•Testing from both inside and outside the  network.
+•Testing to validate any segmentation and scope -reduction controls .
+•Application- layer penetration testing to identify, at a minimum, the
+vulnerabilities listed in Requirement 6.2.4.
+•Network -layer penetration tests that encompass all components that
+support network functions as well as operating systems.
+•Review and consideration of threats and vulnerabilities experienced in
+the last 12 months .
+•Documented approach to assessing and addressing  the risk posed by
+exploitable vulnerabilities and secu rity weaknesses found during
+penetration testing.
+•Retention of penetration testing results and remediation activities resultsfor at least 12 months.2 
+11.4.2 Internal  penetration testing is performed: 
+•Per the entity’s defined methodology,
+•At least once every 12 months
+•After any significant infrastructure or application upgrade or change
+•By a qualified internal resource or qualified external third -party
+  Page: 37 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+•Scans are performed by qualified personnel and organizational
+independence of the tester exists (not required to be a QSA or ASV).2 
+11.4 External and internal penetration testing is regularly performed, and 
+exploitable vulnerabilities and security weaknesses are corrected.  
+11.4.1 A penetration testing methodology is defined, documented, and 
+implemented by the entity, and includes:  
+•Industry -accepted penetration testing approaches.
+•Coverage for the entire CDE perimeter and critical systems.
+•Testing from both inside and outside the  network.
+•Testing to validate any segmentation and scope -reduction controls .
+•Application- layer penetration testing to identify, at a minimum, the
+vulnerabilities listed in Requirement 6.2.4.
+•Network -layer penetration tests that encompass all components that
+support network functions as well as operating systems.
+•Review and consideration of threats and vulnerabilities experienced in
+the last 12 months .
+  Page: 38 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+The Prioritized Approach to Pursue PCI DSS Compliance  
+©2016 – 2022 PCI Securit y Standar ds Council LLC. The intent of this document is to provide 
+supplemental information, which does not replace or supersede requirements in any PCI SSC Standard. 
+August 2022 39 PCI DSS Requirements v4.0 Milestone  
+1 2 3 4 5 6 
+11.4.3 External  penetration testing is performed: 
+•Per the entity’s defined methodology
+•At least once every 12 months
+•After any significant infrastructure or application upgrade or change
+•By a qualified internal resource or qualified external third party
+•Organizational independence of the tester exists (not required to be a
+QSA or ASV).2 
+11.4.4 Exploitable vulnerabilities and security weaknesses found during 
+penetration testing are corrected as follows:  
+•In accordance with the entity’s assessment of the risk posed by the
+security issue as defined in Requirement 6.3.1.
+•Penetration testing is repeated to verify the corrections.2
+  Page: 395 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+methodology  examined for this testing 
+procedure.  <Enter Response Here>  
+11.4.5.b Examine the results from the 
+most recent penetration test to verify 
+the penetration test covers and 
+addresses all elements specified in 
+this requirement.  Identify the evidence reference number(s) 
+from Section 6  for all results from the 
+most recent penetration test  exam ined 
+for this testing procedure.  <Enter Response Here>  
+11.4.5.c Interview personnel to verify 
+that the test was performed by a 
+qualified internal resource or qualified 
+external third party and that 
+organizational independence of the 
+tester exists (not required to be a QSA 
+or ASV).  Identify the evidence reference number(s) 
+from Section 6  for all interview(s)  
+conducted for this testing procedure.  <Enter Response Her e>
+Load relevant documents for standalone question: ¿Cuáles son los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración?
+Completed in 0.084s
+
+Question: more on penetration testing
+{'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a set of security standards created to ensure that \nall companies that process, store, or transmit credit card information maintain a secure environment. These \ncompanies are required to adhere to the PCI DSS standards as part of the Payment Card Industry Data Security \nStandard (PCI DSS). The goal of the PCI DSS is to reduce the risk of credit card fraud and data breaches through \nadherence to strict security measures.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'Claro, aquí hay una breve descripción de los cambios entre la versión 3.2.1 y la 4.0 del estándar PCI DSS:\n\n1. Nuevo requisito: La nueva versión incluye un nuevo requisito que obliga a las empresas a implementar medidas de seguridad adicionales para proteger los datos sensibles almacenados en dispositivos móviles y portátiles.\n\n2. Cambios en algunos requisitos: Hay varios cambios en los requisitos existentes, como la eliminación del requisito que exigía la autenticación de los usuarios con tarjetas inteligentes y el cambio en la forma en que se deben realizar las pruebas de penetración.\n\n3. Mejoras en la seguridad de la información: La nueva versión amplía las medidas de seguridad para proteger la información de los titulares de las tarjetas de crédito, incluyendo la requerimiento de cifrado de datos en reposo y la implementación de medidas de seguridad adicionales para los dispositivos móviles y portátiles.\n\n4. Actualizaciones normativas: La nueva versión se actualiza regularmente para reflejar las últimas tendencias en la seguridad de la información y para adaptarse a las mejoras en los medios de comunicación.'), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'Los nuevos requisitos para las evaluaciones de vulnerabilidades y las pruebas de penetración en la versión 4 del estándar PCI DSS se encuentran en los siguientes puntos:\n\n11.4 Evaluación de vulnerabilidades y pruebas de penetración\n11.4.1 Se debe tener un proceso de evaluación de vulnerabilidades y pruebas de penetración bien definido y documentado que incluya:\na) Una metodología de evaluación de vulnerabilidades y pruebas de penetración aceptada en el sector, que incluya pruebas desde dentro y fuera de la red;\nb) Pruebas de evaluación de la segmentación y los controles de reducción de ámbito;\nc) Pruebas de nivel de aplicación para identificar al menos las vulnerabilidades mencionadas en el punto 6.2.4;\nd) Pruebas de nivel de red que cubren todos los componentes que soportan funciones de red y sistemas operativos;\ne) Revisión y consideración de amenazas y vulnerabilidades experimentadas en los últimos 12 meses;\nf) Un enfoque documentado para evaluar y abordar el riesgo causado por las vulnerabilidades expuestas y las debilidades de seguridad encontradas durante las pruebas de penetración;\ng) Retención de resultados de las pruebas de penetración y actividades de remediación durante al menos 12 meses.\n11.4.2 La evaluación de vulnerabilidades y las pruebas de penetración internas se realizan de acuerdo con la metodología definida por la entidad y al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.\n11.4.3 Las evaluaciones de vulnerabilidades externas se realizan de acuerdo con la metodología definida por la entidad, al menos una vez cada 12 meses después de cualquier actualización significativa de infraestructura o aplicaciones, y por un recurso interno calificado o por un tercero externo calificado.\n11.4.4 Todas las vulnerabilidades y debilidades de seguridad detectadas durante las evaluaciones de vulnerabilidades y pruebas de penetración se corrigen de acuerdo con la evaluación de riesgos de la entidad relacionada con la seguridad de la vulnerabilidad o debilidad detectada, y se repite la evaluación de vulnerabilidades para verificar la corrección.\n11.4.5 Se debe documentar el proceso de evaluación de vulnerabilidades y pruebas de penetración, incluyendo los resultados de las pruebas recientes, y se deben retener durante al menos 12 meses.')]}
+ ¿Qué es lo que quiere decir con "penetración interna" y "externa"?
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' ¿Qué es lo que quiere decir con "penetración interna" y "externa"?', generation_info=None)]] llm_output=None run=None
+ La penetración interna se refiere a la realización de pruebas de seguridad desde dentro del sistema, mientras que la penetración externa implica el uso de herramientas externas para evaluar la seguridad de un sistema. Esto incluye la ejecución de ataques de hacking y la exploración de las posibles vulnerabilidades en el sistema.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' La penetración interna se refiere a la realización de pruebas de seguridad desde dentro del sistema, mientras que la penetración externa implica el uso de herramientas externas para evaluar la seguridad de un sistema. Esto incluye la ejecución de ataques de hacking y la exploración de las posibles vulnerabilidades en el sistema.', generation_info=None)]] llm_output=None run=None
+Completed in 12.960s
+
+
+***Answer:
+La penetración interna se refiere a la realización de pruebas de seguridad desde dentro del sistema, mientras que la penetración externa implica el uso de herramientas externas para evaluar la seguridad de un sistema. Esto incluye la ejecución de ataques de hacking y la exploración de las posibles vulnerabilidades en el sistema.
+
+Sources:
+  Page: 14 Source: PCI_DSS_Glossary_v3-2.pdf
+circumvent or defeat the security features of system components . 
+Penetration testing includes network and application testing as well as 
+controls and processes around the networks and applications, and occurs 
+from both outside the environment  (external testing) and from inside the 
+environment .  
+Personal Firewall 
+Software  A software firewall product installed on a single computer.  
+Personally Identifiable 
+Information  Information that can be utilized to identify or trace an individual ’s identity  
+including but not limited to name, address, social security number, biometric 
+data, date of birth , etc.  
+Personnel  Full-time and part -time employees, temporary employees, contractors, and 
+consultants who are “resident” on the entity’s site or othe rwise have access 
+to the cardholder data environment.  
+PIN Acronym for “personal identification number.” Secret numeric password 
+known only to the user and a system to authenticate the user to the system.
+  Page: 12 Source: PCI_DSS_Glossary_v3-2.pdf
+PCI DSS and PA -DSS Glossary of Terms, Abbreviations, and Acronyms  v3.2    April 2016  
+© 2006 -2016 PCI Security Standards Council, LLC. All Rights Reserved  Page 13  
+Term  Definition  
+NAT Acronym for “network address translation.” Also k nown  as network 
+masquerading or IP masquerading. Change of an IP address used within 
+one network to a different IP address known within another network , 
+allowing  an organization to have internal addresses that are visible 
+internally, and external addresses that are only visible externally.  
+Network  Two or more computers connected together via physical or wireless means.  
+Network Administrator  Personnel responsible for managing the network within an entity . 
+Responsibilities typically include but are not limited to network security, 
+installations, upgrades, maintenance and activity m onitoring.  
+Network Components  Include, but are not limited to firewalls, switches, routers, wireless access 
+points, network appliances, and other security appliances.
+  Page: 22 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+• Penetration testing results are retained for at 
+least 12 months.  
+• The methodology includes a documented 
+approach to assessing and addressing risk posed by exploitable vulnerabilities a nd security 
+weaknesses found during penetration testing.  
+• The meaning of testing from inside the network (internal penetration testing) and from outside the network (external penetration testing).  Clarification or 
+guidance  
+11.3.3  11.4.4  Clarified that pene tration test findings are corrected in 
+accordance with the entity’s assessment of the risk 
+posed by the security issue.  Clarification or 
+guidance  
+ 11.4.7  New requirement for multi -tenant  service 
+providers  to support their customers for external 
+penetrati on testing.  
+This requirement is a best practice until 31 March 
+2025.  Evolving 
+requirement
+  Page: 22 Source: PCI_DSS_Glossary_v3-2.pdf
+area network that extends beyond a single traditional physical local area 
+network.  
+VPN Acronym for “virtual private network.” A computer network in which some of 
+connections are virtu al circuits within some larger network, such as the 
+Internet, instead of direct connections by physical wires. The end points of 
+the virtual network are said to be tunneled through the larger network when 
+this is the case. While a common application consis ts of secure 
+communications through the public Internet, a VPN may or may not have 
+strong security features such as authentication or content encryption.  
+A VPN may be used with a token, smart card, etc., to provide two -factor 
+authentication.  
+Vulnerabilit y Flaw or weakness which, if exploited, may result in an intentional or 
+unintentional compromise of a system .
+Load relevant documents for standalone question: ¿Qué es lo que quiere decir con "penetración interna" y "externa"?
+Completed in 0.062s
+Total time used: 155.291s

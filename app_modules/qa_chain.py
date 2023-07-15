@@ -140,8 +140,10 @@ class QAChain:
 
         if self.llm is None:
             if self.llm_model_type == "openai":
+                MODEL_NAME = os.environ.get("OPENAI_MODEL_NAME") or "gpt-4"
+                print(f"              using model: {MODEL_NAME}")
                 self.llm = ChatOpenAI(
-                    model_name="gpt-4",
+                    model_name=MODEL_NAME,
                     streaming=True,
                     callbacks=callbacks,
                     verbose=True,

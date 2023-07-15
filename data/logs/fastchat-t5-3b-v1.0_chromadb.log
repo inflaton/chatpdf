@@ -1,0 +1,465 @@
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: Found duplicate ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] files: {PosixPath('/home/inflaton/miniconda3/lib/libcudart.so'), PosixPath('/home/inflaton/miniconda3/lib/libcudart.so.11.0')}.. We'll flip a coin and try one of these, in order to fail forward.
+Either way, this might cause trouble in the future:
+If you get `CUDA error: invalid device function` errors, the above might be the cause and the solution is to make sure only one ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] in the paths that we search based on your env.
+  warn(msg)
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: No GPU detected! Check your CUDA paths. Proceeding to load CPU-only library...
+  warn(msg)
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please run
+
+python -m bitsandbytes
+
+ and submit this information together with your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+bin /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so
+CUDA SETUP: WARNING! libcuda.so not found! Do you have a CUDA driver installed? If you are on a cluster, make sure you are on a CUDA machine!
+CUDA SETUP: CUDA runtime path found: /home/inflaton/miniconda3/lib/libcudart.so
+CUDA SETUP: Loading binary /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA GeForce RTX 4090
+CUDA version: 11.7
+hf_embeddings_device_type: cpu
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 6.295s
+Load index from ./data/chromadb_1024_512/ with Chroma
+Completed in 0.442s
+initializing LLM: huggingface
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: None
+              torch_dtype: torch.float16
+                 n_threds: 4
+            loading model: lmsys/fastchat-t5-3b-v1.0
+initialization complete
+Completed in 78.731s
+Welcome to the ChatPDF! Type 'exit' to stop.
+
+Question: What's PCI DSS?
+{'question': "What's PCI DSS?", 'chat_history': []}
+Answer:   PCI   DSS   is   a   global   standard   that   provides   a   baseline   of   technical   and   operational   requirements   designed   to   protect   payment   data. 
+
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='Answer:   PCI   DSS   is   a   global   standard   that   provides   a   baseline   of   technical   and   operational   requirements   designed   to   protect   payment   data. \n', generation_info=None)]] llm_output=None run=None
+Completed in 4.440s
+
+
+***Answer:
+Answer: PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment data.
+
+Sources:
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+PCI Data Security Standard
+PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
+requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
+Goals PCI DSS Requirements
+Build and Maintain a Secure Network 
+and Systems1. Install and maintain network security controls  
+2. Apply secure configurations to all system components
+Protect Account Data 3. Protect stored account data
+4. Protect cardholder data with strong cryptography during transmission over open, public 
+networks
+Maintain a Vulnerability Management 
+Program5. Protect all systems and networks from malicious software
+6. Develop and maintain secure systems and software
+Implement Strong Access Control 
+Measures7. Restrict access to system components and cardholder data by business need to know
+8. Identify users and authenticate access to system components
+9. Restrict physical access to cardholder data
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
+AT A GLANCE: PCI DSS v4.0
+© 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
+information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
+December 20221
+What is the PCI Data Security Standard?
+The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational 
+requirements designated to protect payment data. PCI DSS v4.0 is the next evolution of the standard.PCI DSS v4.0
+Developed with Global Industry Collaboration
+Development of PCI DSS v4.0 was driven by industry feedback. This version furthers the protection of payment data 
+with new controls to address sophisticated cyber attacks.
+Implementation Timeline
+PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This provides organizations time to become 
+familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
+Security Needs of the 
+Payment Industry
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
+version 4.0.
+Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
+This Quick Reference Guide to the PCI Data Security Standard (PCI DSS) is provided by the PCI Security 
+Standards Council (PCI SSC) to inform and educate merchants and other entities involved in payment 
+card processing. For more information about the PCI SSC and the standards we manage, please visit 
+https://pcisecuritystandards.org.
+The intent of this document is to provide supplemental information, which does not replace or supersede 
+PCI Standards or their supporting documents.
+August 2022
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS_Glossary_v3-2.pdf
+PCI DSS and PA -DSS Glossary of Terms, Abbreviations, and Acronyms  v3.2    April 2016  
+© 2006 -2016 PCI Security Standards Council, LLC. All Rights Reserved  Page 15  
+Term  Definition  
+Payment Application  In the context of PA-DSS, a  software application that stores, processes, or 
+transmits cardholder data as part of authorization or settlement , where the 
+payment application is sold, distributed, or licensed to third parties.  Refer to 
+PA-DSS Program Guide  for details.  
+Payment Cards  For purposes of PCI DSS, any payment card/device that bears the logo of 
+the founding members of PCI SSC, which are American Express, Discover 
+Financial Services, JCB International, MasterCard Worldwide, or Visa, Inc.  
+Payment Processor  Sometimes  referred to as “payment gateway ” or “payment service provider 
+(PSP) ”.  
+Entity  engaged  by a merchant or other entity to handle payment  card 
+transactions on their behalf. While p ayment processor s typically provide
+Load relevant documents for standalone question: What's PCI DSS?
+Completed in 0.050s
+
+Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
+{'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", 'Answer: PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment data.')]}
+What   are   the   main   changes   made   from   PCI   DSS   version   3.2.1   to   version   4.0? 
+
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='What   are   the   main   changes   made   from   PCI   DSS   version   3.2.1   to   version   4.0? \n', generation_info=None)]] llm_output=None run=None
+  The   main   changes   made   from   PCI   DSS   version   3.2.1   to   version   4.0   are: 
+1.   Updated   principal   requirement   title   to   reflect   the   focus   on   "network   security   controls." 
+2.   Replaced   "firewalls"   and   "routers"   with   "network   security   controls"   to   support   a   broader   range   of   technologies   used   to   meet   the   security   objectives   traditionally   met   by   firewalls. 
+3.   Refocused   former   "null"   requirement   (all   content   pointed   to   other   requirements)   on   defining,   implementing,   and   maintaining   network   security   controls. 
+4.   Changed   requirements   for   roles   and   responsibilities   for   management   of   network   components. 
+5.   Refocused   former   "null"   requirement   (all   content   pointed   to   other   requirements)   on   defining,   implementing,   and   maintaining   network   security   controls. 
+6.   Changed   requirements   for   testing   procedures   and   guidance. 
+7.   Changed   requirements   for   additional   changes   per   requirement. 
+8.   Changed   requirements   for   additional   changes   per   section. 
+9.   Changed   requirements   for   additional   changes   per   document. 
+10.   Changed   requirements   for   additional   changes   per   document. 
+
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='   The   main   changes   made   from   PCI   DSS   version   3.2.1   to   version   4.0   are: \n 1.   Updated   principal   requirement   title   to   reflect   the   focus   on   "network   security   controls." \n 2.   Replaced   "firewalls"   and   "routers"   with   "network   security   controls"   to   support   a   broader   range   of   technologies   used   to   meet   the   security   objectives   traditionally   met   by   firewalls. \n 3.   Refocused   former   "null"   requirement   (all   content   pointed   to   other   requirements)   on   defining,   implementing,   and   maintaining   network   security   controls. \n 4.   Changed   requirements   for   roles   and   responsibilities   for   management   of   network   components. \n 5.   Refocused   former   "null"   requirement   (all   content   pointed   to   other   requirements)   on   defining,   implementing,   and   maintaining   network   security   controls. \n 6.   Changed   requirements   for   testing   procedures   and   guidance. \n 7.   Changed   requirements   for   additional   changes   per   requirement. \n 8.   Changed   requirements   for   additional   changes   per   section. \n 9.   Changed   requirements   for   additional   changes   per   document. \n 10.   Changed   requirements   for   additional   changes   per   document. \n', generation_info=None)]] llm_output=None run=None
+Completed in 11.680s
+
+
+***Answer:
+The main changes made from PCI DSS version 3.2.1 to version 4.0 are: 
+ 1. Updated principal requirement title to reflect the focus on "network security controls." 
+ 2. Replaced "firewalls" and "routers" with "network security controls" to support a broader range of technologies used to meet the security objectives traditionally met by firewalls. 
+ 3. Refocused former "null" requirement (all content pointed to other requirements) on defining, implementing, and maintaining network security controls. 
+ 4. Changed requirements for roles and responsibilities for management of network components. 
+ 5. Refocused former "null" requirement (all content pointed to other requirements) on defining, implementing, and maintaining network security controls. 
+ 6. Changed requirements for testing procedures and guidance. 
+ 7. Changed requirements for additional changes per requirement. 
+ 8. Changed requirements for additional changes per section. 
+ 9. Changed requirements for additional changes per document. 
+ 10. Changed requirements for additional changes per document.
+
+Sources:
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page i 
+ 
+Document Changes  
+Date  Revision  Description 
+March 2022   Initial release of the PCI DSS v3.2.1 to v4.0 Summary of Changes.  
+May 2022  1 Errata update t o correct  the change description for PCI DSS v4.0 
+Requirement 8.3.9. 
+December 
+2022  2 Errata update to  add a description of the change made to Requirement 
+6.3.3 and to correct the entry in the Summary of New Requirements  table 
+for Requirement 3.6.1.1.
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 
+1 Introduction  
+This document provides a high- level summary and description of the changes from PCI DSS v3.2.1 to 
+PCI DSS v4.0  and does not detail all document revisi ons. Due to the extent of the changes, the 
+standard should be reviewed in its entirety rather than focusing solely on this summary document.  
+This Summary of Changes is organized as follows:  
+ Change Types  - provides an overview of the types of changes   
+ Summary of Changes to PCI DSS Introductory Sections  - summarizes  changes made for 
+each affected section.  
+ Summary of General Changes to PCI DSS Requirements  - summarizes  changes made 
+throughout the requirements, testing procedures, and guidance.  
+ Additional Changes per Requirement  - summarizes  additional changes made in 
+requirements 1- 12 and the appendices.
+  Page: 2 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page ii 
+Table of Contents  
+Document Changes  ..................................................................................................................................... i 
+1 Introduction  ........................................................................................................................................... 1 
+2 Change Types  ....................................................................................................................................... 2 
+3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 
+4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 
+5 Additional Changes per Requirement ................................................................................................ 6
+  Page: 8 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 6 
+5 Additional Changes per Requirement  
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+Requirement 1  
+Requirement 1 - General  Updated principal requirement title to reflect the focus 
+on “network security controls.”  
+Replaced “firewalls” and “routers” with “network 
+security controls” to support a broader range of 
+technologies used to meet the security objectives 
+traditionally met by firewalls.  Evolving 
+requirement  
+1.1.5  1.1.2  Replaced requirement for “Description of groups, 
+roles, and responsibilities for management of network components” with general requirement for roles and 
+responsibilities for Requirement 1.  Evolving 
+requirement  
+1.1 1.2.1  Refocused former “null” requirement (all content 
+pointed to other requirements) on defining,
+Load relevant documents for standalone question: What   are   the   main   changes   made   from   PCI   DSS   version   3.2.1   to   version   4.0?
+Completed in 0.056s
+
+Question: tell me more on new requirements for vulnerability assessments and penetration testing
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+{'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'Answer: PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'The main changes made from PCI DSS version 3.2.1 to version 4.0 are: \n 1. Updated principal requirement title to reflect the focus on "network security controls." \n 2. Replaced "firewalls" and "routers" with "network security controls" to support a broader range of technologies used to meet the security objectives traditionally met by firewalls. \n 3. Refocused former "null" requirement (all content pointed to other requirements) on defining, implementing, and maintaining network security controls. \n 4. Changed requirements for roles and responsibilities for management of network components. \n 5. Refocused former "null" requirement (all content pointed to other requirements) on defining, implementing, and maintaining network security controls. \n 6. Changed requirements for testing procedures and guidance. \n 7. Changed requirements for additional changes per requirement. \n 8. Changed requirements for additional changes per section. \n 9. Changed requirements for additional changes per document. \n 10. Changed requirements for additional changes per document.')]}
+  What   are   the   new   requirements   for   vulnerability   assessments   and   penetration   testing   in   PCI   DSS   version   4.0? 
+
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='   What   are   the   new   requirements   for   vulnerability   assessments   and   penetration   testing   in   PCI   DSS   version   4.0? \n', generation_info=None)]] llm_output=None run=None
+  The   new   requirements   for   vulnerability   assessments   and   penetration   testing   in   PCI   DSS   version   4.0   are: 
+1.   New   requirement   for   roles   and   responsibilities. 
+2.   New   requirement   bullet   to   confirm   certificates   used   for   PAN   transmissions   over   open,   public   networks   are   valid   and   not   expired   or   revoked. 
+3.   New   requirement   to   maintain   an   inventory   of   trusted   keys   and   certifiicates. 
+4.   New   requirement   to   define,   document,   and   implement   a   penetration   testing   methodology   that   includes   industry-accepted   penetration   testing   approaches,   coverage   for   the   entire   CDE   perimeter   and   critical   systems,   testing   from   both   inside   and   outside   the   network,   testing   to   validate   any   segmentation   and   scope-reduction   controls,   application-layer   penetration   testing   to   identify,   at   a   minimum,   the   vulnerabilities   listed   in   Requirement   6.2.4,   and   network-layer   penetration   tests   that   encompass   all   components   that   support   network   functions   as   well   as   operating   systems. 
+
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='   The   new   requirements   for   vulnerability   assessments   and   penetration   testing   in   PCI   DSS   version   4.0   are: \n 1.   New   requirement   for   roles   and   responsibilities. \n 2.   New   requirement   bullet   to   confirm   certificates   used   for   PAN   transmissions   over   open,   public   networks   are   valid   and   not   expired   or   revoked. \n 3.   New   requirement   to   maintain   an   inventory   of   trusted   keys   and   certifiicates. \n 4.   New   requirement   to   define,   document,   and   implement   a   penetration   testing   methodology   that   includes   industry-accepted   penetration   testing   approaches,   coverage   for   the   entire   CDE   perimeter   and   critical   systems,   testing   from   both   inside   and   outside   the   network,   testing   to   validate   any   segmentation   and   scope-reduction   controls,   application-layer   penetration   testing   to   identify,   at   a   minimum,   the   vulnerabilities   listed   in   Requirement   6.2.4,   and   network-layer   penetration   tests   that   encompass   all   components   that   support   network   functions   as   well   as   operating   systems. \n', generation_info=None)]] llm_output=None run=None
+Completed in 13.924s
+
+
+***Answer:
+The new requirements for vulnerability assessments and penetration testing in PCI DSS version 4.0 are: 
+ 1. New requirement for roles and responsibilities. 
+ 2. New requirement bullet to confirm certificates used for PAN transmissions over open, public networks are valid and not expired or revoked. 
+ 3. New requirement to maintain an inventory of trusted keys and certifiicates. 
+ 4. New requirement to define, document, and implement a penetration testing methodology that includes industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.
+
+Sources:
+  Page: 12 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+Requirement 4 
+Requirement 4 - General  Updated principal requirement title to reflect the focus 
+on “strong cryptography” to protect transmissions of 
+cardholder data.  Clarification or 
+guidance  
+ 4.1.2  New requirement for roles and responsibilities.  
+This requirement is effective immediately for all v4.0 
+assessments.  Evolving 
+requirement  
+4.1 4.2.1  New requirement  bullet  to confirm certificates used 
+for PAN transmissions over open, public networks are valid and not expired or revoked.  
+This bullet is a best practice until 31 March 2025.  Evolving 
+requirement  
+ 4.2.1. 1 New requirement to maintain an inventory of trusted 
+keys and certif icates.  
+This requirement is a best practice until 31 March 
+2025.  Evolving 
+requirement  
+Requirement 5
+  Page: 387 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
+PCI DSS v4.0 ROC Template r1  December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.   Page 372 
+party and that organizational 
+independence of the tester exists.  
+ 
+Requirement Description  
+11.4 External and internal penetration testing is regularly performed, and exploitable vulnerabilities and security weaknesses are corrected.  
+PCI DSS Requirement  
+11.4.1 A penetration testing methodology is defined, documented, and implemented by the entity and includes:  
+• Industry -accepted penetration testing approaches.  
+• Coverage for the entire CDE perimeter and critical systems.  
+• Testing from both inside and outside the network.  
+• Testing to validate any segmentation and scope-reduction controls.  
+• Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.  
+• Network -layer penetration tests that encompass all components that support network functions as well as operating systems.
+  Page: 7 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
+4 Summary of General Changes to PCI DSS 
+Requirements  
+General Changes Implemented Throughout PCI DSS Requirements  Change Type  
+Reformatted overview sections and added a summary of the sections to the beginning of each 
+principal requirement.  Structure or 
+format  
+Updated overview sections and added guidance at the start of each requirement section.  Clarification or 
+guidance  
+Added numbered requirement description headings throughout each requirement to organize 
+and describe the requirements that fall under it.  Structure or 
+format  
+Renumbered requirements and testing procedures and reorganized requirements due to the 
+addition of numbered requirement description headings.  Structure or format  
+Rephrased directive requirements to be objective.  Evolving 
+requirement
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 12 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+6.5.1  – 6.5.10  6.2.4  Moved requirements for addressing common coding 
+vulnerabilities to align all software development 
+content under Requirement  6.2. 
+Combined methods to prevent or mitigate common 
+software attacks into a single requirement and generalized the language describing each type of 
+attack.  Clarification or 
+guidance  
+6.1 
+6.2 6.3 Moved requirements for identifying security 
+vulnerabilities and protecting system components 
+from vulnerabilities via patching under Requirement  
+6.3. Structure or 
+format  
+6.1 6.3.1  Added a bullet to clarify applicability to  vulnerabilities 
+for bespoke and custom and third-party software . Clarification or 
+guidance  
+ 6.3.2  New requirement to maintain an inventory of 
+bespoke and custom software.
+Load relevant documents for standalone question: What   are   the   new   requirements   for   vulnerability   assessments   and   penetration   testing   in   PCI   DSS   version   4.0?
+Completed in 0.062s
+
+Question: more on penetration testing
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+{'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'Answer: PCI DSS is a global standard that provides a baseline of technical and operational requirements designed to protect payment data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'The main changes made from PCI DSS version 3.2.1 to version 4.0 are: \n 1. Updated principal requirement title to reflect the focus on "network security controls." \n 2. Replaced "firewalls" and "routers" with "network security controls" to support a broader range of technologies used to meet the security objectives traditionally met by firewalls. \n 3. Refocused former "null" requirement (all content pointed to other requirements) on defining, implementing, and maintaining network security controls. \n 4. Changed requirements for roles and responsibilities for management of network components. \n 5. Refocused former "null" requirement (all content pointed to other requirements) on defining, implementing, and maintaining network security controls. \n 6. Changed requirements for testing procedures and guidance. \n 7. Changed requirements for additional changes per requirement. \n 8. Changed requirements for additional changes per section. \n 9. Changed requirements for additional changes per document. \n 10. Changed requirements for additional changes per document.'), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'The new requirements for vulnerability assessments and penetration testing in PCI DSS version 4.0 are: \n 1. New requirement for roles and responsibilities. \n 2. New requirement bullet to confirm certificates used for PAN transmissions over open, public networks are valid and not expired or revoked. \n 3. New requirement to maintain an inventory of trusted keys and certifiicates. \n 4. New requirement to define, document, and implement a penetration testing methodology that includes industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.')]}
+  What   are   the   new   requirements   for   penetration   testing   in   PCI   DSS   version4.0? 
+
+Both `max_new_tokens` (=2048) and `max_length`(=20) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+
+
+on_llm_end - response:
+generations=[[Generation(text='   What   are   the   new   requirements   for   penetration   testing   in   PCI   DSS   version4.0? \n', generation_info=None)]] llm_output=None run=None
+I   don't   see   any   new   requirements   for   penetration   testing   in   PCI   DSS   version   4.0.   The   only   change   in   the   summary   of   changes   is   that   the   overview   sections   and   requirement   description   headings   have   been   reformatted   and   updated.   There   are   no   specific   changes   to   the   requirements   for   penetration   testing   in   PCI   DSS   version   4.0. 
+
+
+
+
+on_llm_end - response:
+generations=[[Generation(text="I   don't   see   any   new   requirements   for   penetration   testing   in   PCI   DSS   version   4.0.   The   only   change   in   the   summary   of   changes   is   that   the   overview   sections   and   requirement   description   headings   have   been   reformatted   and   updated.   There   are   no   specific   changes   to   the   requirements   for   penetration   testing   in   PCI   DSS   version   4.0. \n", generation_info=None)]] llm_output=None run=None
+Completed in 7.310s
+
+
+***Answer:
+I don't see any new requirements for penetration testing in PCI DSS version 4.0. The only change in the summary of changes is that the overview sections and requirement description headings have been reformatted and updated. There are no specific changes to the requirements for penetration testing in PCI DSS version 4.0.
+
+Sources:
+  Page: 12 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+Requirement 4 
+Requirement 4 - General  Updated principal requirement title to reflect the focus 
+on “strong cryptography” to protect transmissions of 
+cardholder data.  Clarification or 
+guidance  
+ 4.1.2  New requirement for roles and responsibilities.  
+This requirement is effective immediately for all v4.0 
+assessments.  Evolving 
+requirement  
+4.1 4.2.1  New requirement  bullet  to confirm certificates used 
+for PAN transmissions over open, public networks are valid and not expired or revoked.  
+This bullet is a best practice until 31 March 2025.  Evolving 
+requirement  
+ 4.2.1. 1 New requirement to maintain an inventory of trusted 
+keys and certif icates.  
+This requirement is a best practice until 31 March 
+2025.  Evolving 
+requirement  
+Requirement 5
+  Page: 22 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 20 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+Requirement 11  
+Requirement 11 - General  Minor update to principal requirement title.  Clarification or 
+guidance  
+ 11.1.2  New requirement  for roles and responsibilities.  
+This requirement is effective immediately for all v4.0 
+assessments.  Evolving 
+requirement  
+11.1 11.2.1  Clarified the intent of the requirement is to manage 
+both authorized and unauthorized wireless access points.  
+Clarified that this requirement applies even when a policy exists to prohibit the use of wireless technology.  Clarification or 
+guidance  
+ 11.3.1.1  New requirement  to manage a ll other applicable 
+vulnerabilities (those not ranked as high-risk or critical) found during internal vulnerability scans.  
+This requirement is a best practice until 31 March 2025.  Evolving 
+requirement
+  Page: 7 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
+4 Summary of General Changes to PCI DSS 
+Requirements  
+General Changes Implemented Throughout PCI DSS Requirements  Change Type  
+Reformatted overview sections and added a summary of the sections to the beginning of each 
+principal requirement.  Structure or 
+format  
+Updated overview sections and added guidance at the start of each requirement section.  Clarification or 
+guidance  
+Added numbered requirement description headings throughout each requirement to organize 
+and describe the requirements that fall under it.  Structure or 
+format  
+Renumbered requirements and testing procedures and reorganized requirements due to the 
+addition of numbered requirement description headings.  Structure or format  
+Rephrased directive requirements to be objective.  Evolving 
+requirement
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 12 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+6.5.1  – 6.5.10  6.2.4  Moved requirements for addressing common coding 
+vulnerabilities to align all software development 
+content under Requirement  6.2. 
+Combined methods to prevent or mitigate common 
+software attacks into a single requirement and generalized the language describing each type of 
+attack.  Clarification or 
+guidance  
+6.1 
+6.2 6.3 Moved requirements for identifying security 
+vulnerabilities and protecting system components 
+from vulnerabilities via patching under Requirement  
+6.3. Structure or 
+format  
+6.1 6.3.1  Added a bullet to clarify applicability to  vulnerabilities 
+for bespoke and custom and third-party software . Clarification or 
+guidance  
+ 6.3.2  New requirement to maintain an inventory of 
+bespoke and custom software.
+Load relevant documents for standalone question: What   are   the   new   requirements   for   penetration   testing   in   PCI   DSS   version4.0?
+Completed in 0.057s
+Total time used: 37.579s

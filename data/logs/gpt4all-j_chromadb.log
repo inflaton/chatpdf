@@ -1,0 +1,406 @@
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: Found duplicate ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] files: {PosixPath('/home/inflaton/miniconda3/lib/libcudart.so.11.0'), PosixPath('/home/inflaton/miniconda3/lib/libcudart.so')}.. We'll flip a coin and try one of these, in order to fail forward.
+Either way, this might cause trouble in the future:
+If you get `CUDA error: invalid device function` errors, the above might be the cause and the solution is to make sure only one ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] in the paths that we search based on your env.
+  warn(msg)
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: No GPU detected! Check your CUDA paths. Proceeding to load CPU-only library...
+  warn(msg)
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please run
+
+python -m bitsandbytes
+
+ and submit this information together with your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+bin /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so
+CUDA SETUP: WARNING! libcuda.so not found! Do you have a CUDA driver installed? If you are on a cluster, make sure you are on a CUDA machine!
+CUDA SETUP: CUDA runtime path found: /home/inflaton/miniconda3/lib/libcudart.so.11.0
+CUDA SETUP: Loading binary /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA GeForce RTX 4090
+CUDA version: 11.7
+hf_embeddings_device_type: cpu
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 1.597s
+Load index from ./data/chromadb_1024_512/ with Chroma
+Completed in 0.289s
+initializing LLM: huggingface
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: None
+              torch_dtype: torch.float16
+                 n_threds: 4
+            loading model: nomic-ai/gpt4all-j
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:15<00:00,  7.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:15<00:00,  7.99s/it]
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+initialization complete
+Completed in 78.464s
+Welcome to the ChatPDF! Type 'exit' to stop.
+
+Question: What's PCI DSS?
+{'question': "What's PCI DSS?", 'chat_history': []}
+ PCI DSS stands for Payment Card Industry Data Security Standard. It's a set of guidelines and best practices developed to ensure the confidentiality, integrity, and availability of sensitive financial transaction data transmitted between merchants and their customers' bank accounts.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=" PCI DSS stands for Payment Card Industry Data Security Standard. It's a set of guidelines and best practices developed to ensure the confidentiality, integrity, and availability of sensitive financial transaction data transmitted between merchants and their customers' bank accounts.", generation_info=None)]] llm_output=None run=None
+Completed in 9.187s
+
+
+***Answer:
+PCI DSS stands for Payment Card Industry Data Security Standard. It's a set of guidelines and best practices developed to ensure the confidentiality, integrity, and availability of sensitive financial transaction data transmitted between merchants and their customers' bank accounts.
+
+Sources:
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+PCI Data Security Standard
+PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
+requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
+Goals PCI DSS Requirements
+Build and Maintain a Secure Network 
+and Systems1. Install and maintain network security controls  
+2. Apply secure configurations to all system components
+Protect Account Data 3. Protect stored account data
+4. Protect cardholder data with strong cryptography during transmission over open, public 
+networks
+Maintain a Vulnerability Management 
+Program5. Protect all systems and networks from malicious software
+6. Develop and maintain secure systems and software
+Implement Strong Access Control 
+Measures7. Restrict access to system components and cardholder data by business need to know
+8. Identify users and authenticate access to system components
+9. Restrict physical access to cardholder data
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
+AT A GLANCE: PCI DSS v4.0
+© 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
+information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
+December 20221
+What is the PCI Data Security Standard?
+The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational 
+requirements designated to protect payment data. PCI DSS v4.0 is the next evolution of the standard.PCI DSS v4.0
+Developed with Global Industry Collaboration
+Development of PCI DSS v4.0 was driven by industry feedback. This version furthers the protection of payment data 
+with new controls to address sophisticated cyber attacks.
+Implementation Timeline
+PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This provides organizations time to become 
+familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
+Security Needs of the 
+Payment Industry
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
+version 4.0.
+Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
+This Quick Reference Guide to the PCI Data Security Standard (PCI DSS) is provided by the PCI Security 
+Standards Council (PCI SSC) to inform and educate merchants and other entities involved in payment 
+card processing. For more information about the PCI SSC and the standards we manage, please visit 
+https://pcisecuritystandards.org.
+The intent of this document is to provide supplemental information, which does not replace or supersede 
+PCI Standards or their supporting documents.
+August 2022
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS_Glossary_v3-2.pdf
+PCI DSS and PA -DSS Glossary of Terms, Abbreviations, and Acronyms  v3.2    April 2016  
+© 2006 -2016 PCI Security Standards Council, LLC. All Rights Reserved  Page 15  
+Term  Definition  
+Payment Application  In the context of PA-DSS, a  software application that stores, processes, or 
+transmits cardholder data as part of authorization or settlement , where the 
+payment application is sold, distributed, or licensed to third parties.  Refer to 
+PA-DSS Program Guide  for details.  
+Payment Cards  For purposes of PCI DSS, any payment card/device that bears the logo of 
+the founding members of PCI SSC, which are American Express, Discover 
+Financial Services, JCB International, MasterCard Worldwide, or Visa, Inc.  
+Payment Processor  Sometimes  referred to as “payment gateway ” or “payment service provider 
+(PSP) ”.  
+Entity  engaged  by a merchant or other entity to handle payment  card 
+transactions on their behalf. While p ayment processor s typically provide
+Load relevant documents for standalone question: What's PCI DSS?
+Completed in 0.053s
+
+Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
+{'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", "PCI DSS stands for Payment Card Industry Data Security Standard. It's a set of guidelines and best practices developed to ensure the confidentiality, integrity, and availability of sensitive financial transaction data transmitted between merchants and their customers' bank accounts.")]}
+ How do these changes impact businesses that process credit card transactions?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' How do these changes impact businesses that process credit card transactions?', generation_info=None)]] llm_output=None run=None
+ The changes outlined in the PCIDSS v4.0 revision 2 report include the inclusion of new sections such as "Merchant Business Payment Channels" and "Description of Role with Payment Cards." These changes could potentially affect how merchants handle their payment processes and ensure compliance with industry standards like PCI DSS. It's important for merchants to review and update their payment processing practices accordingly.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' The changes outlined in the PCIDSS v4.0 revision 2 report include the inclusion of new sections such as "Merchant Business Payment Channels" and "Description of Role with Payment Cards." These changes could potentially affect how merchants handle their payment processes and ensure compliance with industry standards like PCI DSS. It\'s important for merchants to review and update their payment processing practices accordingly.', generation_info=None)]] llm_output=None run=None
+Completed in 10.888s
+
+
+***Answer:
+The changes outlined in the PCIDSS v4.0 revision 2 report include the inclusion of new sections such as "Merchant Business Payment Channels" and "Description of Role with Payment Cards." These changes could potentially affect how merchants handle their payment processes and ensure compliance with industry standards like PCI DSS. It's important for merchants to review and update their payment processing practices accordingly.
+
+Sources:
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+payment account data used by payment cards and related electronic payment systems.
+As a payment system stakeholder, your company is on the front line of a high-stakes battle for keeping 
+payment data safe from theft and exploitation. Occasional lax security enables criminals to easily steal and 
+use personal consumer financial information from payment transactions and processing systems.
+Vulnerabilities may appear anywhere in the card-processing ecosystem, including but not limited to:
+• point-of-sale devices;
+• cloud-based systems;
+• mobile devices, personal computers, or servers;
+• wireless hotspots;
+• web shopping applications;
+• paper-based storage systems;
+• the transmission of cardholder data to service providers;
+• remote access connections.
+Vulnerabilities may also extend to systems operated by service providers and acquirers, which are the 
+financial institutions that initiate and maintain the relationships with merchants that accept payment cards 
+(see diagram on page 5).
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+Payment Card Industry  
+Data Security Standard 
+Summary of Changes from 
+PCI DSS Version 3.2.1 to 4.0   
+Revision 2 
+December 2022
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-AOC-Merchants-r1.pdf
+PCI DSS v4.0  Attestation of Compliance for Report on Compliance - Merchants  r1 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 3 
+Part 2. Executive Summary  
+Part 2a. Merchant Business Payment Channels (select  all that apply) : 
+(ROC Section 2.1)  
+Indicate all  payment channels used by the  business  that are included in this Assessment.  
+ Mail order  / telephone order (MOTO)  
+ E-Commerce  
+ Card-present  
+Are any payment channels not included in  this 
+Assessment?  
+If yes, indicate which channel (s) is  not included  in 
+the Assessment  and provide a brief explanation 
+about why the channel was excluded.    Yes     No 
+ 
+      
+Note:  If the merchant has a payment channel that is not covered by this Assessment , consult with the entity(ies) to 
+which this AOC will be submitted about validation for the other channels.  
+ 
+Part 2b. Description of Role with Payment Card s 
+(ROC Section 2.1)
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-AOC-Merchants-r1.pdf
+Payment Card Industry  
+Data Security Standard 
+Attestation of Compliance for Report 
+on Compliance − Merchants  
+Version 4.0  
+Revision 1  
+Publication Date: December  2022
+Load relevant documents for standalone question: How do these changes impact businesses that process credit card transactions?
+Completed in 0.050s
+
+Question: tell me more on new requirements for vulnerability assessments and penetration testing
+{'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", "PCI DSS stands for Payment Card Industry Data Security Standard. It's a set of guidelines and best practices developed to ensure the confidentiality, integrity, and availability of sensitive financial transaction data transmitted between merchants and their customers' bank accounts."), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'The changes outlined in the PCIDSS v4.0 revision 2 report include the inclusion of new sections such as "Merchant Business Payment Channels" and "Description of Role with Payment Cards." These changes could potentially affect how merchants handle their payment processes and ensure compliance with industry standards like PCI DSS. It\'s important for merchants to review and update their payment processing practices accordingly.')]}
+ How can businesses assess their risk exposure to cyber attacks and vulnerabilities?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' How can businesses assess their risk exposure to cyber attacks and vulnerabilities?', generation_info=None)]] llm_output=None run=None
+ Businesses should conduct regular vulnerability assessments to identify potential threats and weaknesses within their IT infrastructure. This includes assessing the risks associated with employees accessing sensitive data, as well as identifying any external sources of attack such as phishing scams or social engineering tactics. It's important to have clear guidelines and procedures in place for responding to these types of incidents, along with appropriate training for employees who handle sensitive data. Additionally, businesses should implement strong access controls and encryption measures to protect against unauthorized access to sensitive data. Regular testing and monitoring of systems and networks also helps to ensure that they remain protected against known vulnerabilities and new threats.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=" Businesses should conduct regular vulnerability assessments to identify potential threats and weaknesses within their IT infrastructure. This includes assessing the risks associated with employees accessing sensitive data, as well as identifying any external sources of attack such as phishing scams or social engineering tactics. It's important to have clear guidelines and procedures in place for responding to these types of incidents, along with appropriate training for employees who handle sensitive data. Additionally, businesses should implement strong access controls and encryption measures to protect against unauthorized access to sensitive data. Regular testing and monitoring of systems and networks also helps to ensure that they remain protected against known vulnerabilities and new threats.", generation_info=None)]] llm_output=None run=None
+Completed in 20.423s
+
+
+***Answer:
+Businesses should conduct regular vulnerability assessments to identify potential threats and weaknesses within their IT infrastructure. This includes assessing the risks associated with employees accessing sensitive data, as well as identifying any external sources of attack such as phishing scams or social engineering tactics. It's important to have clear guidelines and procedures in place for responding to these types of incidents, along with appropriate training for employees who handle sensitive data. Additionally, businesses should implement strong access controls and encryption measures to protect against unauthorized access to sensitive data. Regular testing and monitoring of systems and networks also helps to ensure that they remain protected against known vulnerabilities and new threats.
+
+Sources:
+  Page: 26 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+the network during many business-approved activities, including employee e-mail (for example, via 
+phishing) and use of the internet, mobile computers, and storage devices, resulting in the exploitation of 
+system vulnerabilities.
+5.1 Processes and mechanisms for protecting all systems and networks from malicious software are 
+defined and understood.VULNERABILITY MANAGEMENT
+Create a policy governing security 
+controls according to industry 
+standards and best practices.
+Regularly scan systems for 
+vulnerabilities.
+Create a remediation schedule 
+based on risk and priority.
+Pre-test and deploy patches. 
+Rescan to verify vulnerabilities are 
+addressed.
+Update all software with the most 
+current signatures and technology.
+Use only software or systems that 
+are securely developed following 
+industry standard best practices.
+  Page: 4 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS_Glossary_v3-2.pdf
+Consumer  Individual purchasing goods, services, or both.  
+Critical systems / 
+critical technologies  A system or technology that is deemed by the entity to be of particular 
+importance. For example, a critical system may be essential  for the 
+performance of a business operation  or for a security function to be 
+maintained .  Examples of critical systems often  include security systems, 
+public -facing devices and systems, databases, and systems that store, 
+process, or transmit cardholder data.  Considerations for determining which 
+specific system s and technolog ies are critical will depend on an 
+organization’s environment and risk-assessment strategy.  
+Cross -Site Request 
+Forgery (CSRF)  Vulnerability that is created from insecure coding methods that allows for the 
+execution of unwanted actions through an authenticated session. Often 
+used in conjunction with XSS and/or SQL injection.  
+Cross -Site Scripting 
+(XSS)  Vulnerability that is created from insecure coding techniques, resulting in
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
+4. Protect cardholder data with strong cryptography during transmission over open, public 
+networks
+Maintain a Vulnerability Management 
+Program5. Protect all systems and networks from malicious software
+6. Develop and maintain secure systems and software
+Implement Strong Access Control 
+Measures7. Restrict access to system components and cardholder data by business need to know
+8. Identify users and authenticate access to system components
+9. Restrict physical access to cardholder data
+Regularly Monitor and Test Networks 10. Log and monitor all access to system components and cardholder data
+11. Test security of systems and networks regularly
+Maintain an Information Security 
+Policy12. Support information security with organizational policies and programs
+  Page: 33 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+testing.      
+11.5.1.1  Covert malware communication 
+channels detect, alert and/or prevent, 
+and address via intrusion-detection 
+and/or intrusion-prevention techniques.      
+11.6.1  A change -and-tamper -detection 
+mechanism is deployed for payment 
+pages .      
+12.3.1  A targeted risk analysis is documented 
+to support  each PCI DSS requirement 
+that provides flexibility for how frequently it is performed.      
+12.3.2  A targeted risk analysis is performed for 
+each PCI DSS requirement that is met 
+with the customized approach.      
+12.3.3  Cryptographic cipher suites and 
+protocols in use are documented and 
+reviewed.      
+12.3.4  Hardware and software technologies are 
+reviewed.      
+12.5.2  PCI DSS scope is documented and 
+confirmed at least once every 12 months.    
+Load relevant documents for standalone question: How can businesses assess their risk exposure to cyber attacks and vulnerabilities?
+Completed in 0.052s
+
+Question: more on penetration testing
+{'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", "PCI DSS stands for Payment Card Industry Data Security Standard. It's a set of guidelines and best practices developed to ensure the confidentiality, integrity, and availability of sensitive financial transaction data transmitted between merchants and their customers' bank accounts."), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'The changes outlined in the PCIDSS v4.0 revision 2 report include the inclusion of new sections such as "Merchant Business Payment Channels" and "Description of Role with Payment Cards." These changes could potentially affect how merchants handle their payment processes and ensure compliance with industry standards like PCI DSS. It\'s important for merchants to review and update their payment processing practices accordingly.'), ('tell me more on new requirements for vulnerability assessments and penetration testing', "Businesses should conduct regular vulnerability assessments to identify potential threats and weaknesses within their IT infrastructure. This includes assessing the risks associated with employees accessing sensitive data, as well as identifying any external sources of attack such as phishing scams or social engineering tactics. It's important to have clear guidelines and procedures in place for responding to these types of incidents, along with appropriate training for employees who handle sensitive data. Additionally, businesses should implement strong access controls and encryption measures to protect against unauthorized access to sensitive data. Regular testing and monitoring of systems and networks also helps to ensure that they remain protected against known vulnerabilities and new threats.")]}
+ How can businesses effectively assess and mitigate the risk of cyber attacks through regular vulnerability assessments and penetration testing?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' How can businesses effectively assess and mitigate the risk of cyber attacks through regular vulnerability assessments and penetration testing?', generation_info=None)]] llm_output=None run=None
+ Businesses should regularly perform vulnerability assessments and penetration tests on their systems and applications to identify potential threats and take appropriate measures to mitigate them. This includes reviewing public-facing web applications, installing automated technical solutions such as firewalls and intrusion detection systems, conducting periodic vulnerability scans using specialized tools, and implementing remediation actions when necessary. It's also important to document these assessments and follow best practices for retention and reporting. Regularly updating and maintaining this process will help ensure ongoing protection against cyber attacks.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=" Businesses should regularly perform vulnerability assessments and penetration tests on their systems and applications to identify potential threats and take appropriate measures to mitigate them. This includes reviewing public-facing web applications, installing automated technical solutions such as firewalls and intrusion detection systems, conducting periodic vulnerability scans using specialized tools, and implementing remediation actions when necessary. It's also important to document these assessments and follow best practices for retention and reporting. Regularly updating and maintaining this process will help ensure ongoing protection against cyber attacks.", generation_info=None)]] llm_output=None run=None
+Completed in 21.548s
+
+
+***Answer:
+Businesses should regularly perform vulnerability assessments and penetration tests on their systems and applications to identify potential threats and take appropriate measures to mitigate them. This includes reviewing public-facing web applications, installing automated technical solutions such as firewalls and intrusion detection systems, conducting periodic vulnerability scans using specialized tools, and implementing remediation actions when necessary. It's also important to document these assessments and follow best practices for retention and reporting. Regularly updating and maintaining this process will help ensure ongoing protection against cyber attacks.
+
+Sources:
+  Page: 33 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+10.7.3  Failures of c ritical security control 
+systems are responded to promptly.      
+11.1.2  Roles and responsibilities for performing 
+activities in Requirement 11 are 
+documented, assigned, and understood.      
+11.3.1.1  Manage all other a pplicable 
+vulnerabilities (those not ranked as high-
+risk or critical ).     
+11.3.1.2  Internal vulnerability scans are 
+performed via authenticated scanning.      
+11.4.7  Multi -tenant  service providers support 
+their customers for external penetration 
+testing.      
+11.5.1.1  Covert malware communication 
+channels detect, alert and/or prevent, 
+and address via intrusion-detection 
+and/or intrusion-prevention techniques.      
+11.6.1  A change -and-tamper -detection 
+mechanism is deployed for payment 
+pages .      
+12.3.1  A targeted risk analysis is documented 
+to support  each PCI DSS requirement 
+that provides flexibility for how frequently it is performed.      
+12.3.2  A targeted risk analysis is performed for
+  Page: 33 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+testing.      
+11.5.1.1  Covert malware communication 
+channels detect, alert and/or prevent, 
+and address via intrusion-detection 
+and/or intrusion-prevention techniques.      
+11.6.1  A change -and-tamper -detection 
+mechanism is deployed for payment 
+pages .      
+12.3.1  A targeted risk analysis is documented 
+to support  each PCI DSS requirement 
+that provides flexibility for how frequently it is performed.      
+12.3.2  A targeted risk analysis is performed for 
+each PCI DSS requirement that is met 
+with the customized approach.      
+12.3.3  Cryptographic cipher suites and 
+protocols in use are documented and 
+reviewed.      
+12.3.4  Hardware and software technologies are 
+reviewed.      
+12.5.2  PCI DSS scope is documented and 
+confirmed at least once every 12 months.    
+  Page: 17 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+•Reviewing public -facing web applications via manual or automated
+application vulnerability security assessment tools or methods as follows:
+–At least once every 12 months and after significant changes.
+–By an entity that specializes in application security.
+–Including, at a minimum, all common software attacks in Requiremen t
+6.2.4.
+–All vul nerabilities are ranked in accordance with requirement 6.3.1.
+–All vulnerabilities are corrected.
+–The application is re -evaluated after the corrections
+OR 
+•Installing an automated technical solution(s) that continually detects and
+prevents web- based attacks as follows:
+–Installed in front of public -facing web applications to detect and
+prevent web- based attacks.
+–Actively running and up to date as applicable.
+–Generating audit logs .
+–Configured to either block web -based attacks or generate an alert
+that is immediately investigated.3
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+exploitable vulnerabilities and secu rity weaknesses found during
+penetration testing.
+•Retention of penetration testing results and remediation activities resultsfor at least 12 months.2 
+11.4.2 Internal  penetration testing is performed: 
+•Per the entity’s defined methodology,
+•At least once every 12 months
+•After any significant infrastructure or application upgrade or change
+•By a qualified internal resource or qualified external third -party
+•Organizational independence of the tester exists (not required to be a
+QSA or ASV).2
+Load relevant documents for standalone question: How can businesses effectively assess and mitigate the risk of cyber attacks through regular vulnerability assessments and penetration testing?
+Completed in 0.047s
+Total time used: 62.249s
