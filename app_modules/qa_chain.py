@@ -538,7 +538,7 @@ class QAChain:
         result["answer"] = remove_extra_spaces(result["answer"])
 
         base_url = os.environ.get("PDF_FILE_BASE_URL")
-        if base_url is not None:
+        if base_url is not None and len(base_url) > 0:
             documents = result["source_documents"]
             for doc in documents:
                 source = doc.metadata["source"]

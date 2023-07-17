@@ -78,7 +78,9 @@ print(f"Completed in {end - start:.3f}s")
 start = timer()
 
 if not os.path.isdir(index_path):
-    print("The index persist directory is not present. Creating a new one.")
+    print(
+        f"The index persist directory {index_path} is not present. Creating a new one."
+    )
     os.mkdir(index_path)
 
     if source_urls is not None:
@@ -94,8 +96,11 @@ if not os.path.isdir(index_path):
         # Remove the newline characters from each string
         source_urls = [line.strip() for line in lines]
 
-    print(f"Loading PDF files from {source_pdfs_path}")
+    print(
+        f"Loading {'' if source_urls is None else str(len(source_urls)) + ' '}PDF files from {source_pdfs_path}"
+    )
     sources = load_documents(source_pdfs_path, source_urls)
+
     print(f"Splitting {len(sources)} PDF pages in to chunks ...")
 
     chunks = split_chunks(
@@ -105,12 +110,21 @@ if not os.path.isdir(index_path):
 
     index = generate_index(chunks, embeddings)
 else:
-    print("The index persist directory is present. Loading index ...")
+    print(f"The index persist directory {index_path} is present. Loading index ...")
     index = (
         FAISS.load_local(index_path, embeddings)
         if using_faiss
         else Chroma(embedding_function=embeddings, persist_directory=index_path)
     )
+    query = "hi"
+    print(f"Load relevant documents for standalone question: {query}")
+
+    start2 = timer()
+    docs = index.as_retriever().get_relevant_documents(query)
+    end = timer()
+
+    print(f"Completed in {end - start2:.3f}s")
+    print(docs)
 
 end = timer()
 

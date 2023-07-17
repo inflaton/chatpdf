@@ -1,4 +1,4 @@
-/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: Found duplicate ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] files: {PosixPath('/home/inflaton/miniconda3/lib/libcudart.so.11.0'), PosixPath('/home/inflaton/miniconda3/lib/libcudart.so')}.. We'll flip a coin and try one of these, in order to fail forward.
+/home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: Found duplicate ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] files: {PosixPath('/home/inflaton/miniconda3/lib/libcudart.so'), PosixPath('/home/inflaton/miniconda3/lib/libcudart.so.11.0')}.. We'll flip a coin and try one of these, in order to fail forward.
 Either way, this might cause trouble in the future:
 If you get `CUDA error: invalid device function` errors, the above might be the cause and the solution is to make sure only one ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] in the paths that we search based on your env.
   warn(msg)
@@ -14,7 +14,7 @@ python -m bitsandbytes
 ================================================================================
 bin /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so
 CUDA SETUP: WARNING! libcuda.so not found! Do you have a CUDA driver installed? If you are on a cluster, make sure you are on a CUDA machine!
-CUDA SETUP: CUDA runtime path found: /home/inflaton/miniconda3/lib/libcudart.so.11.0
+CUDA SETUP: CUDA runtime path found: /home/inflaton/miniconda3/lib/libcudart.so
 CUDA SETUP: Loading binary /home/inflaton/miniconda3/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
 loading env vars from: /home/inflaton/code/chat-with-pci-dss-v4/.env
 Running on:  Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35
@@ -28,7 +28,7 @@ hf_embeddings_device_type: cpu
 hf_pipeline_device_type: cuda:0
 load INSTRUCTOR_Transformer
 max_seq_length  512
-Completed in 1.618s
+Completed in 1.784s
 Load index from ./data/faiss_1024_512/ with FAISS
 Completed in 0.093s
 initializing LLM: mosaicml
@@ -39,11 +39,11 @@ initializing LLM: mosaicml
             loading model: mosaicml/mpt-7b-instruct
 Instantiating an MPTForCausalLM model from /home/inflaton/.cache/huggingface/modules/transformers_modules/mosaicml/mpt-7b-instruct/1fc4634127ec64a45716003578b9cfae23265849/modeling_mpt.py
 You are using config.init_device='cuda:0', but you can also use config.init_device="meta" with Composer + FSDP for fast initialization.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.71s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.35s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.69s/it]
 Model loaded on cuda:0
 Model memory footprint: 13298573312
 initialization complete
-Completed in 12.839s
+Completed in 25.046s
 Welcome to the ChatPDF! Type 'exit' to stop.
 
 Question: What's PCI DSS?
@@ -54,14 +54,14 @@ Question: What's PCI DSS?
 
 on_llm_end - response:
 generations=[[Generation(text=' The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designated to protect payment data.', generation_info=None)]] llm_output=None run=None
-Completed in 6.723s
+Completed in 85.905s
 
 
 ***Answer:
 The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designated to protect payment data.
 
 Sources:
-  Page: 37 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI Data Security Standard
 PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
 requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
@@ -79,7 +79,7 @@ Implement Strong Access Control
 Measures7. Restrict access to system components and cardholder data by business need to know
 8. Identify users and authenticate access to system components
 9. Restrict physical access to cardholder data
-  Page: 0 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -95,7 +95,7 @@ PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This pr
 familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
 Security Needs of the 
 Payment Industry
-  Page: 1 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
 version 4.0.
 Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
@@ -106,7 +106,7 @@ https://pcisecuritystandards.org.
 The intent of this document is to provide supplemental information, which does not replace or supersede 
 PCI Standards or their supporting documents.
 August 2022
-  Page: 4 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 4 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS.  
 Clarified table with commonly used elements of cardholder data and SAD, whether storage is 
 permitted, and whether data must be rendered 
@@ -127,7 +127,7 @@ PCI DSS applies; added cloud and other system components.
 Added “Understanding PCI DSS Scoping” diagram.  Clarification or 
 guidance
 Load relevant documents for standalone question: What's PCI DSS?
-Completed in 0.047s
+Completed in 0.057s
 
 Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
 {'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designated to protect payment data.')]}
@@ -143,14 +143,14 @@ generations=[[Generation(text=' The Payment Card Industry Data Security Standard
 
 on_llm_end - response:
 generations=[[Generation(text='  The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.', generation_info=None)]] llm_output=None run=None
-Completed in 14.288s
+Completed in 188.381s
 
 
 ***Answer:
 The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.
 
 Sources:
-  Page: 0 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -166,14 +166,14 @@ PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This pr
 familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
 Security Needs of the 
 Payment Industry
-  Page: 0 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 Payment Card Industry  
 Data Security Standard 
 Summary of Changes from 
 PCI DSS Version 3.2.1 to 4.0   
 Revision 2 
 December 2022
-  Page: 1 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
 version 4.0.
 Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
@@ -184,7 +184,7 @@ https://pcisecuritystandards.org.
 The intent of this document is to provide supplemental information, which does not replace or supersede 
 PCI Standards or their supporting documents.
 August 2022
-  Page: 1 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -204,7 +204,7 @@ Why it is important: Criminals never sleep. Ongoing security is crucial to
 protect payment data.
 Examples:
 Load relevant documents for standalone question: The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.
-Completed in 0.106s
+Completed in 0.104s
 
 Question: tell me more on new requirements for vulnerability assessments and penetration testing
 {'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designated to protect payment data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.')]}
@@ -220,14 +220,14 @@ generations=[[Generation(text=' The Payment Card Industry Data Security Standard
 
 on_llm_end - response:
 generations=[[Generation(text='  The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.', generation_info=None)]] llm_output=None run=None
-Completed in 14.091s
+Completed in 198.438s
 
 
 ***Answer:
 The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.
 
 Sources:
-  Page: 0 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -243,14 +243,14 @@ PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This pr
 familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
 Security Needs of the 
 Payment Industry
-  Page: 0 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 Payment Card Industry  
 Data Security Standard 
 Summary of Changes from 
 PCI DSS Version 3.2.1 to 4.0   
 Revision 2 
 December 2022
-  Page: 1 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
 version 4.0.
 Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
@@ -261,7 +261,7 @@ https://pcisecuritystandards.org.
 The intent of this document is to provide supplemental information, which does not replace or supersede 
 PCI Standards or their supporting documents.
 August 2022
-  Page: 1 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -281,7 +281,7 @@ Why it is important: Criminals never sleep. Ongoing security is crucial to
 protect payment data.
 Examples:
 Load relevant documents for standalone question: The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.
-Completed in 0.107s
+Completed in 0.105s
 
 Question: more on penetration testing
 {'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designated to protect payment data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.'), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'The Payment Card Industry Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment card data. Version 4.0 of the standard was released on September 30, 2019. The most significant change in version 4.0 is the introduction of the concept of "security domains" to help organizations better segment their networks and systems.')]}
@@ -304,7 +304,7 @@ generations=[[Generation(text=' What are the new requirements for vulnerability 
 
 on_llm_end - response:
 generations=[[Generation(text='  The new requirements for vulnerability assessments and penetration testing in PCI DSS version 4.0 are:\n• Requirement 11.4.1: A penetration testing methodology is defined, documented, and implemented by the entity and includes:\n• Industry-accepted penetration testing approaches.\n• Coverage for the entire CDE perimeter and critical systems.\n• Testing from both inside and outside the network.\n• Testing to validate any segmentation and scope-reduction controls.\n• Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.\n• Network-layer penetration tests that encompass all components that support network functions as well as operating systems.', generation_info=None)]] llm_output=None run=None
-Completed in 49.388s
+Completed in 613.304s
 
 
 ***Answer:
@@ -318,7 +318,7 @@ The new requirements for vulnerability assessments and penetration testing in PC
 • Network-layer penetration tests that encompass all components that support network functions as well as operating systems.
 
 Sources:
-  Page: 12 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 12 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
 Section  
@@ -343,7 +343,7 @@ This requirement is a best practice until 31 March
 2025.  Evolving 
 requirement  
 Requirement 5
-  Page: 387 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+  Page: 387 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
 PCI DSS v4.0 ROC Template r1  December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.   Page 372 
 party and that organizational 
@@ -359,7 +359,7 @@ PCI DSS Requirement
 • Testing to validate any segmentation and scope-reduction controls.  
 • Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.  
 • Network -layer penetration tests that encompass all components that support network functions as well as operating systems.
-  Page: 7 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 7 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
 4 Summary of General Changes to PCI DSS 
@@ -377,7 +377,7 @@ Renumbered requirements and testing procedures and reorganized requirements due 
 addition of numbered requirement description headings.  Structure or format  
 Rephrased directive requirements to be objective.  Evolving 
 requirement
-  Page: 14 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 12 
 Section  
@@ -402,5 +402,5 @@ guidance
  6.3.2  New requirement to maintain an inventory of 
 bespoke and custom software.
 Load relevant documents for standalone question: What are the new requirements for vulnerability assessments and penetration testing in PCI DSS version 4.0?
-Completed in 0.055s
-Total time used: 84.804s
+Completed in 0.083s
+Total time used: 1086.377s

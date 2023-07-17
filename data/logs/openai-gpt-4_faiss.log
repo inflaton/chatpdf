@@ -28,9 +28,9 @@ hf_embeddings_device_type: cpu
 hf_pipeline_device_type: cuda:0
 load INSTRUCTOR_Transformer
 max_seq_length  512
-Completed in 1.424s
+Completed in 1.398s
 Load index from ./data/faiss_1024_512/ with FAISS
-Completed in 0.082s
+Completed in 0.074s
 initializing LLM: openai
   hf_pipeline_device_type: cuda:0
      load_quantized_model: None
@@ -43,19 +43,19 @@ Welcome to the ChatPDF! Type 'exit' to stop.
 
 Question: What's PCI DSS?
 {'question': "What's PCI DSS?", 'chat_history': []}
-The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.
+The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.
 
 
 on_llm_end - response:
-generations=[[ChatGeneration(text='The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.', generation_info=None, message=AIMessage(content='The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.', additional_kwargs={}, example=False))]] llm_output=None run=None
-Completed in 4.512s
+generations=[[ChatGeneration(text='The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.', generation_info=None, message=AIMessage(content='The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.', additional_kwargs={}, example=False))]] llm_output=None run=None
+Completed in 5.227s
 
 
 ***Answer:
-The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.
+The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.
 
 Sources:
-  Page: 37 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI Data Security Standard
 PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
 requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
@@ -73,7 +73,7 @@ Implement Strong Access Control
 Measures7. Restrict access to system components and cardholder data by business need to know
 8. Identify users and authenticate access to system components
 9. Restrict physical access to cardholder data
-  Page: 0 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -89,7 +89,7 @@ PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This pr
 familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
 Security Needs of the 
 Payment Industry
-  Page: 1 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
 version 4.0.
 Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
@@ -100,7 +100,7 @@ https://pcisecuritystandards.org.
 The intent of this document is to provide supplemental information, which does not replace or supersede 
 PCI Standards or their supporting documents.
 August 2022
-  Page: 4 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 4 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS.  
 Clarified table with commonly used elements of cardholder data and SAD, whether storage is 
 permitted, and whether data must be rendered 
@@ -121,28 +121,28 @@ PCI DSS applies; added cloud and other system components.
 Added “Understanding PCI DSS Scoping” diagram.  Clarification or 
 guidance
 Load relevant documents for standalone question: What's PCI DSS?
-Completed in 0.054s
+Completed in 0.048s
 
 Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
-{'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.')]}
+{'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.')]}
 Can you summarize the changes that were made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS)?
 
 
 on_llm_end - response:
 generations=[[ChatGeneration(text='Can you summarize the changes that were made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS)?', generation_info=None, message=AIMessage(content='Can you summarize the changes that were made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS)?', additional_kwargs={}, example=False))]] llm_output=None run=None
-I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, the full document should be reviewed.
+I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, you would need to review the full document.
 
 
 on_llm_end - response:
-generations=[[ChatGeneration(text="I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, the full document should be reviewed.", generation_info=None, message=AIMessage(content="I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, the full document should be reviewed.", additional_kwargs={}, example=False))]] llm_output=None run=None
-Completed in 9.462s
+generations=[[ChatGeneration(text="I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, you would need to review the full document.", generation_info=None, message=AIMessage(content="I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, you would need to review the full document.", additional_kwargs={}, example=False))]] llm_output=None run=None
+Completed in 7.821s
 
 
 ***Answer:
-I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, the full document should be reviewed.
+I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, you would need to review the full document.
 
 Sources:
-  Page: 3 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 
 1 Introduction  
@@ -157,7 +157,7 @@ each affected section.
 throughout the requirements, testing procedures, and guidance.  
  Additional Changes per Requirement  - summarizes  additional changes made in 
 requirements 1- 12 and the appendices.
-  Page: 2 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 2 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page ii 
 Table of Contents  
@@ -167,7 +167,7 @@ Document Changes  ..............................................................
 3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 
 4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 
 5 Additional Changes per Requirement ................................................................................................ 6
-  Page: 1 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page i 
  
@@ -180,7 +180,7 @@ December
 2022  2 Errata update to  add a description of the change made to Requirement 
 6.3.3 and to correct the entry in the Summary of New Requirements  table 
 for Requirement 3.6.1.1.
-  Page: 0 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 Payment Card Industry  
 Data Security Standard 
 Summary of Changes from 
@@ -188,10 +188,10 @@ PCI DSS Version 3.2.1 to 4.0
 Revision 2 
 December 2022
 Load relevant documents for standalone question: Can you summarize the changes that were made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS)?
-Completed in 0.066s
+Completed in 0.062s
 
 Question: tell me more on new requirements for vulnerability assessments and penetration testing
-{'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, the full document should be reviewed.")]}
+{'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, you would need to review the full document.")]}
 Can you provide more information on the new requirements for vulnerability assessments and penetration testing?
 
 
@@ -205,24 +205,24 @@ The new requirements for vulnerability assessments and penetration testing inclu
 
 3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.
 
-4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate customer environments. This requirement is a best practice until 31 March 2025.
+4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate providers’ environments and customers’ environments. This requirement is a best practice until 31 March 2025.
 
 5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.
 
 6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.
 
-7. The results of penetration testing and remediation activities should be retained for at least 12 months. 
+7. The applicable security patches to be installed within one month of release have been changed from “critical security patches” to “critical or high-security patches/updates.”
 
-8. The applicable security patches should be installed within one month of release from “critical security patches” to “critical or high-security patches/updates.” 
+8. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4.
 
-9. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4. 
+9. The term “compromise” has been replaced with “suspected or confirmed security incident” in A1.2.2.
 
-10. Scans should be performed by qualified personnel and organizational independence of the tester exists.
+10. The results of penetration testing and remediation activities should be retained for at least 12 months.
 
 
 on_llm_end - response:
-generations=[[ChatGeneration(text='The new requirements for vulnerability assessments and penetration testing include:\n\n1. Internal penetration testing should be performed per the entity’s defined methodology, at least once every 12 months, after any significant infrastructure or application upgrade or change, and by a qualified internal resource or qualified external third-party.\n\n2. The penetration testing methodology should include industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n\n3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.\n\n4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate customer environments. This requirement is a best practice until 31 March 2025.\n\n5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.\n\n6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.\n\n7. The results of penetration testing and remediation activities should be retained for at least 12 months. \n\n8. The applicable security patches should be installed within one month of release from “critical security patches” to “critical or high-security patches/updates.” \n\n9. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4. \n\n10. Scans should be performed by qualified personnel and organizational independence of the tester exists.', generation_info=None, message=AIMessage(content='The new requirements for vulnerability assessments and penetration testing include:\n\n1. Internal penetration testing should be performed per the entity’s defined methodology, at least once every 12 months, after any significant infrastructure or application upgrade or change, and by a qualified internal resource or qualified external third-party.\n\n2. The penetration testing methodology should include industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n\n3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.\n\n4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate customer environments. This requirement is a best practice until 31 March 2025.\n\n5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.\n\n6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.\n\n7. The results of penetration testing and remediation activities should be retained for at least 12 months. \n\n8. The applicable security patches should be installed within one month of release from “critical security patches” to “critical or high-security patches/updates.” \n\n9. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4. \n\n10. Scans should be performed by qualified personnel and organizational independence of the tester exists.', additional_kwargs={}, example=False))]] llm_output=None run=None
-Completed in 23.499s
+generations=[[ChatGeneration(text='The new requirements for vulnerability assessments and penetration testing include:\n\n1. Internal penetration testing should be performed per the entity’s defined methodology, at least once every 12 months, after any significant infrastructure or application upgrade or change, and by a qualified internal resource or qualified external third-party.\n\n2. The penetration testing methodology should include industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n\n3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.\n\n4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate providers’ environments and customers’ environments. This requirement is a best practice until 31 March 2025.\n\n5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.\n\n6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.\n\n7. The applicable security patches to be installed within one month of release have been changed from “critical security patches” to “critical or high-security patches/updates.”\n\n8. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4.\n\n9. The term “compromise” has been replaced with “suspected or confirmed security incident” in A1.2.2.\n\n10. The results of penetration testing and remediation activities should be retained for at least 12 months.', generation_info=None, message=AIMessage(content='The new requirements for vulnerability assessments and penetration testing include:\n\n1. Internal penetration testing should be performed per the entity’s defined methodology, at least once every 12 months, after any significant infrastructure or application upgrade or change, and by a qualified internal resource or qualified external third-party.\n\n2. The penetration testing methodology should include industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n\n3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.\n\n4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate providers’ environments and customers’ environments. This requirement is a best practice until 31 March 2025.\n\n5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.\n\n6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.\n\n7. The applicable security patches to be installed within one month of release have been changed from “critical security patches” to “critical or high-security patches/updates.”\n\n8. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4.\n\n9. The term “compromise” has been replaced with “suspected or confirmed security incident” in A1.2.2.\n\n10. The results of penetration testing and remediation activities should be retained for at least 12 months.', additional_kwargs={}, example=False))]] llm_output=None run=None
+Completed in 20.887s
 
 
 ***Answer:
@@ -234,22 +234,22 @@ The new requirements for vulnerability assessments and penetration testing inclu
 
 3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.
 
-4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate customer environments. This requirement is a best practice until 31 March 2025.
+4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate providers’ environments and customers’ environments. This requirement is a best practice until 31 March 2025.
 
 5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.
 
 6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.
 
-7. The results of penetration testing and remediation activities should be retained for at least 12 months. 
+7. The applicable security patches to be installed within one month of release have been changed from “critical security patches” to “critical or high-security patches/updates.”
 
-8. The applicable security patches should be installed within one month of release from “critical security patches” to “critical or high-security patches/updates.” 
+8. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4.
 
-9. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4. 
+9. The term “compromise” has been replaced with “suspected or confirmed security incident” in A1.2.2.
 
-10. Scans should be performed by qualified personnel and organizational independence of the tester exists.
+10. The results of penetration testing and remediation activities should be retained for at least 12 months.
 
 Sources:
-  Page: 37 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
 •Testing from both inside and outside the  network.
 •Testing to validate any segmentation and scope -reduction controls .
 •Application- layer penetration testing to identify, at a minimum, the
@@ -267,7 +267,7 @@ penetration testing.
 •At least once every 12 months
 •After any significant infrastructure or application upgrade or change
 •By a qualified internal resource or qualified external third -party
-  Page: 14 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 attack.  Clarification or 
 guidance  
 6.1 
@@ -294,7 +294,7 @@ under Requirement  6.4. Structure or
 format  
  6.4.2  New requirement to deploy an automated technical 
 solution for public -facing web applications that
-  Page: 27 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 27 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 between providers’ environments and customers’ environments.  
 This requirement is a best practice until 31 March 2025.  Evolving 
 requirement  
@@ -317,7 +317,7 @@ Appendix A2
 The only changes made to Appendix A2 were to add the requirement description heading at 
 A2.1 and to renumber the three requirements as A2.1.1, A2.1.2, and A2.1.3.  Clarification or 
 guidance
-  Page: 37 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
 •Scans are performed by qualified personnel and organizational
 independence of the tester exists (not required to be a QSA or ASV).2 
 11.4 External and internal penetration testing is regularly performed, and 
@@ -335,10 +335,10 @@ support network functions as well as operating systems.
 •Review and consideration of threats and vulnerabilities experienced in
 the last 12 months .
 Load relevant documents for standalone question: Can you provide more information on the new requirements for vulnerability assessments and penetration testing?
-Completed in 0.052s
+Completed in 0.051s
 
 Question: more on penetration testing
-{'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. The standard is intended to protect payment account data from cyber attacks and other security threats.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, the full document should be reviewed."), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'The new requirements for vulnerability assessments and penetration testing include:\n\n1. Internal penetration testing should be performed per the entity’s defined methodology, at least once every 12 months, after any significant infrastructure or application upgrade or change, and by a qualified internal resource or qualified external third-party.\n\n2. The penetration testing methodology should include industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n\n3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.\n\n4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate customer environments. This requirement is a best practice until 31 March 2025.\n\n5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.\n\n6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.\n\n7. The results of penetration testing and remediation activities should be retained for at least 12 months. \n\n8. The applicable security patches should be installed within one month of release from “critical security patches” to “critical or high-security patches/updates.” \n\n9. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4. \n\n10. Scans should be performed by qualified personnel and organizational independence of the tester exists.')]}
+{'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational requirements designed to protect payment data. It includes requirements for building and maintaining a secure network, protecting account data, maintaining a vulnerability management program, and implementing strong access control measures. It is used by entities involved in payment card processing to protect against cyber attacks and ensure the security of the payment industry.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I'm sorry, but the document provided does not include specific details about the changes made from version 3.2.1 to version 4.0 of the PCI Data Security Standard (PCI DSS). It only mentions that there were changes and that the document is organized into sections detailing the types of changes, changes to introductory sections, general changes to requirements, and additional changes per requirement. For detailed information on the changes, you would need to review the full document."), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'The new requirements for vulnerability assessments and penetration testing include:\n\n1. Internal penetration testing should be performed per the entity’s defined methodology, at least once every 12 months, after any significant infrastructure or application upgrade or change, and by a qualified internal resource or qualified external third-party.\n\n2. The penetration testing methodology should include industry-accepted penetration testing approaches, coverage for the entire CDE perimeter and critical systems, testing from both inside and outside the network, testing to validate any segmentation and scope-reduction controls, application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4, and network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n\n3. There is a new requirement to maintain an inventory of bespoke and custom software. This requirement is a best practice until 31 March 2025.\n\n4. There is a new requirement to deploy an automated technical solution for public-facing web applications that separate providers’ environments and customers’ environments. This requirement is a best practice until 31 March 2025.\n\n5. There is a new requirement to confirm, via penetration testing, the effectiveness of logical separation controls used to separate customer environments. This requirement is a best practice until 31 March 2025.\n\n6. There is a new requirement for the implementation of processes and mechanisms for reporting and addressing suspected or confirmed security incidents and vulnerabilities. This requirement is a best practice until 31 March 2025.\n\n7. The applicable security patches to be installed within one month of release have been changed from “critical security patches” to “critical or high-security patches/updates.”\n\n8. The requirement for addressing new threats and vulnerabilities for public-facing web applications has been moved under Requirement 6.4.\n\n9. The term “compromise” has been replaced with “suspected or confirmed security incident” in A1.2.2.\n\n10. The results of penetration testing and remediation activities should be retained for at least 12 months.')]}
 Can you provide more information on penetration testing?
 
 
@@ -347,40 +347,36 @@ generations=[[ChatGeneration(text='Can you provide more information on penetrati
 Penetration testing, also known as pen testing, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. It is performed to identify both weaknesses (also referred to as vulnerabilities), including the potential for unauthorized parties to gain access to the system's features and data, as well as strengths, enabling a full risk assessment to be completed.
 
 The process typically includes the following steps:
-1. Planning and reconnaissance: Defining the scope and goals of a test, including the systems to be addressed and the testing methods to be used. Gathering intelligence (e.g., network and domain names, mail server) to better understand how to target the system.
-2. Scanning: The next step is to understand how the target application will respond to various intrusion attempts. This is typically done using static analysis (inspecting an app’s code) and dynamic analysis (inspecting an app’s code in a running state).
-3. Gaining Access: This stage uses web application attacks, such as cross-site scripting, SQL injection and backdoors, to uncover a target's vulnerabilities. Testers then try and exploit these vulnerabilities, typically by escalating privileges, stealing data, intercepting traffic, etc., to understand the damage they can cause.
-4. Maintaining access: The goal of this stage is to see if the vulnerability can be used to achieve a persistent presence in the exploited system—long enough for a bad actor to gain in-depth access. The idea is to imitate advanced persistent threats, which often remain in a system for months in order to steal an organization’s most sensitive data.
-5. Analysis: The results of the penetration test are then compiled into a report detailing:
-   - Specific vulnerabilities that were exploited
-   - Sensitive data that was accessed
-   - The amount of time the tester was able to remain in the system undetected
+- Testing from both inside and outside the network to simulate attacks from an insider and an external threat.
+- Testing to validate any segmentation and scope-reduction controls.
+- Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.
+- Network-layer penetration tests that encompass all components that support network functions as well as operating systems.
+- Review and consideration of threats and vulnerabilities experienced in the last 12 months.
+- A documented approach to assessing and addressing the risk posed by exploitable vulnerabilities and security weaknesses found during penetration testing.
 
-This information is used to help network system managers secure their systems against future attacks. It is recommended that this type of testing is performed at least once a year or after any significant changes to the network infrastructure.
+Penetration testing is performed per the entity’s defined methodology, at least once every 12 months, and after any significant infrastructure or application upgrade or change. It can be performed by a qualified internal resource or a qualified external third-party. The tester should have organizational independence, meaning they should not be influenced by the organization that is being tested. The results of the penetration testing and remediation activities should be retained for at least 12 months.
 
 
 on_llm_end - response:
-generations=[[ChatGeneration(text="Penetration testing, also known as pen testing, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. It is performed to identify both weaknesses (also referred to as vulnerabilities), including the potential for unauthorized parties to gain access to the system's features and data, as well as strengths, enabling a full risk assessment to be completed.\n\nThe process typically includes the following steps:\n1. Planning and reconnaissance: Defining the scope and goals of a test, including the systems to be addressed and the testing methods to be used. Gathering intelligence (e.g., network and domain names, mail server) to better understand how to target the system.\n2. Scanning: The next step is to understand how the target application will respond to various intrusion attempts. This is typically done using static analysis (inspecting an app’s code) and dynamic analysis (inspecting an app’s code in a running state).\n3. Gaining Access: This stage uses web application attacks, such as cross-site scripting, SQL injection and backdoors, to uncover a target's vulnerabilities. Testers then try and exploit these vulnerabilities, typically by escalating privileges, stealing data, intercepting traffic, etc., to understand the damage they can cause.\n4. Maintaining access: The goal of this stage is to see if the vulnerability can be used to achieve a persistent presence in the exploited system—long enough for a bad actor to gain in-depth access. The idea is to imitate advanced persistent threats, which often remain in a system for months in order to steal an organization’s most sensitive data.\n5. Analysis: The results of the penetration test are then compiled into a report detailing:\n   - Specific vulnerabilities that were exploited\n   - Sensitive data that was accessed\n   - The amount of time the tester was able to remain in the system undetected\n\nThis information is used to help network system managers secure their systems against future attacks. It is recommended that this type of testing is performed at least once a year or after any significant changes to the network infrastructure.", generation_info=None, message=AIMessage(content="Penetration testing, also known as pen testing, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. It is performed to identify both weaknesses (also referred to as vulnerabilities), including the potential for unauthorized parties to gain access to the system's features and data, as well as strengths, enabling a full risk assessment to be completed.\n\nThe process typically includes the following steps:\n1. Planning and reconnaissance: Defining the scope and goals of a test, including the systems to be addressed and the testing methods to be used. Gathering intelligence (e.g., network and domain names, mail server) to better understand how to target the system.\n2. Scanning: The next step is to understand how the target application will respond to various intrusion attempts. This is typically done using static analysis (inspecting an app’s code) and dynamic analysis (inspecting an app’s code in a running state).\n3. Gaining Access: This stage uses web application attacks, such as cross-site scripting, SQL injection and backdoors, to uncover a target's vulnerabilities. Testers then try and exploit these vulnerabilities, typically by escalating privileges, stealing data, intercepting traffic, etc., to understand the damage they can cause.\n4. Maintaining access: The goal of this stage is to see if the vulnerability can be used to achieve a persistent presence in the exploited system—long enough for a bad actor to gain in-depth access. The idea is to imitate advanced persistent threats, which often remain in a system for months in order to steal an organization’s most sensitive data.\n5. Analysis: The results of the penetration test are then compiled into a report detailing:\n   - Specific vulnerabilities that were exploited\n   - Sensitive data that was accessed\n   - The amount of time the tester was able to remain in the system undetected\n\nThis information is used to help network system managers secure their systems against future attacks. It is recommended that this type of testing is performed at least once a year or after any significant changes to the network infrastructure.", additional_kwargs={}, example=False))]] llm_output=None run=None
-Completed in 23.347s
+generations=[[ChatGeneration(text="Penetration testing, also known as pen testing, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. It is performed to identify both weaknesses (also referred to as vulnerabilities), including the potential for unauthorized parties to gain access to the system's features and data, as well as strengths, enabling a full risk assessment to be completed.\n\nThe process typically includes the following steps:\n- Testing from both inside and outside the network to simulate attacks from an insider and an external threat.\n- Testing to validate any segmentation and scope-reduction controls.\n- Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.\n- Network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n- Review and consideration of threats and vulnerabilities experienced in the last 12 months.\n- A documented approach to assessing and addressing the risk posed by exploitable vulnerabilities and security weaknesses found during penetration testing.\n\nPenetration testing is performed per the entity’s defined methodology, at least once every 12 months, and after any significant infrastructure or application upgrade or change. It can be performed by a qualified internal resource or a qualified external third-party. The tester should have organizational independence, meaning they should not be influenced by the organization that is being tested. The results of the penetration testing and remediation activities should be retained for at least 12 months.", generation_info=None, message=AIMessage(content="Penetration testing, also known as pen testing, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. It is performed to identify both weaknesses (also referred to as vulnerabilities), including the potential for unauthorized parties to gain access to the system's features and data, as well as strengths, enabling a full risk assessment to be completed.\n\nThe process typically includes the following steps:\n- Testing from both inside and outside the network to simulate attacks from an insider and an external threat.\n- Testing to validate any segmentation and scope-reduction controls.\n- Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.\n- Network-layer penetration tests that encompass all components that support network functions as well as operating systems.\n- Review and consideration of threats and vulnerabilities experienced in the last 12 months.\n- A documented approach to assessing and addressing the risk posed by exploitable vulnerabilities and security weaknesses found during penetration testing.\n\nPenetration testing is performed per the entity’s defined methodology, at least once every 12 months, and after any significant infrastructure or application upgrade or change. It can be performed by a qualified internal resource or a qualified external third-party. The tester should have organizational independence, meaning they should not be influenced by the organization that is being tested. The results of the penetration testing and remediation activities should be retained for at least 12 months.", additional_kwargs={}, example=False))]] llm_output=None run=None
+Completed in 14.507s
 
 
 ***Answer:
 Penetration testing, also known as pen testing, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. It is performed to identify both weaknesses (also referred to as vulnerabilities), including the potential for unauthorized parties to gain access to the system's features and data, as well as strengths, enabling a full risk assessment to be completed.
 
 The process typically includes the following steps:
-1. Planning and reconnaissance: Defining the scope and goals of a test, including the systems to be addressed and the testing methods to be used. Gathering intelligence (e.g., network and domain names, mail server) to better understand how to target the system.
-2. Scanning: The next step is to understand how the target application will respond to various intrusion attempts. This is typically done using static analysis (inspecting an app’s code) and dynamic analysis (inspecting an app’s code in a running state).
-3. Gaining Access: This stage uses web application attacks, such as cross-site scripting, SQL injection and backdoors, to uncover a target's vulnerabilities. Testers then try and exploit these vulnerabilities, typically by escalating privileges, stealing data, intercepting traffic, etc., to understand the damage they can cause.
-4. Maintaining access: The goal of this stage is to see if the vulnerability can be used to achieve a persistent presence in the exploited system—long enough for a bad actor to gain in-depth access. The idea is to imitate advanced persistent threats, which often remain in a system for months in order to steal an organization’s most sensitive data.
-5. Analysis: The results of the penetration test are then compiled into a report detailing:
- - Specific vulnerabilities that were exploited
- - Sensitive data that was accessed
- - The amount of time the tester was able to remain in the system undetected
+- Testing from both inside and outside the network to simulate attacks from an insider and an external threat.
+- Testing to validate any segmentation and scope-reduction controls.
+- Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.
+- Network-layer penetration tests that encompass all components that support network functions as well as operating systems.
+- Review and consideration of threats and vulnerabilities experienced in the last 12 months.
+- A documented approach to assessing and addressing the risk posed by exploitable vulnerabilities and security weaknesses found during penetration testing.
 
-This information is used to help network system managers secure their systems against future attacks. It is recommended that this type of testing is performed at least once a year or after any significant changes to the network infrastructure.
+Penetration testing is performed per the entity’s defined methodology, at least once every 12 months, and after any significant infrastructure or application upgrade or change. It can be performed by a qualified internal resource or a qualified external third-party. The tester should have organizational independence, meaning they should not be influenced by the organization that is being tested. The results of the penetration testing and remediation activities should be retained for at least 12 months.
 
 Sources:
-  Page: 395 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+  Page: 395 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
 methodology  examined for this testing 
 procedure.  <Enter Response Here>  
 11.4.5.b Examine the results from the 
@@ -400,7 +396,7 @@ tester exists (not required to be a QSA
 or ASV).  Identify the evidence reference number(s) 
 from Section 6  for all interview(s)  
 conducted for this testing procedure.  <Enter Response Her e>
-  Page: 390 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+  Page: 390 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
 Assessor’s Response  
 11.4.2.a Examine the scope of work 
 and results from the most recent 
@@ -423,7 +419,7 @@ independence of the tester exists (not
 required to be a QSA or ASV).  Identify the evidence reference number(s) 
 from Section 6  for all interview(s)  
 conducted for this testing procedure.  <Enter Response Here>
-  Page: 37 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
 exploitable vulnerabilities and secu rity weaknesses found during
 penetration testing.
 •Retention of penetration testing results and remediation activities resultsfor at least 12 months.2 
@@ -434,7 +430,7 @@ penetration testing.
 •By a qualified internal resource or qualified external third -party
 •Organizational independence of the tester exists (not required to be a
 QSA or ASV).2
-  Page: 37 Source: Prioritized-Approach-For-PCI-DSS-v4-0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/Prioritized-Approach-For-PCI-DSS-v4-0.pdf
 •Testing from both inside and outside the  network.
 •Testing to validate any segmentation and scope -reduction controls .
 •Application- layer penetration testing to identify, at a minimum, the
@@ -453,5 +449,5 @@ penetration testing.
 •After any significant infrastructure or application upgrade or change
 •By a qualified internal resource or qualified external third -party
 Load relevant documents for standalone question: Can you provide more information on penetration testing?
-Completed in 0.053s
-Total time used: 61.044s
+Completed in 0.056s
+Total time used: 48.659s

@@ -28,20 +28,20 @@ hf_embeddings_device_type: cpu
 hf_pipeline_device_type: cuda:0
 load INSTRUCTOR_Transformer
 max_seq_length  512
-Completed in 1.539s
+Completed in 1.627s
 Load index from ./data/faiss_1024_512/ with FAISS
-Completed in 0.094s
+Completed in 0.080s
 initializing LLM: huggingface
   hf_pipeline_device_type: cuda:0
      load_quantized_model: None
               torch_dtype: torch.float16
                  n_threds: 4
             loading model: TheBloke/vicuna-7B-1.1-HF
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.33s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:16<00:16, 16.40s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  7.86s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  9.14s/it]
 /home/inflaton/miniconda3/lib/python3.10/site-packages/transformers/generation/utils.py:1270: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
   warnings.warn(
 initialization complete
-Completed in 78.441s
+Completed in 86.974s
 Welcome to the ChatPDF! Type 'exit' to stop.
 
 Question: What's PCI DSS?
@@ -52,14 +52,14 @@ PCI DSS stands for the Payment Card Industry Data Security Standard. It is a glo
 
 on_llm_end - response:
 generations=[[Generation(text=' PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.', generation_info=None)]] llm_output=None run=None
-Completed in 4.232s
+Completed in 13.098s
 
 
 ***Answer:
 PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.
 
 Sources:
-  Page: 37 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 37 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI Data Security Standard
 PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
 requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
@@ -77,7 +77,7 @@ Implement Strong Access Control
 Measures7. Restrict access to system components and cardholder data by business need to know
 8. Identify users and authenticate access to system components
 9. Restrict physical access to cardholder data
-  Page: 0 Source: PCI-DSS-v4-0-At-A-Glance.pdf
+  Page: 0 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI-DSS-v4-0-At-A-Glance.pdf
 AT A GLANCE: PCI DSS v4.0
 © 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
 information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
@@ -93,7 +93,7 @@ PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This pr
 familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
 Security Needs of the 
 Payment Industry
-  Page: 1 Source: PCI_DSS-QRG-v4_0.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Supporting%20Document/PCI_DSS-QRG-v4_0.pdf
 PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
 version 4.0.
 Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
@@ -104,7 +104,7 @@ https://pcisecuritystandards.org.
 The intent of this document is to provide supplemental information, which does not replace or supersede 
 PCI Standards or their supporting documents.
 August 2022
-  Page: 4 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 4 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS.  
 Clarified table with commonly used elements of cardholder data and SAD, whether storage is 
 permitted, and whether data must be rendered 
@@ -141,14 +141,14 @@ I don't know.
 
 on_llm_end - response:
 generations=[[Generation(text=" I don't know.", generation_info=None)]] llm_output=None run=None
-Completed in 3.436s
+Completed in 9.459s
 
 
 ***Answer:
 I don't know.
 
 Sources:
-  Page: 1 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page i 
  
@@ -161,7 +161,7 @@ December
 2022  2 Errata update to  add a description of the change made to Requirement 
 6.3.3 and to correct the entry in the Summary of New Requirements  table 
 for Requirement 3.6.1.1.
-  Page: 2 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 2 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page ii 
 Table of Contents  
@@ -171,7 +171,7 @@ Document Changes  ..............................................................
 3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 
 4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 
 5 Additional Changes per Requirement ................................................................................................ 6
-  Page: 3 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 
 1 Introduction  
@@ -186,7 +186,7 @@ each affected section.
 throughout the requirements, testing procedures, and guidance.  
  Additional Changes per Requirement  - summarizes  additional changes made in 
 requirements 1- 12 and the appendices.
-  Page: 1 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+  Page: 1 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
 April 2015  PCI DSS 3.1, 
 Revision  1.0 Revision to align with changes from PCI DSS 3.0 to PCI DSS 3.1 (see PCI DSS – Summary of Changes from PCI DSS 
 Version 3.0 to 3.1 for details of those changes). Also includes minor edits made for clarification and/or format.  
@@ -200,7 +200,7 @@ DSS Version 3.2 to 3.2.1 for details of changes). Also includes minor correction
 format.  
 March 2022  PCI DSS 4.0  Updates to align with the changes from PCI DSS v3.2.1 to PCI DSS v4.0 (see PCI DSS – Summary of Changes from
 Load relevant documents for standalone question: What are the main changes between PCI DSS version 3.2.1 and version 4.0?
-Completed in 0.054s
+Completed in 0.051s
 
 Question: tell me more on new requirements for vulnerability assessments and penetration testing
 {'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I don't know.")]}
@@ -216,14 +216,14 @@ There are no new requirements for vulnerability assessments and penetration test
 
 on_llm_end - response:
 generations=[[Generation(text=' There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).', generation_info=None)]] llm_output=None run=None
-Completed in 7.756s
+Completed in 26.068s
 
 
 ***Answer:
 There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).
 
 Sources:
-  Page: 12 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 12 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
 Section  
@@ -248,7 +248,7 @@ This requirement is a best practice until 31 March
 2025.  Evolving 
 requirement  
 Requirement 5
-  Page: 387 Source: PCI-DSS-v4-0-ROC-Template-r1.pdf
+  Page: 387 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Reporting%20Template%20or%20Form/PCI-DSS-v4-0-ROC-Template-r1.pdf
 PCI DSS v4.0 ROC Template r1  December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.   Page 372 
 party and that organizational 
@@ -264,7 +264,7 @@ PCI DSS Requirement
 • Testing to validate any segmentation and scope-reduction controls.  
 • Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.  
 • Network -layer penetration tests that encompass all components that support network functions as well as operating systems.
-  Page: 35 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 35 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 33 
 New Requirement  Applicable to  Effective Date  
@@ -286,7 +286,7 @@ Automated log review mechanisms
 Automated code review tools.      
 Totals:   53 11 13 51 
 Grand Total:  64
-  Page: 7 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 7 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
 4 Summary of General Changes to PCI DSS 
@@ -305,7 +305,7 @@ addition of numbered requirement description headings.  Structure or format
 Rephrased directive requirements to be objective.  Evolving 
 requirement
 Load relevant documents for standalone question: What are the new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?
-Completed in 0.053s
+Completed in 0.056s
 
 Question: more on penetration testing
 {'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I don't know."), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).')]}
@@ -321,14 +321,14 @@ The changes made to the requirements for vulnerability assessments and penetrati
 
 on_llm_end - response:
 generations=[[Generation(text=' The changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0 include moving requirements for addressing common coding vulnerabilities to align all software development content under Requirement 6.2, combining methods to prevent or mitigate common software attacks into a single requirement, adding a bullet to clarify applicability to vulnerabilities for bespoke and custom and third-party software, and new requirements for maintaining an inventory of trusted keys and certificates and an inventory of bespoke and custom software.', generation_info=None)]] llm_output=None run=None
-Completed in 6.894s
+Completed in 24.933s
 
 
 ***Answer:
 The changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0 include moving requirements for addressing common coding vulnerabilities to align all software development content under Requirement 6.2, combining methods to prevent or mitigate common software attacks into a single requirement, adding a bullet to clarify applicability to vulnerabilities for bespoke and custom and third-party software, and new requirements for maintaining an inventory of trusted keys and certificates and an inventory of bespoke and custom software.
 
 Sources:
-  Page: 12 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 12 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
 Section  
@@ -353,7 +353,7 @@ This requirement is a best practice until 31 March
 2025.  Evolving 
 requirement  
 Requirement 5
-  Page: 7 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 7 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
 4 Summary of General Changes to PCI DSS 
@@ -371,7 +371,7 @@ Renumbered requirements and testing procedures and reorganized requirements due 
 addition of numbered requirement description headings.  Structure or format  
 Rephrased directive requirements to be objective.  Evolving 
 requirement
-  Page: 14 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 14 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 12 
 Section  
@@ -395,7 +395,7 @@ for bespoke and custom and third-party software . Clarification or
 guidance  
  6.3.2  New requirement to maintain an inventory of 
 bespoke and custom software.
-  Page: 3 Source: PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+  Page: 3 Source: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
 PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
 © 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 
 1 Introduction  
@@ -411,5 +411,5 @@ throughout the requirements, testing procedures, and guidance.
  Additional Changes per Requirement  - summarizes  additional changes made in 
 requirements 1- 12 and the appendices.
 Load relevant documents for standalone question: What are the changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?
-Completed in 0.053s
-Total time used: 22.532s
+Completed in 0.054s
+Total time used: 73.773s
