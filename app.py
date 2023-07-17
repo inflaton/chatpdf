@@ -118,9 +118,10 @@ def qa(chatbot):
         ret = result.get()
         titles = []
         for doc in ret["source_documents"]:
-            url = f"{doc.metadata['url']}#page={doc.metadata['page'] + 1}"
+            page = doc.metadata["page"] + 1
+            url = f"{doc.metadata['url']}#page={page}"
             file_name = doc.metadata["source"].split("/")[-1]
-            title = f"{file_name} Page: {doc.metadata['page']}"
+            title = f"{file_name} Page: {page}"
             if title not in titles:
                 titles.append(title)
                 chatbot[-1][1] += f"1. [{title}]({url})\n"
