@@ -25,5 +25,6 @@ install:
 	pip show langchain llama-cpp-python transformers
 	
 mac-install:
-	pip install -U -r requirements.txt
+	# brew install llvm libomp
+	CXX=/usr/local/opt/llvm/bin/clang++ CC=/usr/local/opt/llvm/bin/clang pip install -U -r requirements.txt
 	pip show langchain transformers

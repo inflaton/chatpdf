@@ -6,8 +6,6 @@ socksio
 tqdm
 colorama
 accelerate
-Pygments
-llama_index
 langchain
 torch
 langchain
