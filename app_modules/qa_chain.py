@@ -183,7 +183,7 @@ class QAChain:
                     if hf_auth_token is not None and len(hf_auth_token) > 0
                     else False
                 )
-                print(f"           use_auth_token: {use_auth_token[-5:]}")
+                print(f"           use_auth_token: {str(use_auth_token)[-5:]}")
 
                 is_t5 = "t5" in MODEL_NAME_OR_PATH
                 temperature = (
