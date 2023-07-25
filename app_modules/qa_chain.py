@@ -177,6 +177,13 @@ class QAChain:
                 MODEL_NAME_OR_PATH = os.environ.get("HUGGINGFACE_MODEL_NAME_OR_PATH")
                 print(f"            loading model: {MODEL_NAME_OR_PATH}")
 
+                hf_auth_token = os.environ.get("HUGGINGFACE_AUTH_TOKEN")
+                use_auth_token = (
+                    hf_auth_token
+                    if hf_auth_token is not None and len(hf_auth_token) > 0
+                    else False
+                )
+
                 is_t5 = "t5" in MODEL_NAME_OR_PATH
                 temperature = (
                     0.01
@@ -192,20 +199,26 @@ class QAChain:
                 padding_side = "left"  # if "dolly" in MODEL_NAME_OR_PATH else None
 
                 config = AutoConfig.from_pretrained(
-                    MODEL_NAME_OR_PATH, trust_remote_code=True
+                    MODEL_NAME_OR_PATH,
+                    trust_remote_code=True,
+                    use_auth_token=use_auth_token,
                 )
                 # config.attn_config["attn_impl"] = "triton"
                 # config.max_seq_len = 4096
                 config.init_device = hf_pipeline_device_type
 
                 tokenizer = (
-                    T5Tokenizer.from_pretrained(MODEL_NAME_OR_PATH)
+                    T5Tokenizer.from_pretrained(
+                        MODEL_NAME_OR_PATH,
+                        use_auth_token=use_auth_token,
+                    )
                     if is_t5
                     else AutoTokenizer.from_pretrained(
                         MODEL_NAME_OR_PATH,
                         use_fast=use_fast,
                         trust_remote_code=True,
                         padding_side=padding_side,
+                        use_auth_token=use_auth_token,
                     )
                 )
 
@@ -228,6 +241,7 @@ class QAChain:
                             config=config,
                             quantization_config=double_quant_config,
                             trust_remote_code=True,
+                            use_auth_token=use_auth_token,
                         )
                         if is_t5
                         else AutoModelForCausalLM.from_pretrained(
@@ -235,6 +249,7 @@ class QAChain:
                             config=config,
                             quantization_config=double_quant_config,
                             trust_remote_code=True,
+                            use_auth_token=use_auth_token,
                         )
                     )
 
@@ -256,6 +271,7 @@ class QAChain:
                             temperature=temperature,
                             return_full_text=return_full_text,  # langchain expects the full text
                             repetition_penalty=repetition_penalty,
+                            use_auth_token=use_auth_token,
                         )
                         if "dolly" in MODEL_NAME_OR_PATH
                         else (
@@ -275,6 +291,7 @@ class QAChain:
                                 top_p=0.95,
                                 top_k=50,
                                 repetition_penalty=repetition_penalty,
+                                use_auth_token=use_auth_token,
                             )
                             if eos_token_id != -1
                             else pipeline(
@@ -291,6 +308,7 @@ class QAChain:
                                 top_p=0.95,
                                 top_k=0,  # select from top 0 tokens (because zero, relies on top_p)
                                 repetition_penalty=repetition_penalty,
+                                use_auth_token=use_auth_token,
                             )
                         )
                     )
@@ -310,6 +328,7 @@ class QAChain:
                         temperature=temperature,
                         return_full_text=True,
                         repetition_penalty=repetition_penalty,
+                        use_auth_token=use_auth_token,
                     )
                 else:
                     pipe = pipeline(
@@ -327,6 +346,7 @@ class QAChain:
                         top_p=0.95,
                         top_k=0,  # select from top 0 tokens (because zero, relies on top_p)
                         repetition_penalty=1.115,
+                        use_auth_token=use_auth_token,
                     )
 
                 self.llm = HuggingFacePipeline(pipeline=pipe, callbacks=callbacks)
