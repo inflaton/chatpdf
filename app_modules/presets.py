@@ -3,13 +3,17 @@ import os
 
 import gradio as gr
 
+from app_modules.utils import *
+
 using_openai = os.environ.get("LLM_MODEL_TYPE") == "openai"
 href = (
     "https://openai.com/gpt-4"
     if using_openai
     else "https://huggingface.co/lmsys/fastchat-t5-3b-v1.0"
 )
-model = "OpenAI GPT-4" if using_openai else "lmsys/fastchat-t5-3b-v1.0"
+model = (
+    "OpenAI GPT-4" if using_openai else os.environ.get("HUGGINGFACE_MODEL_NAME_OR_PATH")
+)
 
 title = """<h1 align="left" style="min-width:200px; margin-top:0;"> Chat with PCI DSS v4 </h1>"""
 

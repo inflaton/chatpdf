@@ -33,6 +33,7 @@ using_faiss = os.environ.get("FAISS_INDEX_PATH") is not None
 llm_model_type = os.environ.get("LLM_MODEL_TYPE")
 chat_history_enabled = os.environ.get("CHAT_HISTORY_ENABLED") == "true"
 show_param_settings = os.environ.get("SHOW_PARAM_SETTINGS") == "true"
+share_gradio_app = os.environ.get("SHARE_GRADIO_APP") == "true"
 
 
 streaming_enabled = True  # llm_model_type in ["openai", "llamacpp"]
@@ -215,5 +216,5 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
         show_progress=True,
     )
 
-demo.title = "Chat with AI Books"
-demo.queue(concurrency_count=1).launch()
+demo.title = "Chat with PCI DSS v4"
+demo.queue(concurrency_count=1, api_open=False).launch(share=share_gradio_app)
