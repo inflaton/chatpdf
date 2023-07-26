@@ -29,8 +29,9 @@ hf_embeddings_model_name = (
     os.environ.get("HF_EMBEDDINGS_MODEL_NAME") or "hkunlp/instructor-xl"
 )
 n_threds = int(os.environ.get("NUMBER_OF_CPU_CORES") or "4")
-index_path = os.environ.get("FAISS_INDEX_PATH") or os.environ.get("CHROMADB_INDEX_PATH")
-using_faiss = os.environ.get("FAISS_INDEX_PATH") is not None
+faiss_index_path = os.environ.get("FAISS_INDEX_PATH") or ""
+using_faiss = len(faiss_index_path) > 0
+index_path = faiss_index_path if using_faiss else os.environ.get("CHROMADB_INDEX_PATH")
 llm_model_type = os.environ.get("LLM_MODEL_TYPE")
 chatting = len(sys.argv) > 1 and sys.argv[1] == "chat"
 questions_file_path = os.environ.get("QUESTIONS_FILE_PATH")
