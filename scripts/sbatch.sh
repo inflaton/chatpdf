@@ -65,4 +65,7 @@ conda activate chatpdf
 #conda install pytorch torchvision torchaudio -c pytorch
 
 # Submit your job to the cluster
-srun --gres=gpu:1 $HOME/code/chat-with-pci-dss-v4/scripts/llama-2.sh
+BASEDIR=$HOME/code/chat-with-pci-dss-v4
+JOB=$1
+echo "Submitting job: $BASEDIR/$JOB"
+srun --gres=gpu:1 $BASEDIR/$JOB
