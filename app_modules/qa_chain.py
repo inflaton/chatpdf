@@ -130,8 +130,10 @@ class QAChain:
         double_quant_config = BitsAndBytesConfig(
             load_in_4bit=load_quantized_model == "4bit",
             bnb_4bit_use_double_quant=load_quantized_model == "4bit",
+            bnb_4bit_compute_type=torch_dtype,
             load_in_8bit=load_quantized_model == "8bit",
             bnb_8bit_use_double_quant=load_quantized_model == "8bit",
+            bnb_8bit_compute_type=torch_dtype,
         )
 
         callbacks = [self.streamer]
