@@ -49,7 +49,7 @@ module purge
 module load Anaconda3/2022.05
 
 # Create a virtual environment can be commented off if you already have a virtual environment
-conda create -n chatpdf
+# conda create -n chatpdf
 
 # Do not remove this line even if you have executed conda init
 eval "$(conda shell.bash hook)"
@@ -59,7 +59,7 @@ eval "$(conda shell.bash hook)"
 conda activate chatpdf
 
 # If you require any packages, install it before the srun job submission.
-conda install pytorch torchvision torchaudio -c pytorch
+# conda install pytorch torchvision torchaudio -c pytorch
 
 # Submit your job to the cluster
 srun --gres=gpu:1 $HOME/code/chat-with-pci-dss-v4/llama-2.sh

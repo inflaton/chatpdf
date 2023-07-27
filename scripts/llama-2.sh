@@ -1,6 +1,10 @@
 #!/bin/sh
-cd ..
+
+BASEDIR=$(dirname "$0")
+cd $BASEDIR/..
 pwd
+
+export TRANSFORMERS_CACHE=/common/scratch/users/d/dh.huang.2023/transformers
 
 EXT=cluster
 
