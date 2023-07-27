@@ -1,0 +1,723 @@
+/common/home/users/d/dh.huang.2023/.conda/envs/chatpdf/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py:992: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+loading env vars from: /common/home/users/d/dh.huang.2023/code/chat-with-pci-dss-v4/.env
+Running on:  Linux-4.18.0-477.15.1.el8_8.x86_64-x86_64-with-glibc2.28
+MPS is NOT available
+CUDA is  available
+MPS not available because the current PyTorch install was not built with MPS enabled.
+CUDA is available, we have found  1  GPU(s)
+NVIDIA A40
+CUDA version: 11.8
+hf_embeddings_device_type: cuda:0
+hf_pipeline_device_type: cuda:0
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Completed in 3.418s
+Load index from ./data/pdfs/faiss_1024_512/ with FAISS
+Completed in 0.074s
+initializing LLM: huggingface
+  hf_pipeline_device_type: cuda:0
+     load_quantized_model: None
+              torch_dtype: torch.float16
+                 n_threds: 10
+            loading model: TheBloke/vicuna-7B-1.1-HF
+           use_auth_token: mbMxb
+Downloading (…)lve/main/config.json:   0%|          | 0.00/582 [00:00<?, ?B/s]Downloading (…)lve/main/config.json: 100%|██████████| 582/582 [00:00<00:00, 4.92MB/s]
+/common/home/users/d/dh.huang.2023/.conda/envs/chatpdf/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py:628: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+Downloading (…)okenizer_config.json:   0%|          | 0.00/727 [00:00<?, ?B/s]Downloading (…)okenizer_config.json: 100%|██████████| 727/727 [00:00<00:00, 11.1MB/s]
+Downloading tokenizer.model:   0%|          | 0.00/500k [00:00<?, ?B/s]Downloading tokenizer.model: 100%|██████████| 500k/500k [00:00<00:00, 108MB/s]
+Downloading (…)cial_tokens_map.json:   0%|          | 0.00/411 [00:00<?, ?B/s]Downloading (…)cial_tokens_map.json: 100%|██████████| 411/411 [00:00<00:00, 2.81MB/s]
+You are using the default legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This means that tokens that come after special tokens will not be properly handled. We recommend you to read the related pull request available at https://github.com/huggingface/transformers/pull/24565, and set the legacy attribute accordingly.
+/common/home/users/d/dh.huang.2023/.conda/envs/chatpdf/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py:460: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+Downloading (…)model.bin.index.json:   0%|          | 0.00/26.8k [00:00<?, ?B/s]Downloading (…)model.bin.index.json: 100%|██████████| 26.8k/26.8k [00:00<00:00, 145MB/s]
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Downloading (…)l-00001-of-00002.bin:   0%|          | 0.00/9.98G [00:00<?, ?B/s][A
+Downloading (…)l-00001-of-00002.bin:   1%|          | 52.4M/9.98G [00:00<00:24, 406MB/s][A
+Downloading (…)l-00001-of-00002.bin:   1%|          | 94.4M/9.98G [00:00<00:26, 367MB/s][A
+Downloading (…)l-00001-of-00002.bin:   1%|▏         | 136M/9.98G [00:00<00:26, 369MB/s] [A
+Downloading (…)l-00001-of-00002.bin:   2%|▏         | 178M/9.98G [00:00<00:26, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:   2%|▏         | 220M/9.98G [00:00<00:26, 369MB/s][A
+Downloading (…)l-00001-of-00002.bin:   3%|▎         | 262M/9.98G [00:00<00:27, 352MB/s][A
+Downloading (…)l-00001-of-00002.bin:   3%|▎         | 304M/9.98G [00:00<00:28, 338MB/s][A
+Downloading (…)l-00001-of-00002.bin:   3%|▎         | 346M/9.98G [00:00<00:28, 344MB/s][A
+Downloading (…)l-00001-of-00002.bin:   4%|▍         | 388M/9.98G [00:01<00:29, 328MB/s][A
+Downloading (…)l-00001-of-00002.bin:   4%|▍         | 430M/9.98G [00:01<00:29, 323MB/s][A
+Downloading (…)l-00001-of-00002.bin:   5%|▍         | 472M/9.98G [00:01<00:28, 331MB/s][A
+Downloading (…)l-00001-of-00002.bin:   5%|▌         | 514M/9.98G [00:01<00:29, 323MB/s][A
+Downloading (…)l-00001-of-00002.bin:   6%|▌         | 556M/9.98G [00:01<00:28, 336MB/s][A
+Downloading (…)l-00001-of-00002.bin:   6%|▌         | 598M/9.98G [00:01<00:29, 322MB/s][A
+Downloading (…)l-00001-of-00002.bin:   6%|▋         | 640M/9.98G [00:01<00:28, 331MB/s][A
+Downloading (…)l-00001-of-00002.bin:   7%|▋         | 682M/9.98G [00:02<00:30, 307MB/s][A
+Downloading (…)l-00001-of-00002.bin:   7%|▋         | 713M/9.98G [00:02<00:30, 305MB/s][A
+Downloading (…)l-00001-of-00002.bin:   7%|▋         | 744M/9.98G [00:02<00:30, 303MB/s][A
+Downloading (…)l-00001-of-00002.bin:   8%|▊         | 786M/9.98G [00:02<00:28, 322MB/s][A
+Downloading (…)l-00001-of-00002.bin:   8%|▊         | 828M/9.98G [00:02<00:27, 334MB/s][A
+Downloading (…)l-00001-of-00002.bin:   9%|▊         | 870M/9.98G [00:02<00:27, 337MB/s][A
+Downloading (…)l-00001-of-00002.bin:   9%|▉         | 912M/9.98G [00:02<00:26, 338MB/s][A
+Downloading (…)l-00001-of-00002.bin:  10%|▉         | 954M/9.98G [00:02<00:26, 341MB/s][A
+Downloading (…)l-00001-of-00002.bin:  10%|▉         | 996M/9.98G [00:02<00:25, 352MB/s][A
+Downloading (…)l-00001-of-00002.bin:  10%|█         | 1.04G/9.98G [00:03<00:26, 332MB/s][A
+Downloading (…)l-00001-of-00002.bin:  11%|█         | 1.09G/9.98G [00:03<00:24, 361MB/s][A
+Downloading (…)l-00001-of-00002.bin:  11%|█▏        | 1.14G/9.98G [00:03<00:23, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:  12%|█▏        | 1.20G/9.98G [00:03<00:23, 382MB/s][A
+Downloading (…)l-00001-of-00002.bin:  12%|█▏        | 1.24G/9.98G [00:03<00:23, 373MB/s][A
+Downloading (…)l-00001-of-00002.bin:  13%|█▎        | 1.28G/9.98G [00:03<00:24, 356MB/s][A
+Downloading (…)l-00001-of-00002.bin:  13%|█▎        | 1.32G/9.98G [00:03<00:23, 365MB/s][A
+Downloading (…)l-00001-of-00002.bin:  14%|█▍        | 1.37G/9.98G [00:03<00:22, 385MB/s][A
+Downloading (…)l-00001-of-00002.bin:  14%|█▍        | 1.42G/9.98G [00:04<00:22, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:  15%|█▍        | 1.46G/9.98G [00:04<00:22, 382MB/s][A
+Downloading (…)l-00001-of-00002.bin:  15%|█▌        | 1.51G/9.98G [00:04<00:21, 401MB/s][A
+Downloading (…)l-00001-of-00002.bin:  16%|█▌        | 1.56G/9.98G [00:04<00:20, 417MB/s][A
+Downloading (…)l-00001-of-00002.bin:  16%|█▌        | 1.60G/9.98G [00:04<00:21, 387MB/s][A
+Downloading (…)l-00001-of-00002.bin:  17%|█▋        | 1.65G/9.98G [00:04<00:21, 387MB/s][A
+Downloading (…)l-00001-of-00002.bin:  17%|█▋        | 1.69G/9.98G [00:04<00:21, 386MB/s][A
+Downloading (…)l-00001-of-00002.bin:  17%|█▋        | 1.73G/9.98G [00:04<00:21, 389MB/s][A
+Downloading (…)l-00001-of-00002.bin:  18%|█▊        | 1.77G/9.98G [00:04<00:22, 372MB/s][A
+Downloading (…)l-00001-of-00002.bin:  18%|█▊        | 1.81G/9.98G [00:05<00:22, 357MB/s][A
+Downloading (…)l-00001-of-00002.bin:  19%|█▊        | 1.86G/9.98G [00:05<00:23, 344MB/s][A
+Downloading (…)l-00001-of-00002.bin:  19%|█▉        | 1.90G/9.98G [00:05<00:23, 350MB/s][A
+Downloading (…)l-00001-of-00002.bin:  19%|█▉        | 1.94G/9.98G [00:05<00:33, 242MB/s][A
+Downloading (…)l-00001-of-00002.bin:  20%|█▉        | 1.98G/9.98G [00:05<00:29, 274MB/s][A
+Downloading (…)l-00001-of-00002.bin:  20%|██        | 2.02G/9.98G [00:05<00:26, 303MB/s][A
+Downloading (…)l-00001-of-00002.bin:  21%|██        | 2.07G/9.98G [00:05<00:24, 318MB/s][A
+Downloading (…)l-00001-of-00002.bin:  21%|██        | 2.12G/9.98G [00:06<00:22, 352MB/s][A
+Downloading (…)l-00001-of-00002.bin:  22%|██▏       | 2.17G/9.98G [00:06<00:21, 368MB/s][A
+Downloading (…)l-00001-of-00002.bin:  22%|██▏       | 2.21G/9.98G [00:06<00:22, 350MB/s][A
+Downloading (…)l-00001-of-00002.bin:  23%|██▎       | 2.25G/9.98G [00:06<00:23, 335MB/s][A
+Downloading (…)l-00001-of-00002.bin:  23%|██▎       | 2.30G/9.98G [00:06<00:22, 349MB/s][A
+Downloading (…)l-00001-of-00002.bin:  23%|██▎       | 2.34G/9.98G [00:06<00:20, 366MB/s][A
+Downloading (…)l-00001-of-00002.bin:  24%|██▍       | 2.38G/9.98G [00:06<00:21, 350MB/s][A
+Downloading (…)l-00001-of-00002.bin:  24%|██▍       | 2.42G/9.98G [00:07<00:23, 328MB/s][A
+Downloading (…)l-00001-of-00002.bin:  25%|██▍       | 2.46G/9.98G [00:07<00:22, 339MB/s][A
+Downloading (…)l-00001-of-00002.bin:  25%|██▌       | 2.51G/9.98G [00:07<00:22, 337MB/s][A
+Downloading (…)l-00001-of-00002.bin:  26%|██▌       | 2.55G/9.98G [00:07<00:20, 356MB/s][A
+Downloading (…)l-00001-of-00002.bin:  26%|██▌       | 2.60G/9.98G [00:07<00:19, 378MB/s][A
+Downloading (…)l-00001-of-00002.bin:  26%|██▋       | 2.64G/9.98G [00:07<00:19, 383MB/s][A
+Downloading (…)l-00001-of-00002.bin:  27%|██▋       | 2.68G/9.98G [00:07<00:19, 377MB/s][A
+Downloading (…)l-00001-of-00002.bin:  27%|██▋       | 2.73G/9.98G [00:07<00:18, 388MB/s][A
+Downloading (…)l-00001-of-00002.bin:  28%|██▊       | 2.77G/9.98G [00:08<00:24, 293MB/s][A
+Downloading (…)l-00001-of-00002.bin:  28%|██▊       | 2.81G/9.98G [00:08<00:23, 308MB/s][A
+Downloading (…)l-00001-of-00002.bin:  29%|██▊       | 2.85G/9.98G [00:08<00:21, 331MB/s][A
+Downloading (…)l-00001-of-00002.bin:  29%|██▉       | 2.89G/9.98G [00:08<00:20, 353MB/s][A
+Downloading (…)l-00001-of-00002.bin:  30%|██▉       | 2.95G/9.98G [00:08<00:18, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:  30%|██▉       | 2.99G/9.98G [00:08<00:18, 387MB/s][A
+Downloading (…)l-00001-of-00002.bin:  30%|███       | 3.03G/9.98G [00:08<00:20, 347MB/s][A
+Downloading (…)l-00001-of-00002.bin:  31%|███       | 3.07G/9.98G [00:08<00:19, 354MB/s][A
+Downloading (…)l-00001-of-00002.bin:  31%|███       | 3.11G/9.98G [00:08<00:19, 357MB/s][A
+Downloading (…)l-00001-of-00002.bin:  32%|███▏      | 3.16G/9.98G [00:09<00:19, 348MB/s][A
+Downloading (…)l-00001-of-00002.bin:  32%|███▏      | 3.20G/9.98G [00:09<00:18, 360MB/s][A
+Downloading (…)l-00001-of-00002.bin:  33%|███▎      | 3.25G/9.98G [00:09<00:17, 390MB/s][A
+Downloading (…)l-00001-of-00002.bin:  33%|███▎      | 3.29G/9.98G [00:09<00:16, 397MB/s][A
+Downloading (…)l-00001-of-00002.bin:  34%|███▎      | 3.34G/9.98G [00:09<00:16, 409MB/s][A
+Downloading (…)l-00001-of-00002.bin:  34%|███▍      | 3.40G/9.98G [00:09<00:15, 412MB/s][A
+Downloading (…)l-00001-of-00002.bin:  34%|███▍      | 3.44G/9.98G [00:09<00:15, 412MB/s][A
+Downloading (…)l-00001-of-00002.bin:  35%|███▍      | 3.49G/9.98G [00:09<00:14, 435MB/s][A
+Downloading (…)l-00001-of-00002.bin:  36%|███▌      | 3.54G/9.98G [00:09<00:14, 431MB/s][A
+Downloading (…)l-00001-of-00002.bin:  36%|███▌      | 3.60G/9.98G [00:10<00:16, 385MB/s][A
+Downloading (…)l-00001-of-00002.bin:  36%|███▋      | 3.64G/9.98G [00:10<00:17, 355MB/s][A
+Downloading (…)l-00001-of-00002.bin:  37%|███▋      | 3.68G/9.98G [00:10<00:17, 355MB/s][A
+Downloading (…)l-00001-of-00002.bin:  37%|███▋      | 3.72G/9.98G [00:10<00:23, 271MB/s][A
+Downloading (…)l-00001-of-00002.bin:  38%|███▊      | 3.76G/9.98G [00:10<00:21, 291MB/s][A
+Downloading (…)l-00001-of-00002.bin:  38%|███▊      | 3.81G/9.98G [00:10<00:20, 306MB/s][A
+Downloading (…)l-00001-of-00002.bin:  39%|███▊      | 3.85G/9.98G [00:11<00:18, 324MB/s][A
+Downloading (…)l-00001-of-00002.bin:  39%|███▉      | 3.89G/9.98G [00:11<00:17, 341MB/s][A
+Downloading (…)l-00001-of-00002.bin:  39%|███▉      | 3.93G/9.98G [00:11<00:19, 316MB/s][A
+Downloading (…)l-00001-of-00002.bin:  40%|███▉      | 3.97G/9.98G [00:11<00:18, 323MB/s][A
+Downloading (…)l-00001-of-00002.bin:  40%|████      | 4.02G/9.98G [00:11<00:17, 340MB/s][A
+Downloading (…)l-00001-of-00002.bin:  41%|████      | 4.06G/9.98G [00:11<00:16, 353MB/s][A
+Downloading (…)l-00001-of-00002.bin:  41%|████      | 4.10G/9.98G [00:11<00:16, 352MB/s][A
+Downloading (…)l-00001-of-00002.bin:  42%|████▏     | 4.14G/9.98G [00:11<00:17, 333MB/s][A
+Downloading (…)l-00001-of-00002.bin:  42%|████▏     | 4.18G/9.98G [00:12<00:17, 327MB/s][A
+Downloading (…)l-00001-of-00002.bin:  42%|████▏     | 4.23G/9.98G [00:12<00:18, 309MB/s][A
+Downloading (…)l-00001-of-00002.bin:  43%|████▎     | 4.27G/9.98G [00:12<00:17, 325MB/s][A
+Downloading (…)l-00001-of-00002.bin:  43%|████▎     | 4.31G/9.98G [00:12<00:16, 338MB/s][A
+Downloading (…)l-00001-of-00002.bin:  44%|████▎     | 4.35G/9.98G [00:12<00:15, 357MB/s][A
+Downloading (…)l-00001-of-00002.bin:  44%|████▍     | 4.40G/9.98G [00:12<00:14, 386MB/s][A
+Downloading (…)l-00001-of-00002.bin:  45%|████▍     | 4.45G/9.98G [00:12<00:14, 385MB/s][A
+Downloading (…)l-00001-of-00002.bin:  45%|████▍     | 4.49G/9.98G [00:12<00:14, 389MB/s][A
+Downloading (…)l-00001-of-00002.bin:  45%|████▌     | 4.53G/9.98G [00:12<00:14, 386MB/s][A
+Downloading (…)l-00001-of-00002.bin:  46%|████▌     | 4.57G/9.98G [00:13<00:14, 364MB/s][A
+Downloading (…)l-00001-of-00002.bin:  46%|████▌     | 4.61G/9.98G [00:13<00:14, 358MB/s][A
+Downloading (…)l-00001-of-00002.bin:  47%|████▋     | 4.66G/9.98G [00:13<00:15, 337MB/s][A
+Downloading (…)l-00001-of-00002.bin:  47%|████▋     | 4.70G/9.98G [00:13<00:15, 351MB/s][A
+Downloading (…)l-00001-of-00002.bin:  48%|████▊     | 4.75G/9.98G [00:13<00:13, 390MB/s][A
+Downloading (…)l-00001-of-00002.bin:  48%|████▊     | 4.79G/9.98G [00:13<00:14, 362MB/s][A
+Downloading (…)l-00001-of-00002.bin:  48%|████▊     | 4.83G/9.98G [00:13<00:14, 353MB/s][A
+Downloading (…)l-00001-of-00002.bin:  49%|████▉     | 4.88G/9.98G [00:13<00:14, 361MB/s][A
+Downloading (…)l-00001-of-00002.bin:  49%|████▉     | 4.92G/9.98G [00:14<00:14, 359MB/s][A
+Downloading (…)l-00001-of-00002.bin:  50%|████▉     | 4.97G/9.98G [00:14<00:12, 385MB/s][A
+Downloading (…)l-00001-of-00002.bin:  50%|█████     | 5.01G/9.98G [00:14<00:12, 385MB/s][A
+Downloading (…)l-00001-of-00002.bin:  51%|█████     | 5.06G/9.98G [00:14<00:11, 411MB/s][A
+Downloading (…)l-00001-of-00002.bin:  51%|█████     | 5.11G/9.98G [00:14<00:11, 411MB/s][A
+Downloading (…)l-00001-of-00002.bin:  52%|█████▏    | 5.15G/9.98G [00:14<00:11, 406MB/s][A
+Downloading (…)l-00001-of-00002.bin:  52%|█████▏    | 5.19G/9.98G [00:14<00:12, 396MB/s][A
+Downloading (…)l-00001-of-00002.bin:  52%|█████▏    | 5.23G/9.98G [00:14<00:12, 395MB/s][A
+Downloading (…)l-00001-of-00002.bin:  53%|█████▎    | 5.27G/9.98G [00:14<00:11, 399MB/s][A
+Downloading (…)l-00001-of-00002.bin:  53%|█████▎    | 5.32G/9.98G [00:14<00:11, 404MB/s][A
+Downloading (…)l-00001-of-00002.bin:  54%|█████▎    | 5.36G/9.98G [00:15<00:11, 398MB/s][A
+Downloading (…)l-00001-of-00002.bin:  54%|█████▍    | 5.40G/9.98G [00:15<00:11, 397MB/s][A
+Downloading (…)l-00001-of-00002.bin:  55%|█████▍    | 5.45G/9.98G [00:15<00:10, 416MB/s][A
+Downloading (…)l-00001-of-00002.bin:  55%|█████▌    | 5.51G/9.98G [00:15<00:10, 423MB/s][A
+Downloading (…)l-00001-of-00002.bin:  56%|█████▌    | 5.56G/9.98G [00:15<00:10, 431MB/s][A
+Downloading (…)l-00001-of-00002.bin:  56%|█████▌    | 5.61G/9.98G [00:15<00:09, 444MB/s][A
+Downloading (…)l-00001-of-00002.bin:  57%|█████▋    | 5.66G/9.98G [00:15<00:10, 409MB/s][A
+Downloading (…)l-00001-of-00002.bin:  57%|█████▋    | 5.70G/9.98G [00:15<00:10, 406MB/s][A
+Downloading (…)l-00001-of-00002.bin:  58%|█████▊    | 5.75G/9.98G [00:16<00:10, 396MB/s][A
+Downloading (…)l-00001-of-00002.bin:  58%|█████▊    | 5.79G/9.98G [00:16<00:10, 386MB/s][A
+Downloading (…)l-00001-of-00002.bin:  59%|█████▊    | 5.84G/9.98G [00:16<00:10, 400MB/s][A
+Downloading (…)l-00001-of-00002.bin:  59%|█████▉    | 5.88G/9.98G [00:16<00:10, 395MB/s][A
+Downloading (…)l-00001-of-00002.bin:  59%|█████▉    | 5.92G/9.98G [00:16<00:10, 388MB/s][A
+Downloading (…)l-00001-of-00002.bin:  60%|█████▉    | 5.97G/9.98G [00:16<00:10, 395MB/s][A
+Downloading (…)l-00001-of-00002.bin:  60%|██████    | 6.01G/9.98G [00:16<00:10, 396MB/s][A
+Downloading (…)l-00001-of-00002.bin:  61%|██████    | 6.05G/9.98G [00:16<00:10, 389MB/s][A
+Downloading (…)l-00001-of-00002.bin:  61%|██████    | 6.09G/9.98G [00:16<00:10, 364MB/s][A
+Downloading (…)l-00001-of-00002.bin:  61%|██████▏   | 6.13G/9.98G [00:17<00:10, 372MB/s][A
+Downloading (…)l-00001-of-00002.bin:  62%|██████▏   | 6.18G/9.98G [00:17<00:10, 377MB/s][A
+Downloading (…)l-00001-of-00002.bin:  62%|██████▏   | 6.22G/9.98G [00:17<00:10, 365MB/s][A
+Downloading (…)l-00001-of-00002.bin:  63%|██████▎   | 6.26G/9.98G [00:17<00:09, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:  63%|██████▎   | 6.30G/9.98G [00:17<00:09, 369MB/s][A
+Downloading (…)l-00001-of-00002.bin:  64%|██████▎   | 6.34G/9.98G [00:17<00:09, 378MB/s][A
+Downloading (…)l-00001-of-00002.bin:  64%|██████▍   | 6.40G/9.98G [00:17<00:08, 406MB/s][A
+Downloading (…)l-00001-of-00002.bin:  65%|██████▍   | 6.45G/9.98G [00:17<00:08, 429MB/s][A
+Downloading (…)l-00001-of-00002.bin:  65%|██████▌   | 6.50G/9.98G [00:17<00:08, 423MB/s][A
+Downloading (…)l-00001-of-00002.bin:  66%|██████▌   | 6.55G/9.98G [00:18<00:08, 407MB/s][A
+Downloading (…)l-00001-of-00002.bin:  66%|██████▌   | 6.61G/9.98G [00:18<00:07, 422MB/s][A
+Downloading (…)l-00001-of-00002.bin:  67%|██████▋   | 6.66G/9.98G [00:18<00:07, 418MB/s][A
+Downloading (…)l-00001-of-00002.bin:  67%|██████▋   | 6.71G/9.98G [00:18<00:07, 424MB/s][A
+Downloading (…)l-00001-of-00002.bin:  68%|██████▊   | 6.76G/9.98G [00:18<00:07, 433MB/s][A
+Downloading (…)l-00001-of-00002.bin:  68%|██████▊   | 6.82G/9.98G [00:18<00:07, 421MB/s][A
+Downloading (…)l-00001-of-00002.bin:  69%|██████▉   | 6.87G/9.98G [00:18<00:07, 426MB/s][A
+Downloading (…)l-00001-of-00002.bin:  69%|██████▉   | 6.92G/9.98G [00:18<00:07, 400MB/s][A
+Downloading (…)l-00001-of-00002.bin:  70%|██████▉   | 6.97G/9.98G [00:19<00:07, 410MB/s][A
+Downloading (…)l-00001-of-00002.bin:  70%|███████   | 7.01G/9.98G [00:19<00:07, 389MB/s][A
+Downloading (…)l-00001-of-00002.bin:  71%|███████   | 7.07G/9.98G [00:19<00:07, 399MB/s][A
+Downloading (…)l-00001-of-00002.bin:  71%|███████▏  | 7.11G/9.98G [00:19<00:07, 402MB/s][A
+Downloading (…)l-00001-of-00002.bin:  72%|███████▏  | 7.16G/9.98G [00:19<00:06, 413MB/s][A
+Downloading (…)l-00001-of-00002.bin:  72%|███████▏  | 7.20G/9.98G [00:19<00:06, 411MB/s][A
+Downloading (…)l-00001-of-00002.bin:  73%|███████▎  | 7.25G/9.98G [00:19<00:06, 402MB/s][A
+Downloading (…)l-00001-of-00002.bin:  73%|███████▎  | 7.29G/9.98G [00:19<00:06, 403MB/s][A
+Downloading (…)l-00001-of-00002.bin:  73%|███████▎  | 7.33G/9.98G [00:19<00:06, 401MB/s][A
+Downloading (…)l-00001-of-00002.bin:  74%|███████▍  | 7.37G/9.98G [00:20<00:07, 365MB/s][A
+Downloading (…)l-00001-of-00002.bin:  74%|███████▍  | 7.41G/9.98G [00:20<00:07, 356MB/s][A
+Downloading (…)l-00001-of-00002.bin:  75%|███████▍  | 7.46G/9.98G [00:20<00:07, 346MB/s][A
+Downloading (…)l-00001-of-00002.bin:  75%|███████▌  | 7.50G/9.98G [00:20<00:06, 358MB/s][A
+Downloading (…)l-00001-of-00002.bin:  76%|███████▌  | 7.54G/9.98G [00:20<00:06, 373MB/s][A
+Downloading (…)l-00001-of-00002.bin:  76%|███████▌  | 7.58G/9.98G [00:20<00:06, 366MB/s][A
+Downloading (…)l-00001-of-00002.bin:  77%|███████▋  | 7.63G/9.98G [00:20<00:06, 389MB/s][A
+Downloading (…)l-00001-of-00002.bin:  77%|███████▋  | 7.69G/9.98G [00:20<00:05, 397MB/s][A
+Downloading (…)l-00001-of-00002.bin:  78%|███████▊  | 7.74G/9.98G [00:21<00:05, 406MB/s][A
+Downloading (…)l-00001-of-00002.bin:  78%|███████▊  | 7.79G/9.98G [00:21<00:05, 409MB/s][A
+Downloading (…)l-00001-of-00002.bin:  79%|███████▊  | 7.83G/9.98G [00:21<00:05, 411MB/s][A
+Downloading (…)l-00001-of-00002.bin:  79%|███████▉  | 7.89G/9.98G [00:21<00:05, 399MB/s][A
+Downloading (…)l-00001-of-00002.bin:  79%|███████▉  | 7.93G/9.98G [00:21<00:05, 382MB/s][A
+Downloading (…)l-00001-of-00002.bin:  80%|███████▉  | 7.97G/9.98G [00:21<00:05, 378MB/s][A
+Downloading (…)l-00001-of-00002.bin:  80%|████████  | 8.02G/9.98G [00:21<00:04, 394MB/s][A
+Downloading (…)l-00001-of-00002.bin:  81%|████████  | 8.06G/9.98G [00:21<00:04, 388MB/s][A
+Downloading (…)l-00001-of-00002.bin:  81%|████████  | 8.11G/9.98G [00:22<00:04, 389MB/s][A
+Downloading (…)l-00001-of-00002.bin:  82%|████████▏ | 8.16G/9.98G [00:22<00:04, 420MB/s][A
+Downloading (…)l-00001-of-00002.bin:  82%|████████▏ | 8.21G/9.98G [00:22<00:04, 427MB/s][A
+Downloading (…)l-00001-of-00002.bin:  83%|████████▎ | 8.26G/9.98G [00:22<00:04, 412MB/s][A
+Downloading (…)l-00001-of-00002.bin:  83%|████████▎ | 8.30G/9.98G [00:22<00:04, 405MB/s][A
+Downloading (…)l-00001-of-00002.bin:  84%|████████▎ | 8.35G/9.98G [00:22<00:04, 355MB/s][A
+Downloading (…)l-00001-of-00002.bin:  84%|████████▍ | 8.39G/9.98G [00:22<00:04, 370MB/s][A
+Downloading (…)l-00001-of-00002.bin:  85%|████████▍ | 8.43G/9.98G [00:22<00:04, 378MB/s][A
+Downloading (…)l-00001-of-00002.bin:  85%|████████▍ | 8.47G/9.98G [00:22<00:04, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:  85%|████████▌ | 8.51G/9.98G [00:23<00:03, 375MB/s][A
+Downloading (…)l-00001-of-00002.bin:  86%|████████▌ | 8.57G/9.98G [00:23<00:03, 386MB/s][A
+Downloading (…)l-00001-of-00002.bin:  86%|████████▋ | 8.62G/9.98G [00:23<00:03, 406MB/s][A
+Downloading (…)l-00001-of-00002.bin:  87%|████████▋ | 8.67G/9.98G [00:23<00:03, 404MB/s][A
+Downloading (…)l-00001-of-00002.bin:  87%|████████▋ | 8.71G/9.98G [00:23<00:03, 374MB/s][A
+Downloading (…)l-00001-of-00002.bin:  88%|████████▊ | 8.76G/9.98G [00:23<00:03, 361MB/s][A
+Downloading (…)l-00001-of-00002.bin:  88%|████████▊ | 8.80G/9.98G [00:23<00:03, 352MB/s][A
+Downloading (…)l-00001-of-00002.bin:  89%|████████▊ | 8.84G/9.98G [00:24<00:04, 265MB/s][A
+Downloading (…)l-00001-of-00002.bin:  89%|████████▉ | 8.87G/9.98G [00:24<00:04, 274MB/s][A
+Downloading (…)l-00001-of-00002.bin:  89%|████████▉ | 8.90G/9.98G [00:24<00:03, 278MB/s][A
+Downloading (…)l-00001-of-00002.bin:  90%|████████▉ | 8.94G/9.98G [00:24<00:03, 302MB/s][A
+Downloading (…)l-00001-of-00002.bin:  90%|█████████ | 8.99G/9.98G [00:24<00:03, 320MB/s][A
+Downloading (…)l-00001-of-00002.bin:  90%|█████████ | 9.03G/9.98G [00:24<00:02, 325MB/s][A
+Downloading (…)l-00001-of-00002.bin:  91%|█████████ | 9.07G/9.98G [00:24<00:02, 329MB/s][A
+Downloading (…)l-00001-of-00002.bin:  91%|█████████▏| 9.12G/9.98G [00:24<00:02, 367MB/s][A
+Downloading (…)l-00001-of-00002.bin:  92%|█████████▏| 9.16G/9.98G [00:25<00:02, 368MB/s][A
+Downloading (…)l-00001-of-00002.bin:  92%|█████████▏| 9.21G/9.98G [00:25<00:02, 376MB/s][A
+Downloading (…)l-00001-of-00002.bin:  93%|█████████▎| 9.25G/9.98G [00:25<00:01, 370MB/s][A
+Downloading (…)l-00001-of-00002.bin:  93%|█████████▎| 9.29G/9.98G [00:25<00:01, 363MB/s][A
+Downloading (…)l-00001-of-00002.bin:  94%|█████████▎| 9.33G/9.98G [00:25<00:01, 364MB/s][A
+Downloading (…)l-00001-of-00002.bin:  94%|█████████▍| 9.37G/9.98G [00:25<00:01, 366MB/s][A
+Downloading (…)l-00001-of-00002.bin:  94%|█████████▍| 9.42G/9.98G [00:25<00:01, 353MB/s][A
+Downloading (…)l-00001-of-00002.bin:  95%|█████████▍| 9.46G/9.98G [00:25<00:01, 317MB/s][A
+Downloading (…)l-00001-of-00002.bin:  95%|█████████▌| 9.50G/9.98G [00:26<00:01, 324MB/s][A
+Downloading (…)l-00001-of-00002.bin:  96%|█████████▌| 9.54G/9.98G [00:26<00:01, 344MB/s][A
+Downloading (…)l-00001-of-00002.bin:  96%|█████████▌| 9.58G/9.98G [00:26<00:01, 351MB/s][A
+Downloading (…)l-00001-of-00002.bin:  96%|█████████▋| 9.63G/9.98G [00:26<00:00, 363MB/s][A
+Downloading (…)l-00001-of-00002.bin:  97%|█████████▋| 9.67G/9.98G [00:26<00:00, 371MB/s][A
+Downloading (…)l-00001-of-00002.bin:  97%|█████████▋| 9.71G/9.98G [00:26<00:00, 384MB/s][A
+Downloading (…)l-00001-of-00002.bin:  98%|█████████▊| 9.75G/9.98G [00:26<00:00, 375MB/s][A
+Downloading (…)l-00001-of-00002.bin:  98%|█████████▊| 9.79G/9.98G [00:26<00:00, 371MB/s][A
+Downloading (…)l-00001-of-00002.bin:  99%|█████████▊| 9.85G/9.98G [00:26<00:00, 393MB/s][A
+Downloading (…)l-00001-of-00002.bin:  99%|█████████▉| 9.90G/9.98G [00:27<00:00, 404MB/s][A
+Downloading (…)l-00001-of-00002.bin: 100%|█████████▉| 9.94G/9.98G [00:27<00:00, 403MB/s][ADownloading (…)l-00001-of-00002.bin: 100%|██████████| 9.98G/9.98G [00:27<00:00, 367MB/s]
+Downloading shards:  50%|█████     | 1/2 [00:27<00:27, 27.70s/it]
+Downloading (…)l-00002-of-00002.bin:   0%|          | 0.00/3.50G [00:00<?, ?B/s][A
+Downloading (…)l-00002-of-00002.bin:   1%|          | 41.9M/3.50G [00:00<00:09, 359MB/s][A
+Downloading (…)l-00002-of-00002.bin:   2%|▏         | 83.9M/3.50G [00:00<00:09, 348MB/s][A
+Downloading (…)l-00002-of-00002.bin:   4%|▍         | 136M/3.50G [00:00<00:08, 408MB/s] [A
+Downloading (…)l-00002-of-00002.bin:   5%|▌         | 178M/3.50G [00:00<00:08, 394MB/s][A
+Downloading (…)l-00002-of-00002.bin:   6%|▋         | 220M/3.50G [00:00<00:08, 390MB/s][A
+Downloading (…)l-00002-of-00002.bin:   7%|▋         | 262M/3.50G [00:00<00:08, 361MB/s][A
+Downloading (…)l-00002-of-00002.bin:   9%|▊         | 304M/3.50G [00:00<00:09, 352MB/s][A
+Downloading (…)l-00002-of-00002.bin:  10%|▉         | 346M/3.50G [00:00<00:08, 368MB/s][A
+Downloading (…)l-00002-of-00002.bin:  11%|█         | 388M/3.50G [00:01<00:08, 376MB/s][A
+Downloading (…)l-00002-of-00002.bin:  13%|█▎        | 440M/3.50G [00:01<00:07, 394MB/s][A
+Downloading (…)l-00002-of-00002.bin:  14%|█▍        | 493M/3.50G [00:01<00:07, 407MB/s][A
+Downloading (…)l-00002-of-00002.bin:  16%|█▌        | 545M/3.50G [00:01<00:06, 427MB/s][A
+Downloading (…)l-00002-of-00002.bin:  17%|█▋        | 598M/3.50G [00:01<00:07, 408MB/s][A
+Downloading (…)l-00002-of-00002.bin:  19%|█▊        | 650M/3.50G [00:01<00:06, 409MB/s][A
+Downloading (…)l-00002-of-00002.bin:  20%|█▉        | 692M/3.50G [00:01<00:07, 386MB/s][A
+Downloading (…)l-00002-of-00002.bin:  21%|██        | 734M/3.50G [00:01<00:07, 379MB/s][A
+Downloading (…)l-00002-of-00002.bin:  22%|██▏       | 776M/3.50G [00:02<00:07, 373MB/s][A
+Downloading (…)l-00002-of-00002.bin:  23%|██▎       | 818M/3.50G [00:02<00:07, 364MB/s][A
+Downloading (…)l-00002-of-00002.bin:  25%|██▍       | 870M/3.50G [00:02<00:07, 374MB/s][A
+Downloading (…)l-00002-of-00002.bin:  26%|██▌       | 912M/3.50G [00:02<00:06, 373MB/s][A
+Downloading (…)l-00002-of-00002.bin:  27%|██▋       | 954M/3.50G [00:02<00:06, 368MB/s][A
+Downloading (…)l-00002-of-00002.bin:  28%|██▊       | 996M/3.50G [00:02<00:06, 361MB/s][A
+Downloading (…)l-00002-of-00002.bin:  30%|██▉       | 1.04G/3.50G [00:02<00:06, 358MB/s][A
+Downloading (…)l-00002-of-00002.bin:  31%|███       | 1.08G/3.50G [00:02<00:06, 368MB/s][A
+Downloading (…)l-00002-of-00002.bin:  32%|███▏      | 1.12G/3.50G [00:02<00:06, 374MB/s][A
+Downloading (…)l-00002-of-00002.bin:  33%|███▎      | 1.16G/3.50G [00:03<00:06, 371MB/s][A
+Downloading (…)l-00002-of-00002.bin:  34%|███▍      | 1.21G/3.50G [00:03<00:06, 372MB/s][A
+Downloading (…)l-00002-of-00002.bin:  36%|███▌      | 1.25G/3.50G [00:03<00:06, 346MB/s][A
+Downloading (…)l-00002-of-00002.bin:  37%|███▋      | 1.29G/3.50G [00:03<00:06, 365MB/s][A
+Downloading (…)l-00002-of-00002.bin:  38%|███▊      | 1.33G/3.50G [00:03<00:06, 345MB/s][A
+Downloading (…)l-00002-of-00002.bin:  39%|███▉      | 1.37G/3.50G [00:03<00:05, 356MB/s][A
+Downloading (…)l-00002-of-00002.bin:  40%|████      | 1.42G/3.50G [00:03<00:05, 350MB/s][A
+Downloading (…)l-00002-of-00002.bin:  42%|████▏     | 1.46G/3.50G [00:03<00:05, 347MB/s][A
+Downloading (…)l-00002-of-00002.bin:  43%|████▎     | 1.50G/3.50G [00:04<00:05, 354MB/s][A
+Downloading (…)l-00002-of-00002.bin:  44%|████▍     | 1.54G/3.50G [00:04<00:05, 362MB/s][A
+Downloading (…)l-00002-of-00002.bin:  45%|████▌     | 1.58G/3.50G [00:04<00:05, 375MB/s][A
+Downloading (…)l-00002-of-00002.bin:  46%|████▋     | 1.63G/3.50G [00:04<00:05, 353MB/s][A
+Downloading (…)l-00002-of-00002.bin:  48%|████▊     | 1.67G/3.50G [00:04<00:05, 355MB/s][A
+Downloading (…)l-00002-of-00002.bin:  49%|████▉     | 1.71G/3.50G [00:04<00:05, 310MB/s][A
+Downloading (…)l-00002-of-00002.bin:  50%|█████     | 1.75G/3.50G [00:04<00:06, 288MB/s][A
+Downloading (…)l-00002-of-00002.bin:  51%|█████     | 1.79G/3.50G [00:04<00:05, 316MB/s][A
+Downloading (…)l-00002-of-00002.bin:  53%|█████▎    | 1.85G/3.50G [00:05<00:04, 359MB/s][A
+Downloading (…)l-00002-of-00002.bin:  54%|█████▍    | 1.90G/3.50G [00:05<00:04, 374MB/s][A
+Downloading (…)l-00002-of-00002.bin:  55%|█████▌    | 1.94G/3.50G [00:05<00:04, 364MB/s][A
+Downloading (…)l-00002-of-00002.bin:  57%|█████▋    | 1.98G/3.50G [00:05<00:04, 350MB/s][A
+Downloading (…)l-00002-of-00002.bin:  58%|█████▊    | 2.02G/3.50G [00:05<00:04, 329MB/s][A
+Downloading (…)l-00002-of-00002.bin:  59%|█████▉    | 2.07G/3.50G [00:05<00:04, 338MB/s][A
+Downloading (…)l-00002-of-00002.bin:  60%|██████    | 2.11G/3.50G [00:05<00:04, 322MB/s][A
+Downloading (…)l-00002-of-00002.bin:  61%|██████▏   | 2.15G/3.50G [00:05<00:04, 335MB/s][A
+Downloading (…)l-00002-of-00002.bin:  63%|██████▎   | 2.19G/3.50G [00:06<00:05, 247MB/s][A
+Downloading (…)l-00002-of-00002.bin:  64%|██████▍   | 2.23G/3.50G [00:06<00:04, 277MB/s][A
+Downloading (…)l-00002-of-00002.bin:  65%|██████▌   | 2.28G/3.50G [00:06<00:04, 292MB/s][A
+Downloading (…)l-00002-of-00002.bin:  66%|██████▌   | 2.32G/3.50G [00:06<00:03, 317MB/s][A
+Downloading (…)l-00002-of-00002.bin:  67%|██████▋   | 2.36G/3.50G [00:06<00:03, 336MB/s][A
+Downloading (…)l-00002-of-00002.bin:  69%|██████▊   | 2.40G/3.50G [00:06<00:03, 322MB/s][A
+Downloading (…)l-00002-of-00002.bin:  70%|██████▉   | 2.44G/3.50G [00:06<00:03, 339MB/s][A
+Downloading (…)l-00002-of-00002.bin:  71%|███████   | 2.49G/3.50G [00:07<00:02, 346MB/s][A
+Downloading (…)l-00002-of-00002.bin:  72%|███████▏  | 2.53G/3.50G [00:07<00:02, 333MB/s][A
+Downloading (…)l-00002-of-00002.bin:  73%|███████▎  | 2.57G/3.50G [00:07<00:02, 335MB/s][A
+Downloading (…)l-00002-of-00002.bin:  75%|███████▍  | 2.61G/3.50G [00:07<00:02, 356MB/s][A
+Downloading (…)l-00002-of-00002.bin:  76%|███████▌  | 2.65G/3.50G [00:07<00:02, 336MB/s][A
+Downloading (…)l-00002-of-00002.bin:  77%|███████▋  | 2.69G/3.50G [00:07<00:02, 336MB/s][A
+Downloading (…)l-00002-of-00002.bin:  78%|███████▊  | 2.74G/3.50G [00:07<00:02, 355MB/s][A
+Downloading (…)l-00002-of-00002.bin:  79%|███████▉  | 2.78G/3.50G [00:07<00:02, 353MB/s][A
+Downloading (…)l-00002-of-00002.bin:  81%|████████  | 2.82G/3.50G [00:08<00:01, 342MB/s][A
+Downloading (…)l-00002-of-00002.bin:  82%|████████▏ | 2.86G/3.50G [00:08<00:01, 346MB/s][A
+Downloading (…)l-00002-of-00002.bin:  83%|████████▎ | 2.90G/3.50G [00:08<00:01, 341MB/s][A
+Downloading (…)l-00002-of-00002.bin:  84%|████████▍ | 2.95G/3.50G [00:08<00:01, 347MB/s][A
+Downloading (…)l-00002-of-00002.bin:  85%|████████▌ | 2.99G/3.50G [00:08<00:01, 344MB/s][A
+Downloading (…)l-00002-of-00002.bin:  87%|████████▋ | 3.03G/3.50G [00:08<00:01, 340MB/s][A
+Downloading (…)l-00002-of-00002.bin:  88%|████████▊ | 3.07G/3.50G [00:08<00:01, 341MB/s][A
+Downloading (…)l-00002-of-00002.bin:  89%|████████▉ | 3.11G/3.50G [00:08<00:01, 342MB/s][A
+Downloading (…)l-00002-of-00002.bin:  90%|█████████ | 3.16G/3.50G [00:09<00:01, 342MB/s][A
+Downloading (…)l-00002-of-00002.bin:  91%|█████████▏| 3.20G/3.50G [00:09<00:00, 341MB/s][A
+Downloading (…)l-00002-of-00002.bin:  93%|█████████▎| 3.24G/3.50G [00:09<00:01, 254MB/s][A
+Downloading (…)l-00002-of-00002.bin:  93%|█████████▎| 3.27G/3.50G [00:09<00:00, 264MB/s][A
+Downloading (…)l-00002-of-00002.bin:  95%|█████████▍| 3.31G/3.50G [00:09<00:00, 286MB/s][A
+Downloading (…)l-00002-of-00002.bin:  96%|█████████▌| 3.36G/3.50G [00:09<00:00, 308MB/s][A
+Downloading (…)l-00002-of-00002.bin:  97%|█████████▋| 3.40G/3.50G [00:09<00:00, 325MB/s][A
+Downloading (…)l-00002-of-00002.bin:  98%|█████████▊| 3.44G/3.50G [00:09<00:00, 338MB/s][A
+Downloading (…)l-00002-of-00002.bin:  99%|█████████▉| 3.48G/3.50G [00:10<00:00, 354MB/s][ADownloading (…)l-00002-of-00002.bin: 100%|██████████| 3.50G/3.50G [00:10<00:00, 346MB/s]
+Downloading shards: 100%|██████████| 2/2 [00:38<00:00, 17.91s/it]Downloading shards: 100%|██████████| 2/2 [00:38<00:00, 19.38s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.37s/it]
+/common/home/users/d/dh.huang.2023/.conda/envs/chatpdf/lib/python3.11/site-packages/transformers/utils/hub.py:373: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+Downloading (…)neration_config.json:   0%|          | 0.00/137 [00:00<?, ?B/s]Downloading (…)neration_config.json: 100%|██████████| 137/137 [00:00<00:00, 1.09MB/s]
+/common/home/users/d/dh.huang.2023/.conda/envs/chatpdf/lib/python3.11/site-packages/transformers/generation/utils.py:1296: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
+  warnings.warn(
+initialization complete
+Completed in 148.322s
+Welcome to the ChatPDF! Type 'exit' to stop.
+
+Question: What's PCI DSS?
+{'question': "What's PCI DSS?", 'chat_history': []}
+PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.', generation_info=None)]] llm_output=None run=None
+Completed in 3.872s
+
+
+***Answer:
+PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.
+
+Sources:
+  Page: 37 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI_DSS-QRG-v4_0.pdf
+PCI Data Security Standard
+PCI DSS provides a baseline of technical and operational requirements designed to protect payment account data. Learn more about its 
+requirements, security controls and processes, and steps to assess compliance inside this PCI DSS Quick Reference Guide.
+Goals PCI DSS Requirements
+Build and Maintain a Secure Network 
+and Systems1. Install and maintain network security controls  
+2. Apply secure configurations to all system components
+Protect Account Data 3. Protect stored account data
+4. Protect cardholder data with strong cryptography during transmission over open, public 
+networks
+Maintain a Vulnerability Management 
+Program5. Protect all systems and networks from malicious software
+6. Develop and maintain secure systems and software
+Implement Strong Access Control 
+Measures7. Restrict access to system components and cardholder data by business need to know
+8. Identify users and authenticate access to system components
+9. Restrict physical access to cardholder data
+  Page: 0 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v4-0-At-A-Glance.pdf
+AT A GLANCE: PCI DSS v4.0
+© 2022 PCI Security Standards Council LLC.  The intent of this document is to provide supplemental 
+information, which does not replace or supersede PCI SSC Security Standards or their supporting documents.
+December 20221
+What is the PCI Data Security Standard?
+The PCI Data Security Standard (PCI DSS) is a global standard that provides a baseline of technical and operational 
+requirements designated to protect payment data. PCI DSS v4.0 is the next evolution of the standard.PCI DSS v4.0
+Developed with Global Industry Collaboration
+Development of PCI DSS v4.0 was driven by industry feedback. This version furthers the protection of payment data 
+with new controls to address sophisticated cyber attacks.
+Implementation Timeline
+PCI DSS v3.2.1 will remain active for two years after v4.0 is published. This provides organizations time to become 
+familiar with the new version, and plan for and implement the changes needed.Continue to Meet the 
+Security Needs of the 
+Payment Industry
+  Page: 1 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI_DSS-QRG-v4_0.pdf
+PCI DSS Quick Reference Guide: Understanding the Payment Card Industry Data Security Standard 
+version 4.0.
+Copyright 2009-2022 PCI Security Standards Council, LLC. All Rights Reserved. 
+This Quick Reference Guide to the PCI Data Security Standard (PCI DSS) is provided by the PCI Security 
+Standards Council (PCI SSC) to inform and educate merchants and other entities involved in payment 
+card processing. For more information about the PCI SSC and the standards we manage, please visit 
+https://pcisecuritystandards.org.
+The intent of this document is to provide supplemental information, which does not replace or supersede 
+PCI Standards or their supporting documents.
+August 2022
+  Page: 4 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS.  
+Clarified table with commonly used elements of cardholder data and SAD, whether storage is 
+permitted, and whether data must be rendered 
+unreadable.   Clarification or 
+guidance  
+Relationship 
+between PCI DSS and PA -DSS  Relationship 
+between PCI DSS and PCI SSC Software Standards  Refocused section on relationship between PCI DSS 
+and PCI SSC software standards, with mention of PA-DSS (retiring in October 2022).  Evolving 
+requirement  
+Scope of PCI 
+DSS 
+Requirements  Scope of PCI 
+DSS Requirements  Clarified applicability of PCI DSS requirements and 
+the definition of cardholder data environment (CDE).  
+Expanded examples of system components to which 
+PCI DSS applies; added cloud and other system components.  
+Added “Understanding PCI DSS Scoping” diagram.  Clarification or 
+guidance
+Load relevant documents for standalone question: What's PCI DSS?
+Completed in 0.015s
+
+Question: Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?
+{'question': 'Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', 'chat_history': [("What's PCI DSS?", 'PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.')]}
+What are the main changes between PCI DSS version 3.2.1 and version 4.0?
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' What are the main changes between PCI DSS version 3.2.1 and version 4.0?', generation_info=None)]] llm_output=None run=None
+I don't know.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=" I don't know.", generation_info=None)]] llm_output=None run=None
+Completed in 3.300s
+
+
+***Answer:
+I don't know.
+
+Sources:
+  Page: 1 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page i 
+ 
+Document Changes  
+Date  Revision  Description 
+March 2022   Initial release of the PCI DSS v3.2.1 to v4.0 Summary of Changes.  
+May 2022  1 Errata update t o correct  the change description for PCI DSS v4.0 
+Requirement 8.3.9. 
+December 
+2022  2 Errata update to  add a description of the change made to Requirement 
+6.3.3 and to correct the entry in the Summary of New Requirements  table 
+for Requirement 3.6.1.1.
+  Page: 2 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page ii 
+Table of Contents  
+Document Changes  ..................................................................................................................................... i 
+1 Introduction  ........................................................................................................................................... 1 
+2 Change Types  ....................................................................................................................................... 2 
+3 Summary of Changes to PCI DSS Introductory Sections  ................................................................ 2 
+4 Summary of General Changes to PCI DSS Requirements  ............................................................... 5 
+5 Additional Changes per Requirement ................................................................................................ 6
+  Page: 3 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 
+1 Introduction  
+This document provides a high- level summary and description of the changes from PCI DSS v3.2.1 to 
+PCI DSS v4.0  and does not detail all document revisi ons. Due to the extent of the changes, the 
+standard should be reviewed in its entirety rather than focusing solely on this summary document.  
+This Summary of Changes is organized as follows:  
+ Change Types  - provides an overview of the types of changes   
+ Summary of Changes to PCI DSS Introductory Sections  - summarizes  changes made for 
+each affected section.  
+ Summary of General Changes to PCI DSS Requirements  - summarizes  changes made 
+throughout the requirements, testing procedures, and guidance.  
+ Additional Changes per Requirement  - summarizes  additional changes made in 
+requirements 1- 12 and the appendices.
+  Page: 1 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v4-0-ROC-Template-r1.pdf
+April 2015  PCI DSS 3.1, 
+Revision  1.0 Revision to align with changes from PCI DSS 3.0 to PCI DSS 3.1 (see PCI DSS – Summary of Changes from PCI DSS 
+Version 3.0 to 3.1 for details of those changes). Also includes minor edits made for clarification and/or format.  
+April 2016  PCI DSS 3.2, 
+Revision 1.0  Revision to align with changes from PCI DSS 3.1 to PCI DSS 3.2 (see PCI DSS – Summary of Changes from PCI DSS 
+Version 3.1 to 3.2 for details of those changes). Also includes minor corrections and edits made for clarification and/or 
+format.  
+June 2018  PCI DSS 3.2.1  
+Revision 1.0  Revision to align with changes from PCI DSS 3.2 to PCI DSS 3.2.1 (see PCI DSS – Summary of Changes from PCI 
+DSS Version 3.2 to 3.2.1 for details of changes). Also includes minor corrections and edits made for clarification and/or 
+format.  
+March 2022  PCI DSS 4.0  Updates to align with the changes from PCI DSS v3.2.1 to PCI DSS v4.0 (see PCI DSS – Summary of Changes from
+Load relevant documents for standalone question: What are the main changes between PCI DSS version 3.2.1 and version 4.0?
+Completed in 0.015s
+
+Question: tell me more on new requirements for vulnerability assessments and penetration testing
+{'question': 'tell me more on new requirements for vulnerability assessments and penetration testing', 'chat_history': [("What's PCI DSS?", 'PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I don't know.")]}
+What are the new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' What are the new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?', generation_info=None)]] llm_output=None run=None
+There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).', generation_info=None)]] llm_output=None run=None
+Completed in 8.208s
+
+
+***Answer:
+There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).
+
+Sources:
+  Page: 12 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+Requirement 4 
+Requirement 4 - General  Updated principal requirement title to reflect the focus 
+on “strong cryptography” to protect transmissions of 
+cardholder data.  Clarification or 
+guidance  
+ 4.1.2  New requirement for roles and responsibilities.  
+This requirement is effective immediately for all v4.0 
+assessments.  Evolving 
+requirement  
+4.1 4.2.1  New requirement  bullet  to confirm certificates used 
+for PAN transmissions over open, public networks are valid and not expired or revoked.  
+This bullet is a best practice until 31 March 2025.  Evolving 
+requirement  
+ 4.2.1. 1 New requirement to maintain an inventory of trusted 
+keys and certif icates.  
+This requirement is a best practice until 31 March 
+2025.  Evolving 
+requirement  
+Requirement 5
+  Page: 387 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v4-0-ROC-Template-r1.pdf
+PCI DSS v4.0 ROC Template r1  December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.   Page 372 
+party and that organizational 
+independence of the tester exists.  
+ 
+Requirement Description  
+11.4 External and internal penetration testing is regularly performed, and exploitable vulnerabilities and security weaknesses are corrected.  
+PCI DSS Requirement  
+11.4.1 A penetration testing methodology is defined, documented, and implemented by the entity and includes:  
+• Industry -accepted penetration testing approaches.  
+• Coverage for the entire CDE perimeter and critical systems.  
+• Testing from both inside and outside the network.  
+• Testing to validate any segmentation and scope-reduction controls.  
+• Application-layer penetration testing to identify, at a minimum, the vulnerabilities listed in Requirement 6.2.4.  
+• Network -layer penetration tests that encompass all components that support network functions as well as operating systems.
+  Page: 35 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 33 
+New Requirement  Applicable to  Effective Date  
+All 
+Entities  Service 
+Providers 
+Only  Immediately 
+for all v4.0 
+Assessments  31 March 
+2025  
+A1.2.3  The multi -tenant service provider 
+implements processes or mechanisms 
+for reporting and addressing suspected 
+or confirmed security incidents and 
+vulnerabilities.      
+A3.3.1  Failures of the following are detected, 
+alerted, and reported in a timely manner:  
+Automated log review mechanisms  
+Automated code review tools.      
+Totals:   53 11 13 51 
+Grand Total:  64
+  Page: 7 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
+4 Summary of General Changes to PCI DSS 
+Requirements  
+General Changes Implemented Throughout PCI DSS Requirements  Change Type  
+Reformatted overview sections and added a summary of the sections to the beginning of each 
+principal requirement.  Structure or 
+format  
+Updated overview sections and added guidance at the start of each requirement section.  Clarification or 
+guidance  
+Added numbered requirement description headings throughout each requirement to organize 
+and describe the requirements that fall under it.  Structure or 
+format  
+Renumbered requirements and testing procedures and reorganized requirements due to the 
+addition of numbered requirement description headings.  Structure or format  
+Rephrased directive requirements to be objective.  Evolving 
+requirement
+Load relevant documents for standalone question: What are the new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?
+Completed in 0.015s
+
+Question: more on penetration testing
+{'question': 'more on penetration testing', 'chat_history': [("What's PCI DSS?", 'PCI DSS stands for the Payment Card Industry Data Security Standard. It is a global standard that provides a baseline of technical and operational requirements designed to protect payment account data.'), ('Can you summarize the changes made from PCI DSS version 3.2.1 to version 4.0?', "I don't know."), ('tell me more on new requirements for vulnerability assessments and penetration testing', 'There are no new requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0. However, there are changes to existing requirements related to these activities. For example, external and internal penetration testing should be regularly performed (as per requirement 11.4) and exploitable vulnerabilities and security weaknesses should be corrected (per requirement 11.4.1). Additionally, a penetration testing methodology should be defined, documented, and implemented by the entity (per requirement 11.4.1), and coverage should be provided for the entire CDE perimeter and critical systems (per requirement 11.4.1).')]}
+What are the changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' What are the changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?', generation_info=None)]] llm_output=None run=None
+The changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0 include moving requirements for addressing common coding vulnerabilities to align all software development content under Requirement 6.2, combining methods to prevent or mitigate common software attacks into a single requirement, adding a bullet to clarify applicability to vulnerabilities for bespoke and custom and third-party software, and new requirements for maintaining an inventory of trusted keys and certificates and an inventory of bespoke and custom software.
+
+
+
+on_llm_end - response:
+generations=[[Generation(text=' The changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0 include moving requirements for addressing common coding vulnerabilities to align all software development content under Requirement 6.2, combining methods to prevent or mitigate common software attacks into a single requirement, adding a bullet to clarify applicability to vulnerabilities for bespoke and custom and third-party software, and new requirements for maintaining an inventory of trusted keys and certificates and an inventory of bespoke and custom software.', generation_info=None)]] llm_output=None run=None
+Completed in 7.400s
+
+
+***Answer:
+The changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0 include moving requirements for addressing common coding vulnerabilities to align all software development content under Requirement 6.2, combining methods to prevent or mitigate common software attacks into a single requirement, adding a bullet to clarify applicability to vulnerabilities for bespoke and custom and third-party software, and new requirements for maintaining an inventory of trusted keys and certificates and an inventory of bespoke and custom software.
+
+Sources:
+  Page: 12 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 10 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+Requirement 4 
+Requirement 4 - General  Updated principal requirement title to reflect the focus 
+on “strong cryptography” to protect transmissions of 
+cardholder data.  Clarification or 
+guidance  
+ 4.1.2  New requirement for roles and responsibilities.  
+This requirement is effective immediately for all v4.0 
+assessments.  Evolving 
+requirement  
+4.1 4.2.1  New requirement  bullet  to confirm certificates used 
+for PAN transmissions over open, public networks are valid and not expired or revoked.  
+This bullet is a best practice until 31 March 2025.  Evolving 
+requirement  
+ 4.2.1. 1 New requirement to maintain an inventory of trusted 
+keys and certif icates.  
+This requirement is a best practice until 31 March 
+2025.  Evolving 
+requirement  
+Requirement 5
+  Page: 7 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 5 
+4 Summary of General Changes to PCI DSS 
+Requirements  
+General Changes Implemented Throughout PCI DSS Requirements  Change Type  
+Reformatted overview sections and added a summary of the sections to the beginning of each 
+principal requirement.  Structure or 
+format  
+Updated overview sections and added guidance at the start of each requirement section.  Clarification or 
+guidance  
+Added numbered requirement description headings throughout each requirement to organize 
+and describe the requirements that fall under it.  Structure or 
+format  
+Renumbered requirements and testing procedures and reorganized requirements due to the 
+addition of numbered requirement description headings.  Structure or format  
+Rephrased directive requirements to be objective.  Evolving 
+requirement
+  Page: 14 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved.  Page 12 
+Section  
+Description of Change  Change Type  
+PCI DSS v3.2.1  PCI DSS v4.0  
+6.5.1  – 6.5.10  6.2.4  Moved requirements for addressing common coding 
+vulnerabilities to align all software development 
+content under Requirement  6.2. 
+Combined methods to prevent or mitigate common 
+software attacks into a single requirement and generalized the language describing each type of 
+attack.  Clarification or 
+guidance  
+6.1 
+6.2 6.3 Moved requirements for identifying security 
+vulnerabilities and protecting system components 
+from vulnerabilities via patching under Requirement  
+6.3. Structure or 
+format  
+6.1 6.3.1  Added a bullet to clarify applicability to  vulnerabilities 
+for bespoke and custom and third-party software . Clarification or 
+guidance  
+ 6.3.2  New requirement to maintain an inventory of 
+bespoke and custom software.
+  Page: 3 Source: https://ai-engd.netlify.app/pdfs/pci_dss_v4/PCI-DSS-v3-2-1-to-v4-0-Summary-of-Changes-r2.pdf
+PCI DSS v3.2.1 to v.4.0 Summary of Changes  r2 December 2022  
+© 2006 - 2022 PCI Security Standards Council, LLC . All rights reserved.  Page 1 
+1 Introduction  
+This document provides a high- level summary and description of the changes from PCI DSS v3.2.1 to 
+PCI DSS v4.0  and does not detail all document revisi ons. Due to the extent of the changes, the 
+standard should be reviewed in its entirety rather than focusing solely on this summary document.  
+This Summary of Changes is organized as follows:  
+ Change Types  - provides an overview of the types of changes   
+ Summary of Changes to PCI DSS Introductory Sections  - summarizes  changes made for 
+each affected section.  
+ Summary of General Changes to PCI DSS Requirements  - summarizes  changes made 
+throughout the requirements, testing procedures, and guidance.  
+ Additional Changes per Requirement  - summarizes  additional changes made in 
+requirements 1- 12 and the appendices.
+Load relevant documents for standalone question: What are the changes made to the requirements for vulnerability assessments and penetration testing under PCI DSS version 4.0?
+Completed in 0.016s
+Total time used: 22.842s
