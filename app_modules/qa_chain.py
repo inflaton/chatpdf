@@ -407,7 +407,7 @@ class QAChain:
                 self.search_kwargs = (
                     {"k": 8} if "30b" in MODEL_NAME_OR_PATH else self.search_kwargs
                 )
-                repetition_penalty = 1.0005 if "30b" in MODEL_NAME_OR_PATH else 1.02
+                repetition_penalty = 1.05 if "30b" in MODEL_NAME_OR_PATH else 1.02
 
                 pipe = (
                     pipeline(
