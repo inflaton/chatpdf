@@ -11,7 +11,6 @@ torch
 langchain
 protobuf==3.20.*
 faiss-cpu
-chromadb 
 sentence_transformers 
 InstructorEmbedding
 python-dotenv
@@ -23,8 +22,6 @@ git+https://github.com/huggingface/transformers.git
 SentencePiece
 isort
 black
-llama-cpp-python
-pyllamacpp
 pygpt4all
 tiktoken
 safetensors
@@ -33,3 +30,4 @@ bitsandbytes
 einops
 gevent
 pydantic >= 1.10.11
+pypdf

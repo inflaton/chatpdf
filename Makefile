@@ -21,14 +21,14 @@ format:
 	black .
 
 install:
-	CXX=g++-11  CC=gcc-11 pip install -U -r requirements.txt
-	pip show langchain llama-cpp-python transformers
-	
-gpu-install:
 	pip install -U -r requirements_gpu.txt
 	pip show langchain transformers
 	
-mac-install:
+install-extra:
+	CXX=g++-11  CC=gcc-11 pip install -U -r requirements_extra.txt
+	pip show langchain llama-cpp-python transformers
+	
+install-extra-mac:
 	# brew install llvm libomp
-	CXX=/usr/local/opt/llvm/bin/clang++ CC=/usr/local/opt/llvm/bin/clang pip install -U -r requirements.txt
-	pip show langchain transformers
+	CXX=/usr/local/opt/llvm/bin/clang++ CC=/usr/local/opt/llvm/bin/clang pip install -U -r requirements_extra.txt
+	pip show langchain llama-cpp-python transformers
