@@ -60,6 +60,7 @@ echo Testing $MOSAICML_MODEL_NAME_OR_PATH
 python test.py 2>&1 | tee ./data/logs/mpt-7b-instruct_${EXT}.log
 
 
+export LOAD_QUANTIZED_MODEL=8bit
 export MOSAICML_MODEL_NAME_OR_PATH="mosaicml/mpt-30b-instruct"
 echo Testing $MOSAICML_MODEL_NAME_OR_PATH
 python test.py 2>&1 | tee ./data/logs/mpt-30b-instruct_${EXT}.log
